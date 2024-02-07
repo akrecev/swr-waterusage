@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ru.rosniivh.swr</groupId>
-    <artifactId>watersuage</artifactId>
+    <artifactId>waterusage</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>swr-watersuage</name>
-    <description>swr-watersuage</description>
+    <name>swr-waterusage</name>
+    <description>swr-waterusage</description>
     <properties>
         <java.version>8</java.version>
     </properties>
