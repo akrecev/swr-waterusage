@@ -4,13 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 
-@Entity
-@Table(schema = "dbo", name = "cat_asv_status")
-@NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "cat_asv_status", schema = "dbo")
+@NoArgsConstructor
 @Getter
 @Setter
 public class AsvStatusEntity {
