@@ -17,6 +17,17 @@ public interface AsvImportLegalSubjectRepository
         return filter == null ? findAll() : findAll(filter.toSpecification());
     }
 
+    @Query(value = "SELECT ls FROM AsvImportLegalSubjectEntity ls " +
+            "WHERE ls.fullName LIKE %?1% AND ls.ogrn LIKE %?2% " +
+            "AND ls.okpo LIKE %?3% AND ls.placeAddress LIKE %?4% " +
+            "AND ls.legalAddress LIKE %?5% AND ls.okato LIKE %?6%")
+    List<AsvImportLegalSubjectEntity> getByTypeOne(String name, String ogrn, String okpo, String postAddress,
+                                                  String legalAddress, String okato);
+
+    @Query(value = "SELECT ls FROM AsvImportLegalSubjectEntity ls " +
+            "WHERE ls.inn LIKE %?1% AND ls.fullName LIKE %?2%")
+    List<AsvImportLegalSubjectEntity> getByTypeTwo(String inn, String name);
+
     @Query(value = "SELECT ls FROM AsvImportLegalSubjectEntity ls WHERE ls.fullName LIKE :fullName")
     List<AsvImportLegalSubjectEntity> getByFullName(String fullName);
 
