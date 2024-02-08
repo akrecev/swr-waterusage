@@ -1,6 +1,5 @@
 package ru.rosniivh.swr.filter;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.Specification;
@@ -8,7 +7,6 @@ import ru.rosniivh.swr.domain.object.asv.AsvImportLegalSubjectEntity;
 
 import static ru.rosniivh.swr.specification.AsvImportLegalSubjectSpec.*;
 
-@Builder
 @Getter
 @Setter
 public class AsvImportLegalSubjectFilter {

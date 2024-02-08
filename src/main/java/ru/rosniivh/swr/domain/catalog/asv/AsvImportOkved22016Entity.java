@@ -1,12 +1,14 @@
 package ru.rosniivh.swr.domain.catalog.asv;
 
-import lombok.*;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.proxy.HibernateProxy;
 
-import javax.persistence.*;
 import java.util.Objects;
 
-@Builder
 @Entity
 @Table(name = "cat_asv_import_okved2_2016", schema = "dbo")
 @NoArgsConstructor

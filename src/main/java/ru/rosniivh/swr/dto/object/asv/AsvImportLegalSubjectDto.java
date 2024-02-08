@@ -4,11 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import ru.rosniivh.swr.domain.object.asv.AsvContractEntity;
-import ru.rosniivh.swr.domain.object.asv.AsvContractTransferEntity;
-import ru.rosniivh.swr.domain.object.asv.AsvDecisionEntity;
 
-import javax.persistence.*;
 import java.util.LinkedHashSet;
 import java.util.Set;
 

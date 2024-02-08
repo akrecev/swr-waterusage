@@ -1,12 +1,16 @@
 package ru.rosniivh.swr.dto.object.asv;
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-import ru.rosniivh.swr.domain.object.asv.AsvImportLegalSubjectEntity;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class AsvDecisionDto {
     private Integer id;
     private Integer isNewDecision;
