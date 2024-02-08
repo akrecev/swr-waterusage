@@ -1,12 +1,11 @@
 package ru.rosniivh.swr.dto.object.asv;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.LinkedHashSet;
-import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -76,5 +75,4 @@ public class AsvImportLegalSubjectDto {
     private Set<AsvContractDto> asvContractDtos = new LinkedHashSet<>();
     private Set<AsvContractTransferDto> asvContractTransferDtos = new LinkedHashSet<>();
     private Set<AsvDecisionDto> asvDecisionDtos = new LinkedHashSet<>();
-
 }

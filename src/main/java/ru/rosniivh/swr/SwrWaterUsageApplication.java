@@ -9,5 +9,4 @@ public class SwrWaterUsageApplication {
     public static void main(String[] args) {
         SpringApplication.run(SwrWaterUsageApplication.class, args);
     }
-
 }

@@ -1,10 +1,9 @@
 package ru.rosniivh.swr.service;
 
+import java.util.List;
 import ru.rosniivh.swr.domain.object.asv.AsvImportLegalSubjectEntity;
 import ru.rosniivh.swr.dto.object.asv.AsvImportLegalSubjectDto;
 import ru.rosniivh.swr.filter.AsvImportLegalSubjectFilter;
-
-import java.util.List;
 
 public interface AsvImportLegalSubjectService {
 

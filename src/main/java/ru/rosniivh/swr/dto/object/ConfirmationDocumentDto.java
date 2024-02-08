@@ -1,4 +1,3 @@
 package ru.rosniivh.swr.dto.object;
 
-public class ConfirmationDocumentDto {
-}
+public class ConfirmationDocumentDto {}

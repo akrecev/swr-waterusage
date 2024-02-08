@@ -8,15 +8,11 @@ import ru.rosniivh.swr.domain.object.asv.AsvImportLegalSubjectEntity;
 public class AsvImportLegalSubjectSpec {
 
     public static Specification<AsvImportLegalSubjectEntity> hasId(Integer id) {
-        return id == null
-                ? null
-                : (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("id"), id);
+        return id == null ? null : (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("id"), id);
     }
 
     public static Specification<AsvImportLegalSubjectEntity> hasType(Integer type) {
-        return type == null
-                ? null
-                : (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("type"), type);
+        return type == null ? null : (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("type"), type);
     }
 
     public static Specification<AsvImportLegalSubjectEntity> hasInn(String inn) {
@@ -46,13 +42,15 @@ public class AsvImportLegalSubjectSpec {
     public static Specification<AsvImportLegalSubjectEntity> hasPlaceAddress(String placeAddress) {
         return placeAddress == null
                 ? null
-                : (root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("placeAddress"), "%" + placeAddress + "%");
+                : (root, query, criteriaBuilder) ->
+                        criteriaBuilder.like(root.get("placeAddress"), "%" + placeAddress + "%");
     }
 
     public static Specification<AsvImportLegalSubjectEntity> hasLegalAddress(String legalAddress) {
         return legalAddress == null
                 ? null
-                : (root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("legalAddress"), "%" + legalAddress + "%");
+                : (root, query, criteriaBuilder) ->
+                        criteriaBuilder.like(root.get("legalAddress"), "%" + legalAddress + "%");
     }
 
     public static Specification<AsvImportLegalSubjectEntity> hasOkato(String okato) {
