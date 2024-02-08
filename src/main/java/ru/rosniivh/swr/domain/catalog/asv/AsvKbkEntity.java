@@ -18,28 +18,22 @@ public class AsvKbkEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Lob
-    @Column(name = "code")
+        @Column(name = "code")
     private String code;
 
-    @Lob
-    @Column(name = "description")
+        @Column(name = "description")
     private String description;
 
-    @Lob
-    @Column(name = "admin_code")
+        @Column(name = "admin_code")
     private String adminCode;
 
-    @Lob
-    @Column(name = "kind_code")
+        @Column(name = "kind_code")
     private String kindCode;
 
-    @Lob
-    @Column(name = "subkind_code")
+        @Column(name = "subkind_code")
     private String subkindCode;
 
-    @Lob
-    @Column(name = "ekd_code")
+        @Column(name = "ekd_code")
     private String ekdCode;
 
     @Override

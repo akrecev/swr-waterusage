@@ -22,8 +22,7 @@ public class WoDeleteEntity {
     @Column(name = "uid_wo")
     private Integer uidWo;
 
-    @Lob
-    @Column(name = "code")
+        @Column(name = "code")
     private String code;
 
     @Column(name = "uid_user")
@@ -32,8 +31,7 @@ public class WoDeleteEntity {
     @Column(name = "upd_date")
     private Instant updDate;
 
-    @Lob
-    @Column(name = "notes")
+        @Column(name = "notes")
     private String notes;
 
     @Override

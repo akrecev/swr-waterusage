@@ -20,8 +20,7 @@ public class AsvUsageTargetEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Lob
-    @Column(name = "code", nullable = false)
+        @Column(name = "code", nullable = false)
     private String code;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -29,8 +28,7 @@ public class AsvUsageTargetEntity {
     @JoinColumn(name = "reg_type")
     private AsvRegTypeEntity regType;
 
-    @Lob
-    @Column(name = "name")
+        @Column(name = "name")
     private String name;
 
     @Override

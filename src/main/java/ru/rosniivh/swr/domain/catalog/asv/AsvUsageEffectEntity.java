@@ -18,12 +18,10 @@ public class AsvUsageEffectEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Lob
-    @Column(name = "code", nullable = false)
+        @Column(name = "code", nullable = false)
     private String code;
 
-    @Lob
-    @Column(name = "name")
+        @Column(name = "name")
     private String name;
 
     @Override

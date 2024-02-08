@@ -21,20 +21,16 @@ public class AsvImportRfSubjectEntity {
     @Column(name = "deleted")
     private Boolean deleted;
 
-    @Lob
-    @Column(name = "description", nullable = false)
+        @Column(name = "description", nullable = false)
     private String description;
 
-    @Lob
-    @Column(name = "name", nullable = false)
+        @Column(name = "name", nullable = false)
     private String name;
 
-    @Lob
-    @Column(name = "code")
+        @Column(name = "code")
     private String code;
 
-    @Lob
-    @Column(name = "old_code")
+        @Column(name = "old_code")
     private String oldCode;
 
     @Override

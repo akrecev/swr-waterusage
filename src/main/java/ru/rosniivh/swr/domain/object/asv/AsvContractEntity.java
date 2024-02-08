@@ -21,15 +21,13 @@ public class AsvContractEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Lob
-    @Column(name = "conclusion_place")
+        @Column(name = "conclusion_place")
     private String conclusionPlace;
 
     @Column(name = "sign_date")
     private LocalDate signDate;
 
-    @Lob
-    @Column(name = "reg_number")
+        @Column(name = "reg_number")
     private String regNumber;
 
     @Column(name = "wu_begin_date")
@@ -41,12 +39,10 @@ public class AsvContractEntity {
     @Column(name = "stop_date")
     private LocalDate stopDate;
 
-    @Lob
-    @Column(name = "organ_fio")
+        @Column(name = "organ_fio")
     private String organFio;
 
-    @Lob
-    @Column(name = "organ_basis")
+        @Column(name = "organ_basis")
     private String organBasis;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -54,39 +50,31 @@ public class AsvContractEntity {
     @JoinColumn(name = "water_user_id")
     private AsvImportLegalSubjectEntity waterUser;
 
-    @Lob
-    @Column(name = "water_user_fio")
+        @Column(name = "water_user_fio")
     private String waterUserFio;
 
-    @Lob
-    @Column(name = "water_user_basis")
+        @Column(name = "water_user_basis")
     private String waterUserBasis;
 
     @Column(name = "water_object_id")
     private Integer waterObjectId;
 
-    @Lob
-    @Column(name = "letter_wo_type")
+        @Column(name = "letter_wo_type")
     private String letterWoType;
 
-    @Lob
-    @Column(name = "letter_aim")
+        @Column(name = "letter_aim")
     private String letterAim;
 
-    @Lob
-    @Column(name = "wu_kind")
+        @Column(name = "wu_kind")
     private String wuKind;
 
-    @Lob
-    @Column(name = "letter_method")
+        @Column(name = "letter_method")
     private String letterMethod;
 
-    @Lob
-    @Column(name = "letter_influence")
+        @Column(name = "letter_influence")
     private String letterInfluence;
 
-    @Lob
-    @Column(name = "location")
+        @Column(name = "location")
     private String location;
 
     @Column(name = "has_param_calc")
@@ -119,8 +107,7 @@ public class AsvContractEntity {
     @Column(name = "morf_depth_max")
     private Double morfDepthMax;
 
-    @Lob
-    @Column(name = "morf_other")
+        @Column(name = "morf_other")
     private String morfOther;
 
     @Column(name = "hydr_cons")
@@ -138,52 +125,43 @@ public class AsvContractEntity {
     @Column(name = "hydr_level_amplitude")
     private Double hydrLevelAmplitude;
 
-    @Lob
-    @Column(name = "hydr_adverse_period")
+        @Column(name = "hydr_adverse_period")
     private String hydrAdversePeriod;
 
-    @Lob
-    @Column(name = "hydr_other")
+        @Column(name = "hydr_other")
     private String hydrOther;
 
     @Column(name = "qual_date")
     private LocalDate qualDate;
 
-    @Lob
-    @Column(name = "qual_other")
+        @Column(name = "qual_other")
     private String qualOther;
 
-    @Lob
-    @Column(name = "param_method")
+        @Column(name = "param_method")
     private String paramMethod;
 
-    @Lob
-    @Column(name = "wu_start_period")
+        @Column(name = "wu_start_period")
     private String wuStartPeriod;
 
     @Column(name = "has_observation_program")
     private Integer hasObservationProgram;
 
-    @Lob
-    @Column(name = "organ_text")
+        @Column(name = "organ_text")
     private String organText;
 
     @Column(name = "need_withdrawal_report")
     private Integer needWithdrawalReport;
 
-    @Lob
-    @Column(name = "fine_order")
+        @Column(name = "fine_order")
     private String fineOrder;
 
-    @Lob
-    @Column(name = "penalty_order")
+        @Column(name = "penalty_order")
     private String penaltyOrder;
 
     @Column(name = "assignee_id")
     private Integer assigneeId;
 
-    @Lob
-    @Column(name = "transfer_doc_num")
+        @Column(name = "transfer_doc_num")
     private String transferDocNum;
 
     @Column(name = "transfer_doc_date")
@@ -192,87 +170,67 @@ public class AsvContractEntity {
     @Column(name = "transfet_doc_end_date")
     private LocalDate transfetDocEndDate;
 
-    @Lob
-    @Column(name = "transfer_status")
+        @Column(name = "transfer_status")
     private String transferStatus;
 
-    @Lob
-    @Column(name = "notes")
+        @Column(name = "notes")
     private String notes;
 
-    @Lob
-    @Column(name = "organ_name")
+        @Column(name = "organ_name")
     private String organName;
 
-    @Lob
-    @Column(name = "water_user_name")
+        @Column(name = "water_user_name")
     private String waterUserName;
 
-    @Lob
-    @Column(name = "water_user_inn")
+        @Column(name = "water_user_inn")
     private String waterUserInn;
 
-    @Lob
-    @Column(name = "water_user_ogrn")
+        @Column(name = "water_user_ogrn")
     private String waterUserOgrn;
 
-    @Lob
-    @Column(name = "water_user_okato")
+        @Column(name = "water_user_okato")
     private String waterUserOkato;
 
-    @Lob
-    @Column(name = "water_user_address")
+        @Column(name = "water_user_address")
     private String waterUserAddress;
 
-    @Lob
-    @Column(name = "payment_rate_change_period")
+        @Column(name = "payment_rate_change_period")
     private String paymentRateChangePeriod;
 
-    @Lob
-    @Column(name = "organ_bank_number")
+        @Column(name = "organ_bank_number")
     private String organBankNumber;
 
-    @Lob
-    @Column(name = "organ_bank_name")
+        @Column(name = "organ_bank_name")
     private String organBankName;
 
-    @Lob
-    @Column(name = "organ_bank_inn")
+        @Column(name = "organ_bank_inn")
     private String organBankInn;
 
-    @Lob
-    @Column(name = "organ_bank_kpp")
+        @Column(name = "organ_bank_kpp")
     private String organBankKpp;
 
-    @Lob
-    @Column(name = "organ_bank_bik")
+        @Column(name = "organ_bank_bik")
     private String organBankBik;
 
-    @Lob
-    @Column(name = "organ_bank_oktmo")
+        @Column(name = "organ_bank_oktmo")
     private String organBankOktmo;
 
-    @Lob
-    @Column(name = "observation_program_points")
+        @Column(name = "observation_program_points")
     private String observationProgramPoints;
 
-    @Lob
-    @Column(name = "usage_period")
+        @Column(name = "usage_period")
     private String usagePeriod;
 
-    @Lob
-    @Column(name = "old_code")
+        @Column(name = "old_code")
     private String oldCode;
 
     @Column(name = "reg_date")
     private LocalDate regDate;
 
-    @Lob
-    @Column(name = "order_number")
+        @Column(name = "order_number")
     private String orderNumber;
 
-    @Lob
-    @Column(name = "auction")
+        @Column(name = "auction")
     private String auction;
 
     @Override

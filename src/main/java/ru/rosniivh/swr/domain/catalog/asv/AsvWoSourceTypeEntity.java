@@ -18,8 +18,7 @@ public class AsvWoSourceTypeEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Lob
-    @Column(name = "name")
+        @Column(name = "name")
     private String name;
 
     @Override

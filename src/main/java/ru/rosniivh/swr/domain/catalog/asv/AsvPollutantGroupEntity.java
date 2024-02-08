@@ -18,15 +18,13 @@ public class AsvPollutantGroupEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Lob
-    @Column(name = "name")
+        @Column(name = "name")
     private String name;
 
     @Column(name = "npp")
     private Integer npp;
 
-    @Lob
-    @Column(name = "old_code")
+        @Column(name = "old_code")
     private String oldCode;
 
     @Override

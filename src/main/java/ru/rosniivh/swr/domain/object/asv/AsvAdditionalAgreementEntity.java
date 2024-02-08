@@ -24,12 +24,10 @@ public class AsvAdditionalAgreementEntity {
     @Column(name = "contract_id")
     private Integer contractId;
 
-    @Lob
-    @Column(name = "reg_number")
+        @Column(name = "reg_number")
     private String regNumber;
 
-    @Lob
-    @Column(name = "add_agr_number")
+        @Column(name = "add_agr_number")
     private String addAgrNumber;
 
     @Column(name = "sign_date")
@@ -41,31 +39,25 @@ public class AsvAdditionalAgreementEntity {
     @Column(name = "npp")
     private Integer npp;
 
-    @Lob
-    @Column(name = "wu_start_period")
+        @Column(name = "wu_start_period")
     private String wuStartPeriod;
 
     @Column(name = "has_observation_program")
     private Integer hasObservationProgram;
 
-    @Lob
-    @Column(name = "observation_program_points")
+        @Column(name = "observation_program_points")
     private String observationProgramPoints;
 
-    @Lob
-    @Column(name = "organ_text")
+        @Column(name = "organ_text")
     private String organText;
 
-    @Lob
-    @Column(name = "organ_name")
+        @Column(name = "organ_name")
     private String organName;
 
-    @Lob
-    @Column(name = "organ_fio")
+        @Column(name = "organ_fio")
     private String organFio;
 
-    @Lob
-    @Column(name = "organ_basis")
+        @Column(name = "organ_basis")
     private String organBasis;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -73,28 +65,22 @@ public class AsvAdditionalAgreementEntity {
     @JoinColumn(name = "water_user_id")
     private AsvImportLegalSubjectEntity waterUser;
 
-    @Lob
-    @Column(name = "water_user_name")
+        @Column(name = "water_user_name")
     private String waterUserName;
 
-    @Lob
-    @Column(name = "water_user_fio")
+        @Column(name = "water_user_fio")
     private String waterUserFio;
 
-    @Lob
-    @Column(name = "water_user_basis")
+        @Column(name = "water_user_basis")
     private String waterUserBasis;
 
-    @Lob
-    @Column(name = "notes")
+        @Column(name = "notes")
     private String notes;
 
-    @Lob
-    @Column(name = "old_code")
+        @Column(name = "old_code")
     private String oldCode;
 
-    @Lob
-    @Column(name = "order_number")
+        @Column(name = "order_number")
     private String orderNumber;
 
     @Override

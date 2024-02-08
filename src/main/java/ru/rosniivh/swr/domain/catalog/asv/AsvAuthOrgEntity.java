@@ -21,8 +21,7 @@ public class AsvAuthOrgEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Lob
-    @Column(name = "name")
+        @Column(name = "name")
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)

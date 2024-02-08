@@ -20,24 +20,19 @@ public class RfSubjectEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Lob
-    @Column(name = "name", nullable = false)
+        @Column(name = "name", nullable = false)
     private String name;
 
-    @Lob
-    @Column(name = "const_number", nullable = false)
+        @Column(name = "const_number", nullable = false)
     private String constNumber;
 
-    @Lob
-    @Column(name = "okato_code", nullable = false)
+        @Column(name = "okato_code", nullable = false)
     private String okatoCode;
 
-    @Lob
-    @Column(name = "oktmo_code", nullable = false)
+        @Column(name = "oktmo_code", nullable = false)
     private String oktmoCode;
 
-    @Lob
-    @Column(name = "gost_code", nullable = false)
+        @Column(name = "gost_code", nullable = false)
     private String gostCode;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

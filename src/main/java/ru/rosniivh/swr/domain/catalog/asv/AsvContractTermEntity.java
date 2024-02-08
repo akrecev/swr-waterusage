@@ -20,12 +20,10 @@ public class AsvContractTermEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Lob
-    @Column(name = "name")
+        @Column(name = "name")
     private String name;
 
-    @Lob
-    @Column(name = "term_text")
+        @Column(name = "term_text")
     private String termText;
 
     @ManyToOne(fetch = FetchType.LAZY)

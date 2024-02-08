@@ -20,20 +20,16 @@ public class AsvContractTermGroupEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Lob
-    @Column(name = "name", nullable = false)
+        @Column(name = "name", nullable = false)
     private String name;
 
-    @Lob
-    @Column(name = "description")
+        @Column(name = "description")
     private String description;
 
-    @Lob
-    @Column(name = "department")
+        @Column(name = "department")
     private String department;
 
-    @Lob
-    @Column(name = "old_code")
+        @Column(name = "old_code")
     private String oldCode;
 
     @ManyToOne(fetch = FetchType.LAZY)

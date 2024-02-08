@@ -21,12 +21,10 @@ public class AsvExecutionStateEntity {
     @Column(name = "npp")
     private Integer npp;
 
-    @Lob
-    @Column(name = "name")
+        @Column(name = "name")
     private String name;
 
-    @Lob
-    @Column(name = "old_code")
+        @Column(name = "old_code")
     private String oldCode;
 
     @Override

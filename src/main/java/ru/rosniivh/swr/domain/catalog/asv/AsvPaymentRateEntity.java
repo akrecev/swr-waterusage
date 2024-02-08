@@ -31,8 +31,7 @@ public class AsvPaymentRateEntity {
     @JoinColumn(name = "rfs_id")
     private RfSubjectEntity rfs;
 
-    @Lob
-    @Column(name = "name")
+        @Column(name = "name")
     private String name;
 
     @Column(name = "value")

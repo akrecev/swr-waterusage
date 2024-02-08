@@ -18,20 +18,16 @@ public class ParameterEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Lob
-    @Column(name = "partname")
+        @Column(name = "partname")
     private String partname;
 
-    @Lob
-    @Column(name = "name")
+        @Column(name = "name")
     private String name;
 
-    @Lob
-    @Column(name = "val1")
+        @Column(name = "val1")
     private String val1;
 
-    @Lob
-    @Column(name = "val2")
+        @Column(name = "val2")
     private String val2;
 
     @Override

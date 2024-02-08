@@ -20,8 +20,7 @@ public class FederalDistrictEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Lob
-    @Column(name = "name", nullable = false)
+        @Column(name = "name", nullable = false)
     private String name;
 
     @OneToMany(mappedBy = "fd")

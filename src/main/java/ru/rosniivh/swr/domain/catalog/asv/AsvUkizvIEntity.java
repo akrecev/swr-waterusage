@@ -18,12 +18,10 @@ public class AsvUkizvIEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Lob
-    @Column(name = "code")
+        @Column(name = "code")
     private String code;
 
-    @Lob
-    @Column(name = "name")
+        @Column(name = "name")
     private String name;
 
     @Override

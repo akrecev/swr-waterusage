@@ -25,20 +25,16 @@ public class AsvPollutantEntity {
     @JoinColumn(name = "group_id")
     private AsvPollutantGroupEntity group;
 
-    @Lob
-    @Column(name = "code")
+        @Column(name = "code")
     private String code;
 
-    @Lob
-    @Column(name = "name")
+        @Column(name = "name")
     private String name;
 
-    @Lob
-    @Column(name = "add_code")
+        @Column(name = "add_code")
     private String addCode;
 
-    @Lob
-    @Column(name = "ed_izm")
+        @Column(name = "ed_izm")
     private String edIzm;
 
     @Column(name = "pdk")

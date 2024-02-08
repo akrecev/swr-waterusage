@@ -19,39 +19,31 @@ public class UserEntity {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Lob
-    @Column(name = "username")
+        @Column(name = "username")
     private String username;
 
-    @Lob
-    @Column(name = "email")
+        @Column(name = "email")
     private String email;
 
-    @Lob
-    @Column(name = "password")
+        @Column(name = "password")
     private String password;
 
     @Column(name = "last_password_reset")
     private LocalDate lastPasswordReset;
 
-    @Lob
-    @Column(name = "fio")
+        @Column(name = "fio")
     private String fio;
 
-    @Lob
-    @Column(name = "auth_text")
+        @Column(name = "auth_text")
     private String authText;
 
-    @Lob
-    @Column(name = "\"position\"")
+        @Column(name = "\"position\"")
     private String position;
 
-    @Lob
-    @Column(name = "phone")
+        @Column(name = "phone")
     private String phone;
 
-    @Lob
-    @Column(name = "authorities")
+        @Column(name = "authorities")
     private String authorities;
 
     @Column(name = "legacy")

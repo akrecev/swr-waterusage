@@ -18,16 +18,13 @@ public class AsvAuthOrgTypeEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Lob
-    @Column(name = "code")
+        @Column(name = "code")
     private String code;
 
-    @Lob
-    @Column(name = "name")
+        @Column(name = "name")
     private String name;
 
-    @Lob
-    @Column(name = "old_code")
+        @Column(name = "old_code")
     private String oldCode;
 
     @Column(name = "deleted", nullable = false)

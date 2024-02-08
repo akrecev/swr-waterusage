@@ -20,29 +20,25 @@ public class ConfirmationDocumentEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Lob
-    @Column(name = "doc_number")
+        @Column(name = "doc_number")
     private String docNumber;
 
     @Column(name = "doc_date")
     private LocalDate docDate;
 
-    @Lob
-    @Column(name = "in_number")
+        @Column(name = "in_number")
     private String inNumber;
 
     @Column(name = "in_date")
     private LocalDate inDate;
 
-    @Lob
-    @Column(name = "out_number")
+        @Column(name = "out_number")
     private String outNumber;
 
     @Column(name = "out_date")
     private LocalDate outDate;
 
-    @Lob
-    @Column(name = "storage_location")
+        @Column(name = "storage_location")
     private String storageLocation;
 
     @Column(name = "file_size")
