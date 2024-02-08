@@ -27,22 +27,22 @@ public class AsvDecisionEntity {
     @Column(name = "is_defense")
     private Integer isDefense;
 
-        @Column(name = "conclusion_place")
+    @Column(name = "conclusion_place")
     private String conclusionPlace;
 
     @Column(name = "sign_date")
     private LocalDate signDate;
 
-        @Column(name = "decision_number")
+    @Column(name = "decision_number")
     private String decisionNumber;
 
-        @Column(name = "reg_number")
+    @Column(name = "reg_number")
     private String regNumber;
 
-        @Column(name = "order_number")
+    @Column(name = "order_number")
     private String orderNumber;
 
-        @Column(name = "add_number")
+    @Column(name = "add_number")
     private String addNumber;
 
     @Column(name = "reg_date")
@@ -57,25 +57,25 @@ public class AsvDecisionEntity {
     @Column(name = "stop_date")
     private LocalDate stopDate;
 
-        @Column(name = "period_text")
+    @Column(name = "period_text")
     private String periodText;
 
-        @Column(name = "organ_fio")
+    @Column(name = "organ_fio")
     private String organFio;
 
-        @Column(name = "organ_lastname")
+    @Column(name = "organ_lastname")
     private String organLastname;
 
-        @Column(name = "organ_firstname")
+    @Column(name = "organ_firstname")
     private String organFirstname;
 
-        @Column(name = "organ_middlename")
+    @Column(name = "organ_middlename")
     private String organMiddlename;
 
-        @Column(name = "organ_post")
+    @Column(name = "organ_post")
     private String organPost;
 
-        @Column(name = "organ_basis")
+    @Column(name = "organ_basis")
     private String organBasis;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -83,25 +83,25 @@ public class AsvDecisionEntity {
     @JoinColumn(name = "water_user_id")
     private AsvImportLegalSubjectEntity waterUser;
 
-        @Column(name = "letter_wo_type")
+    @Column(name = "letter_wo_type")
     private String letterWoType;
 
-        @Column(name = "letter_aim")
+    @Column(name = "letter_aim")
     private String letterAim;
 
-        @Column(name = "aim_notes")
+    @Column(name = "aim_notes")
     private String aimNotes;
 
-        @Column(name = "wu_kind")
+    @Column(name = "wu_kind")
     private String wuKind;
 
-        @Column(name = "letter_method")
+    @Column(name = "letter_method")
     private String letterMethod;
 
-        @Column(name = "letter_influence")
+    @Column(name = "letter_influence")
     private String letterInfluence;
 
-        @Column(name = "location")
+    @Column(name = "location")
     private String location;
 
     @Column(name = "need_report_withdrawal")
@@ -113,13 +113,13 @@ public class AsvDecisionEntity {
     @Column(name = "need_report_quality")
     private Integer needReportQuality;
 
-        @Column(name = "old_code")
+    @Column(name = "old_code")
     private String oldCode;
 
-        @Column(name = "old_parent_code")
+    @Column(name = "old_parent_code")
     private String oldParentCode;
 
-        @Column(name = "var_num")
+    @Column(name = "var_num")
     private String varNum;
 
     @Override

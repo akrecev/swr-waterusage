@@ -3,7 +3,10 @@ package ru.rosniivh.swr.domain.catalog.asv;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 @Builder
@@ -18,22 +21,22 @@ public class AsvKbkEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-        @Column(name = "code")
+    @Column(name = "code")
     private String code;
 
-        @Column(name = "description")
+    @Column(name = "description")
     private String description;
 
-        @Column(name = "admin_code")
+    @Column(name = "admin_code")
     private String adminCode;
 
-        @Column(name = "kind_code")
+    @Column(name = "kind_code")
     private String kindCode;
 
-        @Column(name = "subkind_code")
+    @Column(name = "subkind_code")
     private String subkindCode;
 
-        @Column(name = "ekd_code")
+    @Column(name = "ekd_code")
     private String ekdCode;
 
     @Override

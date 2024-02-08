@@ -3,7 +3,10 @@ package ru.rosniivh.swr.domain.catalog.asv;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 @Builder
@@ -18,13 +21,13 @@ public class AsvDecisionStopBasisEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-        @Column(name = "code")
+    @Column(name = "code")
     private String code;
 
-        @Column(name = "name")
+    @Column(name = "name")
     private String name;
 
-        @Column(name = "full_name")
+    @Column(name = "full_name")
     private String fullName;
 
     @Override

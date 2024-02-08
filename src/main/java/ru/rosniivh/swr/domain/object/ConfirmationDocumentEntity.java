@@ -3,7 +3,10 @@ package ru.rosniivh.swr.domain.object;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -20,25 +23,25 @@ public class ConfirmationDocumentEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-        @Column(name = "doc_number")
+    @Column(name = "doc_number")
     private String docNumber;
 
     @Column(name = "doc_date")
     private LocalDate docDate;
 
-        @Column(name = "in_number")
+    @Column(name = "in_number")
     private String inNumber;
 
     @Column(name = "in_date")
     private LocalDate inDate;
 
-        @Column(name = "out_number")
+    @Column(name = "out_number")
     private String outNumber;
 
     @Column(name = "out_date")
     private LocalDate outDate;
 
-        @Column(name = "storage_location")
+    @Column(name = "storage_location")
     private String storageLocation;
 
     @Column(name = "file_size")

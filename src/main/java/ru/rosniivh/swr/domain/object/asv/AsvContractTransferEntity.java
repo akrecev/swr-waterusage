@@ -22,7 +22,7 @@ public class AsvContractTransferEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-        @Column(name = "conclusion_place")
+    @Column(name = "conclusion_place")
     private String conclusionPlace;
 
     @Column(name = "sign_date")
@@ -31,10 +31,10 @@ public class AsvContractTransferEntity {
     @Column(name = "reg_date")
     private LocalDate regDate;
 
-        @Column(name = "reg_number")
+    @Column(name = "reg_number")
     private String regNumber;
 
-        @Column(name = "order_number")
+    @Column(name = "order_number")
     private String orderNumber;
 
     @Column(name = "wu_end_date")
@@ -48,46 +48,46 @@ public class AsvContractTransferEntity {
     @JoinColumn(name = "rightholder_id")
     private AsvImportLegalSubjectEntity rightholder;
 
-        @Column(name = "rightholder_firstname")
+    @Column(name = "rightholder_firstname")
     private String rightholderFirstname;
 
-        @Column(name = "rightholder_middlename")
+    @Column(name = "rightholder_middlename")
     private String rightholderMiddlename;
 
-        @Column(name = "rightholder_lastname")
+    @Column(name = "rightholder_lastname")
     private String rightholderLastname;
 
-        @Column(name = "rightholder_post")
+    @Column(name = "rightholder_post")
     private String rightholderPost;
 
-        @Column(name = "rightholder_basis")
+    @Column(name = "rightholder_basis")
     private String rightholderBasis;
 
     @Column(name = "assignee_id")
     private Integer assigneeId;
 
-        @Column(name = "assignee_firstname")
+    @Column(name = "assignee_firstname")
     private String assigneeFirstname;
 
-        @Column(name = "assignee_middlename")
+    @Column(name = "assignee_middlename")
     private String assigneeMiddlename;
 
-        @Column(name = "assignee_lastname")
+    @Column(name = "assignee_lastname")
     private String assigneeLastname;
 
-        @Column(name = "assignee_post")
+    @Column(name = "assignee_post")
     private String assigneePost;
 
-        @Column(name = "assignee_basis")
+    @Column(name = "assignee_basis")
     private String assigneeBasis;
 
     @Column(name = "payment")
     private BigDecimal payment;
 
-        @Column(name = "notes")
+    @Column(name = "notes")
     private String notes;
 
-        @Column(name = "old_code")
+    @Column(name = "old_code")
     private String oldCode;
 
     @Override

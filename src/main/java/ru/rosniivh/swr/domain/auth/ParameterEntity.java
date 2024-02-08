@@ -3,7 +3,10 @@ package ru.rosniivh.swr.domain.auth;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 @Builder
@@ -18,16 +21,16 @@ public class ParameterEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-        @Column(name = "partname")
+    @Column(name = "partname")
     private String partname;
 
-        @Column(name = "name")
+    @Column(name = "name")
     private String name;
 
-        @Column(name = "val1")
+    @Column(name = "val1")
     private String val1;
 
-        @Column(name = "val2")
+    @Column(name = "val2")
     private String val2;
 
     @Override

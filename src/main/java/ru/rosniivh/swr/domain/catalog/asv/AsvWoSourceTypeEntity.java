@@ -3,7 +3,10 @@ package ru.rosniivh.swr.domain.catalog.asv;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 @Builder
@@ -18,7 +21,7 @@ public class AsvWoSourceTypeEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-        @Column(name = "name")
+    @Column(name = "name")
     private String name;
 
     @Override

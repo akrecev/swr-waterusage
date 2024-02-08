@@ -24,10 +24,10 @@ public class AsvAdditionalAgreementEntity {
     @Column(name = "contract_id")
     private Integer contractId;
 
-        @Column(name = "reg_number")
+    @Column(name = "reg_number")
     private String regNumber;
 
-        @Column(name = "add_agr_number")
+    @Column(name = "add_agr_number")
     private String addAgrNumber;
 
     @Column(name = "sign_date")
@@ -39,25 +39,25 @@ public class AsvAdditionalAgreementEntity {
     @Column(name = "npp")
     private Integer npp;
 
-        @Column(name = "wu_start_period")
+    @Column(name = "wu_start_period")
     private String wuStartPeriod;
 
     @Column(name = "has_observation_program")
     private Integer hasObservationProgram;
 
-        @Column(name = "observation_program_points")
+    @Column(name = "observation_program_points")
     private String observationProgramPoints;
 
-        @Column(name = "organ_text")
+    @Column(name = "organ_text")
     private String organText;
 
-        @Column(name = "organ_name")
+    @Column(name = "organ_name")
     private String organName;
 
-        @Column(name = "organ_fio")
+    @Column(name = "organ_fio")
     private String organFio;
 
-        @Column(name = "organ_basis")
+    @Column(name = "organ_basis")
     private String organBasis;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -65,22 +65,22 @@ public class AsvAdditionalAgreementEntity {
     @JoinColumn(name = "water_user_id")
     private AsvImportLegalSubjectEntity waterUser;
 
-        @Column(name = "water_user_name")
+    @Column(name = "water_user_name")
     private String waterUserName;
 
-        @Column(name = "water_user_fio")
+    @Column(name = "water_user_fio")
     private String waterUserFio;
 
-        @Column(name = "water_user_basis")
+    @Column(name = "water_user_basis")
     private String waterUserBasis;
 
-        @Column(name = "notes")
+    @Column(name = "notes")
     private String notes;
 
-        @Column(name = "old_code")
+    @Column(name = "old_code")
     private String oldCode;
 
-        @Column(name = "order_number")
+    @Column(name = "order_number")
     private String orderNumber;
 
     @Override

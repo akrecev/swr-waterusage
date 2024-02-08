@@ -3,7 +3,10 @@ package ru.rosniivh.swr.domain.auth;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.Instant;
 import java.util.Objects;
 
@@ -22,7 +25,7 @@ public class WoDeleteEntity {
     @Column(name = "uid_wo")
     private Integer uidWo;
 
-        @Column(name = "code")
+    @Column(name = "code")
     private String code;
 
     @Column(name = "uid_user")
@@ -31,7 +34,7 @@ public class WoDeleteEntity {
     @Column(name = "upd_date")
     private Instant updDate;
 
-        @Column(name = "notes")
+    @Column(name = "notes")
     private String notes;
 
     @Override
