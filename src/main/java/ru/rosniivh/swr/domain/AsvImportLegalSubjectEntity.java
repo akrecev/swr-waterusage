@@ -1,9 +1,6 @@
 package ru.rosniivh.swr.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.proxy.HibernateProxy;
@@ -13,6 +10,7 @@ import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 
+@Builder
 @Getter
 @Setter
 @NoArgsConstructor
@@ -38,7 +36,7 @@ public class AsvImportLegalSubjectEntity {
 
     @Lob
     @Column(name = "fullname")
-    private String fullname;
+    private String fullName;
 
     @Lob
     @Column(name = "inn")
