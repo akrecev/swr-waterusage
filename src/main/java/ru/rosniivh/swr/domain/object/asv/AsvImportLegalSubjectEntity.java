@@ -4,6 +4,8 @@ import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.proxy.HibernateProxy;
+import ru.rosniivh.swr.domain.catalog.asv.AsvImportOkopf2012Entity;
+import ru.rosniivh.swr.domain.catalog.asv.AsvImportOkved22016Entity;
 
 import javax.persistence.*;
 import java.util.LinkedHashSet;

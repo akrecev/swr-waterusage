@@ -1,4 +1,4 @@
-package ru.rosniivh.swr.domain.object.asv;
+package ru.rosniivh.swr.domain.catalog.asv;
 
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
@@ -7,14 +7,13 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Builder
-@Entity
-@Table(name = "cat_asv_legal_subject_type", schema = "dbo")
-@NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "cat_asv_status", schema = "dbo")
+@NoArgsConstructor
 @Getter
 @Setter
-public class AsvLegalSubjectTypeEntity {
-
+public class AsvStatusEntity {
     @Id
     @Column(name = "uid")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,6 +22,9 @@ public class AsvLegalSubjectTypeEntity {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "old_code")
+    private String oldCode;
+
     @Override
     public final boolean equals(Object o) {
         if (this == o) return true;
@@ -30,7 +32,7 @@ public class AsvLegalSubjectTypeEntity {
         Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
         Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        AsvLegalSubjectTypeEntity that = (AsvLegalSubjectTypeEntity) o;
+        AsvStatusEntity that = (AsvStatusEntity) o;
         return getUid() != null && Objects.equals(getUid(), that.getUid());
     }
 

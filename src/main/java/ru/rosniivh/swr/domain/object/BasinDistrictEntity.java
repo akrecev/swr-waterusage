@@ -4,8 +4,11 @@ import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.proxy.HibernateProxy;
+import ru.rosniivh.swr.domain.auth.UserEntity;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
+import java.time.Instant;
 import java.util.Objects;
 
 @Builder
@@ -14,36 +17,54 @@ import java.util.Objects;
 @Getter
 @Setter
 @Entity
-@Table(name = "cat_rf_subject", schema = "dbo")
-public class RfSubjectEntity {
+@Table(name = "o_basin_district", schema = "dbo")
+public class BasinDistrictEntity {
     @Id
     @Column(name = "uid", nullable = false)
     private Integer id;
 
     @Lob
-    @Column(name = "name", nullable = false)
+    @Column(name = "code")
+    private String code;
+
+    @Lob
+    @Column(name = "name")
     private String name;
 
     @Lob
-    @Column(name = "const_number", nullable = false)
-    private String constNumber;
+    @Column(name = "description")
+    private String description;
 
-    @Lob
-    @Column(name = "okato_code", nullable = false)
-    private String okatoCode;
+    @Column(name = "area")
+    private BigDecimal area;
 
-    @Lob
-    @Column(name = "oktmo_code", nullable = false)
-    private String oktmoCode;
-
-    @Lob
-    @Column(name = "gost_code", nullable = false)
-    private String gostCode;
+    @Column(name = "inserted_on", nullable = false)
+    private Instant insertedOn;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "fd_id", nullable = false)
-    private FederalDistrictEntity fd;
+    @JoinColumn(name = "inserted_by", nullable = false)
+    private UserEntity insertedBy;
+
+    @Column(name = "updated_on")
+    private Instant updatedOn;
+
+    @Column(name = "updated_by")
+    private Integer updatedBy;
+
+    @Column(name = "confirmed")
+    private Boolean confirmed;
+
+    @Column(name = "confirmed_on")
+    private Instant confirmedOn;
+
+    @Column(name = "confirmed_by")
+    private Integer confirmedBy;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "confirmation_document_id")
+    private ConfirmationDocumentEntity confirmationDocument;
 
     @Override
     public final boolean equals(Object o) {
@@ -52,7 +73,7 @@ public class RfSubjectEntity {
         Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
         Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        RfSubjectEntity that = (RfSubjectEntity) o;
+        BasinDistrictEntity that = (BasinDistrictEntity) o;
         return getId() != null && Objects.equals(getId(), that.getId());
     }
 
