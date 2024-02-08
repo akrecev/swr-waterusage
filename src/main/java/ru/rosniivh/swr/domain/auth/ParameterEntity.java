@@ -1,12 +1,10 @@
-package ru.rosniivh.swr.domain.catalog;
+package ru.rosniivh.swr.domain.auth;
 
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
 
 import javax.persistence.*;
-import java.util.LinkedHashSet;
 import java.util.Objects;
-import java.util.Set;
 
 @Builder
 @AllArgsConstructor
@@ -14,18 +12,27 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Table(name = "cat_federal_district", schema = "dbo")
-public class CatFederalDistrict {
+@Table(name = "s_parameter", schema = "dbo")
+public class ParameterEntity {
     @Id
     @Column(name = "uid", nullable = false)
     private Integer id;
 
     @Lob
-    @Column(name = "name", nullable = false)
+    @Column(name = "partname")
+    private String partname;
+
+    @Lob
+    @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "fd")
-    private Set<CatRfSubject> catRfSubjects = new LinkedHashSet<>();
+    @Lob
+    @Column(name = "val1")
+    private String val1;
+
+    @Lob
+    @Column(name = "val2")
+    private String val2;
 
     @Override
     public final boolean equals(Object o) {
@@ -34,7 +41,7 @@ public class CatFederalDistrict {
         Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
         Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        CatFederalDistrict that = (CatFederalDistrict) o;
+        ParameterEntity that = (ParameterEntity) o;
         return getId() != null && Objects.equals(getId(), that.getId());
     }
 

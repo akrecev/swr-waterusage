@@ -1,12 +1,12 @@
 package ru.rosniivh.swr.domain.catalog;
 
 import lombok.*;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.proxy.HibernateProxy;
 
 import javax.persistence.*;
+import java.util.LinkedHashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Builder
 @AllArgsConstructor
@@ -14,8 +14,8 @@ import java.util.Objects;
 @Getter
 @Setter
 @Entity
-@Table(name = "cat_rf_subject", schema = "dbo")
-public class CatRfSubject {
+@Table(name = "cat_federal_district", schema = "dbo")
+public class CatFederalDistrictEntity {
     @Id
     @Column(name = "uid", nullable = false)
     private Integer id;
@@ -24,26 +24,8 @@ public class CatRfSubject {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Lob
-    @Column(name = "const_number", nullable = false)
-    private String constNumber;
-
-    @Lob
-    @Column(name = "okato_code", nullable = false)
-    private String okatoCode;
-
-    @Lob
-    @Column(name = "oktmo_code", nullable = false)
-    private String oktmoCode;
-
-    @Lob
-    @Column(name = "gost_code", nullable = false)
-    private String gostCode;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "fd_id", nullable = false)
-    private CatFederalDistrict fd;
+    @OneToMany(mappedBy = "fd")
+    private Set<CatRfSubjectEntity> catRfSubjectEntities = new LinkedHashSet<>();
 
     @Override
     public final boolean equals(Object o) {
@@ -52,7 +34,7 @@ public class CatRfSubject {
         Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
         Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        CatRfSubject that = (CatRfSubject) o;
+        CatFederalDistrictEntity that = (CatFederalDistrictEntity) o;
         return getId() != null && Objects.equals(getId(), that.getId());
     }
 
