@@ -1,4 +1,4 @@
-package ru.rosniivh.swr.domain.catalog.asv;
+package ru.rosniivh.swr.domain.object.asv;
 
 import lombok.*;
 import org.hibernate.annotations.OnDelete;
