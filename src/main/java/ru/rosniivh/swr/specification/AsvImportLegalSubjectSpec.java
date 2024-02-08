@@ -22,42 +22,42 @@ public class AsvImportLegalSubjectSpec {
     public static Specification<AsvImportLegalSubjectEntity> hasInn(String inn) {
         return inn == null
                 ? null
-                : (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("inn"), inn);
+                : (root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("inn"), "%" + inn + "%");
     }
 
     public static Specification<AsvImportLegalSubjectEntity> hasFullName(String fullName) {
         return fullName == null
                 ? null
-                : (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("fullName"), fullName);
+                : (root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("fullName"), "%" + fullName + "%");
     }
 
     public static Specification<AsvImportLegalSubjectEntity> hasOgrn(String ogrn) {
         return ogrn == null
                 ? null
-                : (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("ogrn"), ogrn);
+                : (root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("ogrn"), "%" + ogrn + "%");
     }
 
     public static Specification<AsvImportLegalSubjectEntity> hasOkpo(String okpo) {
         return okpo == null
                 ? null
-                : (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("okpo"), okpo);
+                : (root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("okpo"), "%" + okpo + "%");
     }
 
     public static Specification<AsvImportLegalSubjectEntity> hasPlaceAddress(String placeAddress) {
         return placeAddress == null
                 ? null
-                : (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("placeAddress"), placeAddress);
+                : (root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("placeAddress"), "%" + placeAddress + "%");
     }
 
     public static Specification<AsvImportLegalSubjectEntity> hasLegalAddress(String legalAddress) {
         return legalAddress == null
                 ? null
-                : (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("legalAddress"), legalAddress);
+                : (root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("legalAddress"), "%" + legalAddress + "%");
     }
 
     public static Specification<AsvImportLegalSubjectEntity> hasOkato(String okato) {
         return okato == null
                 ? null
-                : (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("okato"), okato);
+                : (root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("okato"), "%" + okato + "%");
     }
 }
