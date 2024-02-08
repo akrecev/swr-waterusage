@@ -1,6 +1,6 @@
 package ru.rosniivh.swr.rest;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,10 +10,9 @@ import ru.rosniivh.swr.service.AsvStatusService;
 
 @RestController
 @RequestMapping("/asv_status")
+@RequiredArgsConstructor
 public class AsvStatusController {
-
-    @Autowired
-    private AsvStatusService service;
+    private final AsvStatusService service;
 
     @GetMapping("/")
     public ResponseEntity<?> findById(@RequestParam Integer id) {

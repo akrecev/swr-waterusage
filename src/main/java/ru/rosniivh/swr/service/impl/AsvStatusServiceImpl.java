@@ -1,16 +1,15 @@
 package ru.rosniivh.swr.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.rosniivh.swr.domain.catalog.asv.AsvStatusEntity;
 import ru.rosniivh.swr.repository.AsvStatusRepository;
 import ru.rosniivh.swr.service.AsvStatusService;
 
 @Service
+@RequiredArgsConstructor
 public class AsvStatusServiceImpl implements AsvStatusService {
-
-    @Autowired
-    private AsvStatusRepository repository;
+    private final AsvStatusRepository repository;
 
     @Override
     public AsvStatusEntity getById(Integer id) {
