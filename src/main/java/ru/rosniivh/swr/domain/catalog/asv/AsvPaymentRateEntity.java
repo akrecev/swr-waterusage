@@ -20,6 +20,7 @@ import java.util.Objects;
 @Table(name = "cat_asv_payment_rate", schema = "dbo")
 public class AsvPaymentRateEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "uid", nullable = false)
     private Integer id;
 

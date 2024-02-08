@@ -19,6 +19,7 @@ import java.util.Objects;
 @Table(name = "cat_asv_contract_term_group", schema = "dbo")
 public class AsvContractTermGroupEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "uid", nullable = false)
     private Integer id;
 

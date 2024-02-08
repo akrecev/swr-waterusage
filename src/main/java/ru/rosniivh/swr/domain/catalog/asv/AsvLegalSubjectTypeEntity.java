@@ -18,8 +18,8 @@ import java.util.Objects;
 public class AsvLegalSubjectTypeEntity {
 
     @Id
-    @Column(name = "uid")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "uid")
     private Integer uid;
 
     @Column(name = "name")

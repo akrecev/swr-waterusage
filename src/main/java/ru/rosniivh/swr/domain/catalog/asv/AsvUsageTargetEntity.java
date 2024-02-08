@@ -19,6 +19,7 @@ import java.util.Objects;
 @Table(name = "cat_asv_usage_target", schema = "dbo")
 public class AsvUsageTargetEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "uid", nullable = false)
     private Integer id;
 

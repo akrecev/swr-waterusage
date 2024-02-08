@@ -20,6 +20,7 @@ import java.util.Objects;
 @Table(name = "cat_asv_auth_org", schema = "dbo")
 public class AsvAuthOrgEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "uid", nullable = false)
     private Integer id;
 

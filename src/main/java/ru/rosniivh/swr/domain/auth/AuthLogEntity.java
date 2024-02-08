@@ -20,6 +20,7 @@ import java.util.Objects;
 @Table(name = "s_auth_log", schema = "dbo")
 public class AuthLogEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "uid", nullable = false)
     private Integer id;
 

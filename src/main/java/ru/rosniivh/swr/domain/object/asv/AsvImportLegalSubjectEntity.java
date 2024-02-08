@@ -23,6 +23,7 @@ import java.util.Set;
 @Table(name = "o_asv_import_legal_subject", schema = "dbo")
 public class AsvImportLegalSubjectEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "uid", nullable = false)
     private Integer id;
 

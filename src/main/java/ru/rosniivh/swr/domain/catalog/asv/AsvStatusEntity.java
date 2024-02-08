@@ -17,8 +17,8 @@ import java.util.Objects;
 @Setter
 public class AsvStatusEntity {
     @Id
-    @Column(name = "uid")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "uid")
     private Integer uid;
 
     @Column(name = "name")

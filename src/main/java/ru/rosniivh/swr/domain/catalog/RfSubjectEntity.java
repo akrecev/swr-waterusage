@@ -19,6 +19,7 @@ import java.util.Objects;
 @Table(name = "cat_rf_subject", schema = "dbo")
 public class RfSubjectEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "uid", nullable = false)
     private Integer id;
 

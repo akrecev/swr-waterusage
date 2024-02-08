@@ -20,6 +20,7 @@ import java.util.Objects;
 @Table(name = "o_asv_additional_agreement", schema = "dbo")
 public class AsvAdditionalAgreementEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "uid", nullable = false)
     private Integer id;
 

@@ -21,6 +21,7 @@ import java.util.Objects;
 @Table(name = "o_asv_contract_transfer", schema = "dbo")
 public class AsvContractTransferEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "uid", nullable = false)
     private Integer id;
 

@@ -19,6 +19,7 @@ import java.util.Set;
 @Table(name = "cat_federal_district", schema = "dbo")
 public class FederalDistrictEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "uid", nullable = false)
     private Integer id;
 

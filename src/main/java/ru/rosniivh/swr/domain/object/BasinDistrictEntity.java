@@ -22,6 +22,7 @@ import java.util.Objects;
 @Table(name = "o_basin_district", schema = "dbo")
 public class BasinDistrictEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "uid", nullable = false)
     private Integer id;
 
