@@ -12,7 +12,6 @@ import ru.rosniivh.swr.domain.object.asv.AsvImportLegalSubjectEntity;
 public class AsvImportLegalSubjectFilter {
 
     private Integer id;
-
     private Integer type;
     private String inn;
     private String fullName;

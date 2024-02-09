@@ -42,26 +42,6 @@ public class AsvImportLegalSubjectController {
         return ResponseEntity.ok().body(service.getByFilter(filter));
     }
 
-    @PostMapping("/test")
-    public ResponseEntity<?> test(@RequestBody AsvImportLegalSubjectFilter filter) {
-        return ResponseEntity.ok().body(service.getByFilter(filter));
-    }
-
-    @GetMapping("/")
-    public ResponseEntity<?> findById(@RequestParam Integer id) {
-        return ResponseEntity.ok(service.getById(id));
-    }
-
-    @GetMapping("/name_query")
-    public ResponseEntity<?> getByFullName(@RequestParam String fullName) {
-        return ResponseEntity.ok(service.getByFullName(fullName));
-    }
-
-    @GetMapping("/inn_query")
-    public ResponseEntity<?> getByInn(@RequestParam String inn) {
-        return ResponseEntity.ok(service.getByInn(inn));
-    }
-
     @GetMapping("/legalSubjectCheckJPQL")
     public ResponseEntity<?> legalSubjectCheckJPQL(
             @RequestParam(value = "type") Integer type,
@@ -75,10 +55,9 @@ public class AsvImportLegalSubjectController {
             @RequestParam(value = "okonh", required = false) String okonh,
             @RequestParam(value = "postAddress", required = false) String postAddress,
             @RequestParam(value = "legalAddress", required = false) String legalAddress,
-            @RequestParam(value = "okato", required = false) String okato
-    ) {
+            @RequestParam(value = "okato", required = false) String okato) {
 
-        return ResponseEntity.ok().body(service.getByType(type, name, ogrn, okpo, postAddress,
-                legalAddress, okato, inn));
+        return ResponseEntity.ok()
+                .body(service.getByType(type, name, ogrn, okpo, postAddress, legalAddress, okato, inn));
     }
 }
