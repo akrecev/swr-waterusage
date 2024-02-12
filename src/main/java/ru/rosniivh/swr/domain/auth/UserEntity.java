@@ -8,6 +8,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.proxy.HibernateProxy;
+import ru.rosniivh.swr.domain.catalog.AsvImportAuthOrgContractEntity;
+import ru.rosniivh.swr.domain.catalog.BasinWaterManagementBoardEntity;
+import ru.rosniivh.swr.domain.catalog.WaterResourcesDivisionEntity;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,37 +19,44 @@ import org.hibernate.proxy.HibernateProxy;
 @Entity
 @Table(name = "s_users", schema = "dbo")
 public class UserEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "username")
+    @Column(name = "username", length = Integer.MAX_VALUE)
     private String username;
 
-    @Column(name = "email")
+    @Column(name = "email", length = Integer.MAX_VALUE)
     private String email;
 
-    @Column(name = "password")
+    @Column(name = "password", length = Integer.MAX_VALUE)
     private String password;
 
     @Column(name = "last_password_reset")
     private LocalDate lastPasswordReset;
 
-    @Column(name = "fio")
+    @Column(name = "fio", length = Integer.MAX_VALUE)
     private String fio;
 
-    @Column(name = "auth_text")
+    @Column(name = "auth_text", length = Integer.MAX_VALUE)
     private String authText;
 
-    @Column(name = "\"position\"")
+    @Column(name = "\"position\"", length = Integer.MAX_VALUE)
     private String position;
 
-    @Column(name = "phone")
+    @Column(name = "phone", length = Integer.MAX_VALUE)
     private String phone;
 
-    @Column(name = "authorities")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "bwm_id")
+    private BasinWaterManagementBoardEntity bwm;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "wrd_id")
+    private WaterResourcesDivisionEntity wrd;
+
+    @Column(name = "authorities", length = Integer.MAX_VALUE)
     private String authorities;
 
     @Column(name = "legacy")
@@ -54,6 +64,10 @@ public class UserEntity {
 
     @Column(name = "deleted")
     private Boolean deleted;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "auth_org_id")
+    private AsvImportAuthOrgContractEntity authOrg;
 
     @Column(name = "asv")
     private Integer asv;

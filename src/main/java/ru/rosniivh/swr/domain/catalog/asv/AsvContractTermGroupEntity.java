@@ -9,6 +9,7 @@ import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.proxy.HibernateProxy;
+import ru.rosniivh.swr.domain.catalog.AsvImportAuthOrgContractEntity;
 
 @AllArgsConstructor
 @NoArgsConstructor

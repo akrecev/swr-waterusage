@@ -75,10 +75,9 @@ public class AsvImportLegalSubjectController {
             @RequestParam(value = "okonh", required = false) String okonh,
             @RequestParam(value = "postAddress", required = false) String postAddress,
             @RequestParam(value = "legalAddress", required = false) String legalAddress,
-            @RequestParam(value = "okato", required = false) String okato
-    ) {
+            @RequestParam(value = "okato", required = false) String okato) {
 
-        return ResponseEntity.ok().body(service.getByType(type, name, ogrn, okpo, postAddress,
-                legalAddress, okato, inn));
+        return ResponseEntity.ok()
+                .body(service.getByType(type, name, ogrn, okpo, postAddress, legalAddress, okato, inn));
     }
 }

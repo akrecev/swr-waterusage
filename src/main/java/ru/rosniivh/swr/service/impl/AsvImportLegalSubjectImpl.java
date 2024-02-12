@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import ru.rosniivh.swr.domain.object.asv.AsvImportLegalSubjectEntity;
 import ru.rosniivh.swr.dto.object.asv.AsvImportLegalSubjectDto;
 import ru.rosniivh.swr.filter.AsvImportLegalSubjectFilter;
-import ru.rosniivh.swr.repository.AsvImportLegalSubjectRepository;
+import ru.rosniivh.swr.repository.asv.AsvImportLegalSubjectRepository;
 import ru.rosniivh.swr.service.AsvImportLegalSubjectService;
 
 @Service
@@ -48,14 +48,22 @@ public class AsvImportLegalSubjectImpl implements AsvImportLegalSubjectService {
     }
 
     @Override
-    public List<AsvImportLegalSubjectDto> getByType(Integer type, String name, String ogrn, String okpo, String postAddress,
-                                                    String legalAddress, String okato, String inn) {
+    public List<AsvImportLegalSubjectDto> getByType(
+            Integer type,
+            String name,
+            String ogrn,
+            String okpo,
+            String postAddress,
+            String legalAddress,
+            String okato,
+            String inn) {
         if (type.equals(1)) {
-            return repository.getByTypeOne(name, ogrn, okpo, postAddress,
-                    legalAddress, okato).stream().map(entity -> modelMapper.map(entity, AsvImportLegalSubjectDto.class))
+            return repository.getByTypeOne(name, ogrn, okpo, postAddress, legalAddress, okato).stream()
+                    .map(entity -> modelMapper.map(entity, AsvImportLegalSubjectDto.class))
                     .collect(Collectors.toList());
         } else {
-            return repository.getByTypeTwo(inn, name).stream().map(entity -> modelMapper.map(entity, AsvImportLegalSubjectDto.class))
+            return repository.getByTypeTwo(inn, name).stream()
+                    .map(entity -> modelMapper.map(entity, AsvImportLegalSubjectDto.class))
                     .collect(Collectors.toList());
         }
     }

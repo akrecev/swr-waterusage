@@ -1,7 +1,9 @@
 package ru.rosniivh.swr.domain.catalog;
 
 import jakarta.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,8 +15,8 @@ import org.hibernate.proxy.HibernateProxy;
 @Getter
 @Setter
 @Entity
-@Table(name = "cat_rf_subject", schema = "dbo")
-public class RfSubjectEntity {
+@Table(name = "cat_water_resources_division", schema = "dbo")
+public class WaterResourcesDivisionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "uid", nullable = false)
@@ -23,25 +25,15 @@ public class RfSubjectEntity {
     @Column(name = "name", nullable = false, length = Integer.MAX_VALUE)
     private String name;
 
-    @Column(name = "const_number", nullable = false, length = Integer.MAX_VALUE)
-    private String constNumber;
+    @Column(name = "name_short", nullable = false, length = Integer.MAX_VALUE)
+    private String nameShort;
 
-    @Column(name = "okato_code", nullable = false, length = Integer.MAX_VALUE)
-    private String okatoCode;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "bwmb_id", nullable = false)
+    private BasinWaterManagementBoardEntity bwmb;
 
-    @Column(name = "oktmo_code", nullable = false, length = Integer.MAX_VALUE)
-    private String oktmoCode;
-
-    @Column(name = "gost_code", length = Integer.MAX_VALUE)
-    private String gostCode;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fd_id")
-    private FederalDistrictEntity fd;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "wrd_id")
-    private WaterResourcesDivisionEntity wrd;
+    @OneToMany(mappedBy = "wrd")
+    private Set<RfSubjectEntity> rfSubjects = new HashSet<>();
 
     @Override
     public final boolean equals(Object o) {
@@ -54,7 +46,7 @@ public class RfSubjectEntity {
                 ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass()
                 : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        RfSubjectEntity that = (RfSubjectEntity) o;
+        WaterResourcesDivisionEntity that = (WaterResourcesDivisionEntity) o;
         return getId() != null && Objects.equals(getId(), that.getId());
     }
 

@@ -15,6 +15,13 @@ public interface AsvImportLegalSubjectService {
 
     List<AsvImportLegalSubjectDto> getByInn(String inn);
 
-    List<AsvImportLegalSubjectDto> getByType(Integer type, String name, String ogrn, String okpo, String postAddress,
-                                             String legalAddress, String okato, String inn);
+    List<AsvImportLegalSubjectDto> getByType(
+            Integer type,
+            String name,
+            String ogrn,
+            String okpo,
+            String postAddress,
+            String legalAddress,
+            String okato,
+            String inn);
 }
