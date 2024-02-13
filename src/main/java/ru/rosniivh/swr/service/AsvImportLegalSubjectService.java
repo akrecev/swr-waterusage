@@ -1,6 +1,8 @@
 package ru.rosniivh.swr.service;
 
 import java.util.List;
+
+import org.springframework.data.domain.Pageable;
 import ru.rosniivh.swr.dto.object.asv.AsvImportLegalSubjectDto;
 import ru.rosniivh.swr.dto.report.AsvImportResponse;
 import ru.rosniivh.swr.filter.AsvImportLegalSubjectFilter;
@@ -20,4 +22,6 @@ public interface AsvImportLegalSubjectService {
             String inn);
 
     List<AsvImportResponse> getLegalSubject(AsvImportLegalSubjectFilter filter);
+
+//    List<AsvImportResponse> getLegalSubjectOld(String inn, String kpp);
 }

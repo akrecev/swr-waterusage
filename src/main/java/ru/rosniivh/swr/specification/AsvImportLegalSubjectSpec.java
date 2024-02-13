@@ -1,7 +1,9 @@
 package ru.rosniivh.swr.specification;
 
+import jakarta.persistence.criteria.Order;
 import lombok.experimental.UtilityClass;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.data.jpa.repository.Query;
 import ru.rosniivh.swr.domain.object.asv.AsvImportLegalSubjectEntity;
 
 @UtilityClass
@@ -19,6 +21,12 @@ public class AsvImportLegalSubjectSpec {
         return inn == null
                 ? null
                 : (root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("inn"), "%" + inn + "%");
+    }
+
+    public static Specification<AsvImportLegalSubjectEntity> hasKpp(String kpp) {
+        return kpp == null
+                ? null
+                : (root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("kpp"), "%" + kpp + "%");
     }
 
     public static Specification<AsvImportLegalSubjectEntity> hasFullName(String fullName) {
@@ -58,4 +66,13 @@ public class AsvImportLegalSubjectSpec {
                 ? null
                 : (root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("okato"), "%" + okato + "%");
     }
+
+//    public static Specification<AsvImportLegalSubjectEntity> distinct(Boolean distinct) {
+//        return !distinct
+//                ? null
+//                : (root, query, criteriaBuilder) -> {
+//            query.distinct(true);
+//            return null;
+//        };
+//    }
 }

@@ -1,6 +1,9 @@
 package ru.rosniivh.swr.repository;
 
 import java.util.List;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
@@ -16,6 +19,10 @@ public interface AsvImportLegalSubjectRepository
     default List<AsvImportLegalSubjectEntity> findAll(AsvImportLegalSubjectFilter filter) {
         return filter == null ? findAll() : findAll(filter.toSpecification());
     }
+
+//    default Page<AsvImportLegalSubjectEntity> findAllPage(AsvImportLegalSubjectFilter filter, Pageable pageable) {
+//        return filter == null ? findAll(pageable) : findAll(filter.toSpecification(), pageable);
+//    }
 
     @Query(
             value = "SELECT ls FROM AsvImportLegalSubjectEntity ls "
