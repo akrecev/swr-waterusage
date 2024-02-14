@@ -3,7 +3,7 @@ package ru.rosniivh.swr.filter;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.Specification;
-import ru.rosniivh.swr.domain.object.asv.AsvAcceptorEntity;
+import ru.rosniivh.swr.domain.catalog.asv.AsvAcceptorEntity;
 
 import static ru.rosniivh.swr.specification.AsvAcceptorSpec.*;
 

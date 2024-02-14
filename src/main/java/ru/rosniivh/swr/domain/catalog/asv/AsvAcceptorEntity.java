@@ -1,4 +1,4 @@
-package ru.rosniivh.swr.domain.object.asv;
+package ru.rosniivh.swr.domain.catalog.asv;
 
 import jakarta.persistence.*;
 import lombok.*;

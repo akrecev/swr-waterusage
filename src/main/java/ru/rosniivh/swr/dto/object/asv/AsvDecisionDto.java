@@ -1,4 +1,4 @@
-package ru.rosniivh.swr.domain.catalog.asv;
+package ru.rosniivh.swr.dto.object.asv;
 
 import java.time.LocalDate;
 import lombok.AllArgsConstructor;

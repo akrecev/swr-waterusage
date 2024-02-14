@@ -1,5 +1,6 @@
 package ru.rosniivh.swr.domain.object.asv;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import ru.rosniivh.swr.domain.auth.UserEntity;
@@ -27,7 +28,7 @@ public class AsvAdmOperationEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.MERGE)
     @JoinColumn(name = "oper_type_id")
     private AsvOperationTypeEntity operType;
 
@@ -49,16 +50,19 @@ public class AsvAdmOperationEntity {
     @Column(name = "payment_period")
     private LocalDate paymentPeriod;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    //500
+    @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.PERSIST)
     @JoinColumn(name = "auth_id")
     private AsvImportAuthOrgContractEntity auth;
 
     @Column(name = "admin_id")
     private Integer adminId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    //500
+    @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.MERGE)
     @JoinColumn(name = "contract_id")
     private AsvContractEntity contract;
+
 
     @Column(name = "contract_income_id")
     private Integer contractIncomeId;
@@ -67,7 +71,8 @@ public class AsvAdmOperationEntity {
     @JoinColumn(name = "add_agr_id")
     private AsvAdditionalAgreementEntity addAgr;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    //500
+    @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.MERGE)
     @JoinColumn(name = "water_user_id")
     private AsvImportLegalSubjectEntity waterUser;
 
@@ -86,9 +91,9 @@ public class AsvAdmOperationEntity {
     @Column(name = "corrected")
     private Integer corrected;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "oper_id")
-    private ru.rosniivh.swr.domain.catalog.asv.OAsvAdmOperation oper;
+    private AsvAdmOperationEntity operId;
 
     @Column(name = "oper_old_code", length = Integer.MAX_VALUE)
     private String operOldCode;
@@ -96,11 +101,11 @@ public class AsvAdmOperationEntity {
     @Column(name = "return_status", length = Integer.MAX_VALUE)
     private String returnStatus;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.MERGE)
     @JoinColumn(name = "aim_id")
     private AsvWuAimPaymentEntity aim;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.MERGE)
     @JoinColumn(name = "target_id")
     private AsvUsageTargetEntity target;
 
@@ -116,7 +121,7 @@ public class AsvAdmOperationEntity {
     @Column(name = "return_application_date")
     private LocalDate returnApplicationDate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.MERGE)
     @JoinColumn(name = "bank_account_id")
     private AsvImportBankAccountEntity bankAccount;
 
@@ -132,7 +137,7 @@ public class AsvAdmOperationEntity {
     @Column(name = "budget_system_date")
     private LocalDate budgetSystemDate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.MERGE)
     @JoinColumn(name = "payment_card_id")
     private AsvContractPaymentCardEntity paymentCard;
 
@@ -200,15 +205,15 @@ public class AsvAdmOperationEntity {
     @Column(name = "updated_by")
     private Integer updatedBy;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.MERGE)
     @JoinColumn(name = "kek_id")
     private AsvKekEntity kek;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.MERGE)
     @JoinColumn(name = "plan_account_id")
     private AsvPlanAccountEntity planAccount;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.MERGE)
     @JoinColumn(name = "kbk_id")
     private AsvKbkAdmEntity kbk;
 

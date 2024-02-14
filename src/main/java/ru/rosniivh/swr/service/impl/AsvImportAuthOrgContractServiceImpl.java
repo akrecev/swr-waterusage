@@ -40,7 +40,7 @@ public class AsvImportAuthOrgContractServiceImpl implements AsvImportAuthOrgCont
 //                        .setCode(rfs.getConstNumber());
 //            filterReports.add(filterReport);
 //        }
-        //Не понятно зачем нужен этот код,
+        //Непонятно зачем нужен этот код,
         //т.к. rfs с id 82 и так попадает в filterReports
         return filterReports;
     }

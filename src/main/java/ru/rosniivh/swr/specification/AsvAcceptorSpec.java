@@ -5,7 +5,7 @@ import jakarta.persistence.criteria.JoinType;
 import lombok.experimental.UtilityClass;
 import org.springframework.data.jpa.domain.Specification;
 import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
-import ru.rosniivh.swr.domain.object.asv.AsvAcceptorEntity;
+import ru.rosniivh.swr.domain.catalog.asv.AsvAcceptorEntity;
 
 
 @UtilityClass

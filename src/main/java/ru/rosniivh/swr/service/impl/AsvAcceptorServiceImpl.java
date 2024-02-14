@@ -3,10 +3,10 @@ package ru.rosniivh.swr.service.impl;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.rosniivh.swr.domain.object.asv.AsvAcceptorEntity;
+import ru.rosniivh.swr.domain.catalog.asv.AsvAcceptorEntity;
 import ru.rosniivh.swr.filter.AsvAcceptorFilter;
 import ru.rosniivh.swr.repository.AsvAcceptorRepository;
-import ru.rosniivh.swr.domain.catalog.asv.AsvAcceptorDto;
+import ru.rosniivh.swr.dto.catalog.asv.AsvAcceptorDto;
 import ru.rosniivh.swr.service.AsvAcceptorService;
 
 import java.util.List;
