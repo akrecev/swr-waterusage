@@ -1,16 +1,19 @@
 package ru.rosniivh.swr.domain.object.asv;
 
 import jakarta.persistence.*;
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.proxy.HibernateProxy;
+import ru.rosniivh.swr.domain.catalog.RfSubjectEntity;
+import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
+import ru.rosniivh.swr.domain.catalog.asv.AsvRfSubjectEntity;
+import ru.rosniivh.swr.domain.catalog.asv.AsvStatusEntity;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.Objects;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,7 +27,19 @@ public class AsvContractTransferEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "conclusion_place")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "contract_id")
+    private AsvContractEntity contract;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "status")
+    private AsvStatusEntity status;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "rfs_id")
+    private RfSubjectEntity rfs;
+
+    @Column(name = "conclusion_place", length = Integer.MAX_VALUE)
     private String conclusionPlace;
 
     @Column(name = "sign_date")
@@ -33,10 +48,10 @@ public class AsvContractTransferEntity {
     @Column(name = "reg_date")
     private LocalDate regDate;
 
-    @Column(name = "reg_number")
+    @Column(name = "reg_number", length = Integer.MAX_VALUE)
     private String regNumber;
 
-    @Column(name = "order_number")
+    @Column(name = "order_number", length = Integer.MAX_VALUE)
     private String orderNumber;
 
     @Column(name = "wu_end_date")
@@ -46,62 +61,71 @@ public class AsvContractTransferEntity {
     private LocalDate stopDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "rightholder_id")
     private AsvImportLegalSubjectEntity rightholder;
 
-    @Column(name = "rightholder_firstname")
+    @Column(name = "rightholder_firstname", length = Integer.MAX_VALUE)
     private String rightholderFirstname;
 
-    @Column(name = "rightholder_middlename")
+    @Column(name = "rightholder_middlename", length = Integer.MAX_VALUE)
     private String rightholderMiddlename;
 
-    @Column(name = "rightholder_lastname")
+    @Column(name = "rightholder_lastname", length = Integer.MAX_VALUE)
     private String rightholderLastname;
 
-    @Column(name = "rightholder_post")
+    @Column(name = "rightholder_post", length = Integer.MAX_VALUE)
     private String rightholderPost;
 
-    @Column(name = "rightholder_basis")
+    @Column(name = "rightholder_basis", length = Integer.MAX_VALUE)
     private String rightholderBasis;
 
     @Column(name = "assignee_id")
     private Integer assigneeId;
 
-    @Column(name = "assignee_firstname")
+    @Column(name = "assignee_firstname", length = Integer.MAX_VALUE)
     private String assigneeFirstname;
 
-    @Column(name = "assignee_middlename")
+    @Column(name = "assignee_middlename", length = Integer.MAX_VALUE)
     private String assigneeMiddlename;
 
-    @Column(name = "assignee_lastname")
+    @Column(name = "assignee_lastname", length = Integer.MAX_VALUE)
     private String assigneeLastname;
 
-    @Column(name = "assignee_post")
+    @Column(name = "assignee_post", length = Integer.MAX_VALUE)
     private String assigneePost;
 
-    @Column(name = "assignee_basis")
+    @Column(name = "assignee_basis", length = Integer.MAX_VALUE)
     private String assigneeBasis;
 
-    @Column(name = "payment")
+    @Column(name = "payment", precision = 38, scale = 2)
     private BigDecimal payment;
 
-    @Column(name = "notes")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "organ_id")
+    private AsvImportAuthOrgContractEntity organ;
+
+    @Column(name = "notes", length = Integer.MAX_VALUE)
     private String notes;
 
-    @Column(name = "old_code")
+    @Column(name = "old_code", length = Integer.MAX_VALUE)
     private String oldCode;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "asv_rfs_id")
+    private AsvRfSubjectEntity asvRfs;
+
+    @Column(name = "asv_document_id")
+    private Integer asvDocumentId;
+
+    @Column(name = "mark_del")
+    private Integer markDel;
 
     @Override
     public final boolean equals(Object o) {
         if (this == o) return true;
         if (o == null) return false;
-        Class<?> oEffectiveClass = o instanceof HibernateProxy
-                ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass()
-                : o.getClass();
-        Class<?> thisEffectiveClass = this instanceof HibernateProxy
-                ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass()
-                : this.getClass();
+        Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
+        Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
         AsvContractTransferEntity that = (AsvContractTransferEntity) o;
         return getId() != null && Objects.equals(getId(), that.getId());
@@ -109,11 +133,6 @@ public class AsvContractTransferEntity {
 
     @Override
     public final int hashCode() {
-        return this instanceof HibernateProxy
-                ? ((HibernateProxy) this)
-                        .getHibernateLazyInitializer()
-                        .getPersistentClass()
-                        .hashCode()
-                : getClass().hashCode();
+        return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
     }
 }

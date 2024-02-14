@@ -1,4 +1,4 @@
-package ru.rosniivh.swr.domain.object;
+package ru.rosniivh.swr.domain.object.asv;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,10 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.proxy.HibernateProxy;
-import ru.rosniivh.swr.domain.auth.UserEntity;
+import ru.rosniivh.swr.domain.catalog.asv.AsvActivityEntity;
 
-import java.math.BigDecimal;
-import java.time.Instant;
 import java.util.Objects;
 
 @AllArgsConstructor
@@ -17,50 +15,50 @@ import java.util.Objects;
 @Getter
 @Setter
 @Entity
-@Table(name = "o_basin_district", schema = "dbo")
-public class BasinDistrictEntity {
+@Table(name = "o_asv_activities_plan_volumes", schema = "dbo")
+public class AsvActivitiesPlanVolumeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "code", length = Integer.MAX_VALUE)
-    private String code;
-
-    @Column(name = "name", length = Integer.MAX_VALUE)
-    private String name;
+    @Column(name = "year")
+    private Integer year;
 
     @Column(name = "description", length = Integer.MAX_VALUE)
     private String description;
 
-    @Column(name = "area", precision = 38, scale = 2)
-    private BigDecimal area;
+    @Column(name = "kv1")
+    private Double kv1;
 
-    @Column(name = "inserted_on", nullable = false)
-    private Instant insertedOn;
+    @Column(name = "kv2")
+    private Double kv2;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "inserted_by", nullable = false)
-    private UserEntity insertedBy;
+    @Column(name = "kv3")
+    private Double kv3;
 
-    @Column(name = "updated_on")
-    private Instant updatedOn;
+    @Column(name = "kv4")
+    private Double kv4;
 
-    @Column(name = "updated_by")
-    private Integer updatedBy;
+    @Column(name = "total")
+    private Double total;
 
-    @Column(name = "confirmed")
-    private Boolean confirmed;
+    @Column(name = "old_code_detail_activity", length = Integer.MAX_VALUE)
+    private String oldCodeDetailActivity;
 
-    @Column(name = "confirmed_on")
-    private Instant confirmedOn;
+    @Column(name = "old_code_activity", length = Integer.MAX_VALUE)
+    private String oldCodeActivity;
 
-    @Column(name = "confirmed_by")
-    private Integer confirmedBy;
+    @Column(name = "old_code_parent", length = Integer.MAX_VALUE)
+    private String oldCodeParent;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "confirmation_document_id")
-    private ConfirmationDocumentEntity confirmationDocument;
+    @JoinColumn(name = "activity_id")
+    private AsvActivityEntity activity;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "activities_plan_id")
+    private AsvActivitiesPlanEntity activitiesPlan;
 
     @Override
     public final boolean equals(Object o) {
@@ -69,7 +67,7 @@ public class BasinDistrictEntity {
         Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
         Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        BasinDistrictEntity that = (BasinDistrictEntity) o;
+        AsvActivitiesPlanVolumeEntity that = (AsvActivitiesPlanVolumeEntity) o;
         return getId() != null && Objects.equals(getId(), that.getId());
     }
 

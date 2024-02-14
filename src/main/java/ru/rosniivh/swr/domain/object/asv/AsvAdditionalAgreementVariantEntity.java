@@ -1,4 +1,4 @@
-package ru.rosniivh.swr.domain.catalog;
+package ru.rosniivh.swr.domain.object.asv;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,31 +6,32 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.proxy.HibernateProxy;
+import ru.rosniivh.swr.domain.catalog.asv.AsvAddAgrVariantEntity;
 
-import java.util.LinkedHashSet;
 import java.util.Objects;
-import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
-@Table(name = "cat_basin_water_management_board", schema = "dbo")
-public class BasinWaterManagementBoardEntity {
+@Table(name = "o_asv_additional_agreement_variant", schema = "dbo")
+public class AsvAdditionalAgreementVariantEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "name", nullable = false, length = Integer.MAX_VALUE)
-    private String name;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "add_agr_id")
+    private AsvAdditionalAgreementEntity addAgr;
 
-    @Column(name = "name_short", nullable = false, length = Integer.MAX_VALUE)
-    private String nameShort;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "variant_id")
+    private AsvAddAgrVariantEntity variant;
 
-    @OneToMany(mappedBy = "bwmb")
-    private Set<WaterResourcesDivisionEntity> waterResourcesDivisions = new LinkedHashSet<>();
+    @Column(name = "npp")
+    private Integer npp;
 
     @Override
     public final boolean equals(Object o) {
@@ -39,7 +40,7 @@ public class BasinWaterManagementBoardEntity {
         Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
         Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        BasinWaterManagementBoardEntity that = (BasinWaterManagementBoardEntity) o;
+        AsvAdditionalAgreementVariantEntity that = (AsvAdditionalAgreementVariantEntity) o;
         return getId() != null && Objects.equals(getId(), that.getId());
     }
 

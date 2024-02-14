@@ -17,8 +17,8 @@ import java.util.Objects;
 @Getter
 @Setter
 @Entity
-@Table(name = "o_basin_district", schema = "dbo")
-public class BasinDistrictEntity {
+@Table(name = "o_he_parcel", schema = "dbo")
+public class HeParcelEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "uid", nullable = false)
@@ -27,14 +27,24 @@ public class BasinDistrictEntity {
     @Column(name = "code", length = Integer.MAX_VALUE)
     private String code;
 
+    @Column(name = "num", length = Integer.MAX_VALUE)
+    private String num;
+
     @Column(name = "name", length = Integer.MAX_VALUE)
     private String name;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "subbasin_id", nullable = false)
+    private SubbasinEntity subbasin;
 
     @Column(name = "description", length = Integer.MAX_VALUE)
     private String description;
 
-    @Column(name = "area", precision = 38, scale = 2)
+    @Column(name = "area")
     private BigDecimal area;
+
+    @Column(name = "waterway_length")
+    private BigDecimal waterwayLength;
 
     @Column(name = "inserted_on", nullable = false)
     private Instant insertedOn;
@@ -69,7 +79,7 @@ public class BasinDistrictEntity {
         Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
         Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        BasinDistrictEntity that = (BasinDistrictEntity) o;
+        HeParcelEntity that = (HeParcelEntity) o;
         return getId() != null && Objects.equals(getId(), that.getId());
     }
 
