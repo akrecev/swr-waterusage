@@ -1,6 +1,8 @@
 package ru.rosniivh.swr.domain.object.asv;
 
 import jakarta.persistence.*;
+import java.time.LocalDate;
+import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,9 +11,6 @@ import org.hibernate.proxy.HibernateProxy;
 import ru.rosniivh.swr.domain.catalog.RfSubjectEntity;
 import ru.rosniivh.swr.domain.catalog.asv.*;
 import ru.rosniivh.swr.domain.object.HeParcelEntity;
-
-import java.time.LocalDate;
-import java.util.Objects;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -312,8 +311,12 @@ public class AsvContractEntity {
     public final boolean equals(Object o) {
         if (this == o) return true;
         if (o == null) return false;
-        Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
-        Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
+        Class<?> oEffectiveClass = o instanceof HibernateProxy
+                ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass()
+                : o.getClass();
+        Class<?> thisEffectiveClass = this instanceof HibernateProxy
+                ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass()
+                : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
         AsvContractEntity that = (AsvContractEntity) o;
         return getId() != null && Objects.equals(getId(), that.getId());
@@ -321,6 +324,11 @@ public class AsvContractEntity {
 
     @Override
     public final int hashCode() {
-        return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
+        return this instanceof HibernateProxy
+                ? ((HibernateProxy) this)
+                        .getHibernateLazyInitializer()
+                        .getPersistentClass()
+                        .hashCode()
+                : getClass().hashCode();
     }
 }

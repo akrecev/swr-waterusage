@@ -20,5 +20,4 @@ public class LegalSubjectTypeEntity {
 
     @Column(name = "name", nullable = false, length = Integer.MAX_VALUE)
     private String name;
-
 }

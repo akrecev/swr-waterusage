@@ -29,5 +29,4 @@ public class ExecutiveAuthorityTypeEntity {
 
     @Column(name = "visible", nullable = false)
     private Boolean visible = false;
-
 }

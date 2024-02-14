@@ -1,15 +1,14 @@
 package ru.rosniivh.swr.domain.object;
 
 import jakarta.persistence.*;
+import java.time.Instant;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.rosniivh.swr.domain.auth.UserEntity;
-import ru.rosniivh.swr.domain.catalog.RfSubjectEntity;
 import ru.rosniivh.swr.domain.catalog.ExecutiveAuthorityTypeEntity;
-
-import java.time.Instant;
+import ru.rosniivh.swr.domain.catalog.RfSubjectEntity;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -50,5 +49,4 @@ public class ExecutiveAuthorityEntity {
 
     @Column(name = "updated_by")
     private Integer updatedBy;
-
 }

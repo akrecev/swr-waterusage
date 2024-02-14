@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.proxy.HibernateProxy;
 import ru.rosniivh.swr.domain.catalog.BasinWaterManagementBoardEntity;
-import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
 import ru.rosniivh.swr.domain.catalog.WaterResourcesDivisionEntity;
+import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
 
 @AllArgsConstructor
 @NoArgsConstructor

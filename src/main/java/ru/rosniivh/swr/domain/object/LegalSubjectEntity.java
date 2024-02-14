@@ -1,14 +1,13 @@
 package ru.rosniivh.swr.domain.object;
 
 import jakarta.persistence.*;
+import java.time.Instant;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.rosniivh.swr.domain.auth.UserEntity;
 import ru.rosniivh.swr.domain.catalog.LegalSubjectTypeEntity;
-
-import java.time.Instant;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -77,5 +76,4 @@ public class LegalSubjectEntity {
 
     @Column(name = "updated_by")
     private Integer updatedBy;
-
 }
