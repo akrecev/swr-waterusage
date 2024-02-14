@@ -18,16 +18,15 @@ public class AsvAcceptorController {
 
     @GetMapping("/search")
     public ResponseEntity<?> legalSubjectCheck(
-            @RequestParam(value = "top", required = false) Integer limit, //number of results
+            @RequestParam(value = "top", required = false) Integer top, //number of results
             @RequestParam(value = "name", required = false) String value){ //  value search by multiple fields
 
         AsvAcceptorFilter filter = new AsvAcceptorFilter();
-     //   if (type.equals(1)) {
+        Integer limit = 100; // 100 first elements
+        if (top != null){
+            limit = top;
+        }
             filter.setSearchFieldValue(value);
-
-      //  } else {
-      //      filter.setInn(inn).setFullName(name);
-       // }
         return ResponseEntity.ok().body(service.getByFilter(filter,limit));
     }
 

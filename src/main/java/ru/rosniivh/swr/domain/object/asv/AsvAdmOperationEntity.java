@@ -86,9 +86,9 @@ public class AsvAdmOperationEntity {
     @Column(name = "corrected")
     private Integer corrected;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "oper_id")
-    private ru.rosniivh.swr.domain.catalog.asv.OAsvAdmOperation oper;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "oper_id")
+//    private ru.rosniivh.swr.domain.catalog.asv.OAsvAdmOperation oper;
 
     @Column(name = "oper_old_code", length = Integer.MAX_VALUE)
     private String operOldCode;
