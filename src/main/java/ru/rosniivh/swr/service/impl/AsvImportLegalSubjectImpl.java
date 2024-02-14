@@ -6,7 +6,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.rosniivh.swr.domain.object.asv.AsvImportLegalSubjectEntity;
-import ru.rosniivh.swr.dto.object.asv.AsvImportLegalSubjectDto;
+import ru.rosniivh.swr.domain.catalog.asv.AsvImportLegalSubjectDto;
 import ru.rosniivh.swr.dto.report.AsvImportResponse;
 import ru.rosniivh.swr.filter.AsvImportLegalSubjectFilter;
 import ru.rosniivh.swr.repository.AsvImportLegalSubjectRepository;

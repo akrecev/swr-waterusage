@@ -13,6 +13,6 @@ public class AsvStatusServiceImpl implements AsvStatusService {
 
     @Override
     public AsvStatusEntity getById(Integer id) {
-        return repository.findById(id).get();
+        return repository.findById(id).orElseThrow();
     }
 }
