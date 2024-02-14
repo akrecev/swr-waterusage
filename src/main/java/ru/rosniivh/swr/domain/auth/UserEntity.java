@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.proxy.HibernateProxy;
-import ru.rosniivh.swr.domain.catalog.AsvImportAuthOrgContractEntity;
+import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
 import ru.rosniivh.swr.domain.catalog.BasinWaterManagementBoardEntity;
 import ru.rosniivh.swr.domain.catalog.WaterResourcesDivisionEntity;
 
@@ -24,28 +24,28 @@ public class UserEntity {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "username", length = Integer.MAX_VALUE)
+    @Column(name = "username")
     private String username;
 
-    @Column(name = "email", length = Integer.MAX_VALUE)
+    @Column(name = "email")
     private String email;
 
-    @Column(name = "password", length = Integer.MAX_VALUE)
+    @Column(name = "password")
     private String password;
 
     @Column(name = "last_password_reset")
     private LocalDate lastPasswordReset;
 
-    @Column(name = "fio", length = Integer.MAX_VALUE)
+    @Column(name = "fio")
     private String fio;
 
-    @Column(name = "auth_text", length = Integer.MAX_VALUE)
+    @Column(name = "auth_text")
     private String authText;
 
-    @Column(name = "\"position\"", length = Integer.MAX_VALUE)
+    @Column(name = "\"position\"")
     private String position;
 
-    @Column(name = "phone", length = Integer.MAX_VALUE)
+    @Column(name = "phone")
     private String phone;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -56,7 +56,7 @@ public class UserEntity {
     @JoinColumn(name = "wrd_id")
     private WaterResourcesDivisionEntity wrd;
 
-    @Column(name = "authorities", length = Integer.MAX_VALUE)
+    @Column(name = "authorities")
     private String authorities;
 
     @Column(name = "legacy")

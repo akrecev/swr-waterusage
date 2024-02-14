@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-import ru.rosniivh.swr.domain.catalog.AsvImportAuthOrgContractEntity;
+import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
 import ru.rosniivh.swr.domain.catalog.BasinWaterManagementBoardEntity;
 import ru.rosniivh.swr.domain.catalog.RfSubjectEntity;
 import ru.rosniivh.swr.exception.DataNotFoundException;

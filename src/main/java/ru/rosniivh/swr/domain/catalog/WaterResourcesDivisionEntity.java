@@ -22,10 +22,10 @@ public class WaterResourcesDivisionEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "name", nullable = false, length = Integer.MAX_VALUE)
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "name_short", nullable = false, length = Integer.MAX_VALUE)
+    @Column(name = "name_short", nullable = false)
     private String nameShort;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
