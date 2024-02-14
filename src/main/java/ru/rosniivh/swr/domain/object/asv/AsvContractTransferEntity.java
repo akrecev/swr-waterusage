@@ -64,13 +64,13 @@ public class AsvContractTransferEntity {
     private AsvImportLegalSubjectEntity rightholder;
 
     @Column(name = "rightholder_firstname", length = Integer.MAX_VALUE)
-    private String rightholderFirstname;
+    private String rightholderFirstName;
 
     @Column(name = "rightholder_middlename", length = Integer.MAX_VALUE)
-    private String rightholderMiddlename;
+    private String rightholderMiddleName;
 
     @Column(name = "rightholder_lastname", length = Integer.MAX_VALUE)
-    private String rightholderLastname;
+    private String rightholderLastName;
 
     @Column(name = "rightholder_post", length = Integer.MAX_VALUE)
     private String rightholderPost;
@@ -82,13 +82,14 @@ public class AsvContractTransferEntity {
     private Integer assigneeId;
 
     @Column(name = "assignee_firstname", length = Integer.MAX_VALUE)
-    private String assigneeFirstname;
+    private String assigneeFirstName;
 
     @Column(name = "assignee_middlename", length = Integer.MAX_VALUE)
-    private String assigneeMiddlename;
+    private String assigneeMiddleName;
 
     @Column(name = "assignee_lastname", length = Integer.MAX_VALUE)
-    private String assigneeLastname;
+    private String assigneeLastName
+            ;
 
     @Column(name = "assignee_post", length = Integer.MAX_VALUE)
     private String assigneePost;

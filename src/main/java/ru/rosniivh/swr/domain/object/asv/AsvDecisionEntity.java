@@ -83,13 +83,13 @@ public class AsvDecisionEntity {
     private String organFio;
 
     @Column(name = "organ_lastname", length = Integer.MAX_VALUE)
-    private String organLastname;
+    private String organLastName;
 
     @Column(name = "organ_firstname", length = Integer.MAX_VALUE)
-    private String organFirstname;
+    private String organFirstName;
 
     @Column(name = "organ_middlename", length = Integer.MAX_VALUE)
-    private String organMiddlename;
+    private String organMiddleName;
 
     @Column(name = "organ_post", length = Integer.MAX_VALUE)
     private String organPost;

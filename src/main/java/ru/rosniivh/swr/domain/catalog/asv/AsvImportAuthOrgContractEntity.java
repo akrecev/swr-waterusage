@@ -36,7 +36,7 @@ public class AsvImportAuthOrgContractEntity {
     private String description;
 
     @Column(name = "fullname", nullable = false)
-    private String fullname;
+    private String fullName;
 
     @Column(name = "parent_id")
     private Integer parentId;

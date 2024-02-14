@@ -36,7 +36,7 @@ public class AsvImportLegalSubjectEntity {
     private String description;
 
     @Column(name = "fullname", length = Integer.MAX_VALUE)
-    private String fullname;
+    private String fullName;
 
     @Column(name = "inn", length = Integer.MAX_VALUE)
     private String inn;

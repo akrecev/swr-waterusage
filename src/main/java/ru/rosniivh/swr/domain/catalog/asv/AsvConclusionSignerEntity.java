@@ -25,13 +25,13 @@ public class AsvConclusionSignerEntity {
     private String fio;
 
     @Column(name = "firstname")
-    private String firstname;
+    private String firstName;
 
     @Column(name = "middlename")
-    private String middlename;
+    private String middleName;
 
     @Column(name = "lastname")
-    private String lastname;
+    private String lastName;
 
     @Column(name = "\"position\"")
     private String position;
