@@ -1,12 +1,13 @@
-package ru.rosniivh.swr.domain.object.asv;
+package ru.rosniivh.swr.domain.object;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.apache.catalina.User;
 import ru.rosniivh.swr.domain.auth.UserEntity;
-import ru.rosniivh.swr.domain.object.ConfirmationDocumentEntity;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.LinkedHashSet;
 
 @Builder
 @AllArgsConstructor
@@ -32,7 +33,7 @@ public class HeParcelEntity {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "subbasin_id", nullable = false)
-    private OSubbasin subbasin;
+    private SubbasinEntity subbasin;
 
     @Column(name = "description", length = Integer.MAX_VALUE)
     private String description;
@@ -53,8 +54,9 @@ public class HeParcelEntity {
     @Column(name = "updated_on")
     private Instant updatedOn;
 
-    @Column(name = "updated_by")
-    private Integer updatedBy;
+    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
+    @JoinColumn(name="updated_by")
+    private UserEntity updatedBy;
 
     @Column(name = "confirmed")
     private Boolean confirmed;
@@ -62,11 +64,23 @@ public class HeParcelEntity {
     @Column(name = "confirmed_on")
     private Instant confirmedOn;
 
-    @Column(name = "confirmed_by")
-    private Integer confirmedBy;
+    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
+    @JoinColumn(name="confirmed_by")
+    private UserEntity confirmedBy;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "confirmation_document_id")
     private ConfirmationDocumentEntity confirmationDocument;
+
+//    Добавить
+//    @OneToMany(targetEntity=WaterObjectEntity.class, mappedBy="heParcel", cascade=CascadeType.MERGE)
+//    private Set<WaterObjectEntity> waterObjects;
+
+//    Добавить
+//    @ManyToMany(targetEntity=ControlPointEntity.class, cascade=CascadeType.MERGE)
+//    @JoinTable(schema="dbo", name="jt_he_parcel_control_point",
+//            joinColumns=@JoinColumn(name="he_parcel_id", nullable=false),
+//            inverseJoinColumns=@JoinColumn(name="control_point_id"))
+//    private Set<ControlPointEntity> controlPointEntitys = new LinkedHashSet<>();
 
 }

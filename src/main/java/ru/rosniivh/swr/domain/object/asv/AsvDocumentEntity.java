@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import ru.rosniivh.swr.domain.catalog.RfSubjectEntity;
 import ru.rosniivh.swr.domain.catalog.asv.*;
+import ru.rosniivh.swr.domain.object.HeParcelEntity;
 
 import java.time.LocalDate;
 
@@ -24,8 +25,9 @@ public class AsvDocumentEntity {
     @JoinColumn(name="doc_type_id")
     private AsvRegTypeEntity docType;
 
-    @Column(name = "status")
-    private Integer status;
+    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
+    @JoinColumn(name="status")
+    private AsvStatusEntity status;
 
     @Column(name = "sign_date")
     private LocalDate signDate;
@@ -41,9 +43,9 @@ public class AsvDocumentEntity {
     @JoinColumn(name="organ_id")
     private AsvImportAuthOrgContractEntity organ;
 
-//    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
-//    @JoinColumn(name="hep_id")
-//    private HeParcelEntity hepId;
+    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
+    @JoinColumn(name="hep_id")
+    private HeParcelEntity hepId;
 
     @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
     @JoinColumn(name="aim_id")
