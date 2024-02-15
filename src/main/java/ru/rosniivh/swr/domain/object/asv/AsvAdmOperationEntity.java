@@ -1,6 +1,5 @@
 package ru.rosniivh.swr.domain.object.asv;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import ru.rosniivh.swr.domain.auth.UserEntity;
@@ -62,7 +61,6 @@ public class AsvAdmOperationEntity {
     @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.MERGE)
     @JoinColumn(name = "contract_id")
     private AsvContractEntity contract;
-
 
     @Column(name = "contract_income_id")
     private Integer contractIncomeId;
