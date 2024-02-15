@@ -8,6 +8,7 @@ import ru.rosniivh.swr.domain.auth.UserEntity;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Builder
 @AllArgsConstructor
@@ -72,9 +73,9 @@ public class HeParcelEntity {
     @JoinColumn(name = "confirmation_document_id")
     private ConfirmationDocumentEntity confirmationDocument;
 
-//    Добавить
-//    @OneToMany(targetEntity=WaterObjectEntity.class, mappedBy="heParcel", cascade=CascadeType.MERGE)
-//    private Set<WaterObjectEntity> waterObjects;
+
+    @OneToMany(targetEntity=WaterObjectEntity.class, mappedBy="hep", cascade=CascadeType.MERGE)
+    private Set<WaterObjectEntity> waterObjects;
 
 //    Добавить
 //    @ManyToMany(targetEntity=ControlPointEntity.class, cascade=CascadeType.MERGE)
