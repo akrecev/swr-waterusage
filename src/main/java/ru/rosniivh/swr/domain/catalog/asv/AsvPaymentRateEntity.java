@@ -6,8 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.proxy.HibernateProxy;
 import ru.rosniivh.swr.domain.catalog.RfSubjectEntity;
 
@@ -24,12 +22,10 @@ public class AsvPaymentRateEntity {
     private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "aim_id")
     private AsvWuAimPaymentEntity aim;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "rfs_id")
     private RfSubjectEntity rfs;
 

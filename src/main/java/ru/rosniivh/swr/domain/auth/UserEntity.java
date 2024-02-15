@@ -1,5 +1,6 @@
 package ru.rosniivh.swr.domain.auth;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -8,6 +9,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.proxy.HibernateProxy;
+import ru.rosniivh.swr.domain.catalog.BasinWaterManagementBoardEntity;
+import ru.rosniivh.swr.domain.catalog.WaterResourcesDivisionEntity;
+import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,7 +20,6 @@ import org.hibernate.proxy.HibernateProxy;
 @Entity
 @Table(name = "s_users", schema = "dbo")
 public class UserEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -28,6 +31,7 @@ public class UserEntity {
     @Column(name = "email")
     private String email;
 
+    @JsonIgnore
     @Column(name = "password")
     private String password;
 
@@ -46,6 +50,14 @@ public class UserEntity {
     @Column(name = "phone")
     private String phone;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "bwm_id")
+    private BasinWaterManagementBoardEntity bwm;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "wrd_id")
+    private WaterResourcesDivisionEntity wrd;
+
     @Column(name = "authorities")
     private String authorities;
 
@@ -54,6 +66,10 @@ public class UserEntity {
 
     @Column(name = "deleted")
     private Boolean deleted;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "auth_org_id")
+    private AsvImportAuthOrgContractEntity authOrg;
 
     @Column(name = "asv")
     private Integer asv;

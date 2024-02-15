@@ -1,6 +1,6 @@
 package ru.rosniivh.swr.service.impl;
 
-import java.util.*;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import jakarta.persistence.EntityManager;
@@ -15,7 +15,7 @@ import ru.rosniivh.swr.domain.object.asv.AsvImportLegalSubjectEntity;
 import ru.rosniivh.swr.dto.object.asv.AsvImportLegalSubjectDto;
 import ru.rosniivh.swr.dto.report.AsvImportResponse;
 import ru.rosniivh.swr.filter.AsvImportLegalSubjectFilter;
-import ru.rosniivh.swr.repository.AsvImportLegalSubjectRepository;
+import ru.rosniivh.swr.repository.asv.AsvImportLegalSubjectRepository;
 import ru.rosniivh.swr.service.AsvImportLegalSubjectService;
 
 @Service

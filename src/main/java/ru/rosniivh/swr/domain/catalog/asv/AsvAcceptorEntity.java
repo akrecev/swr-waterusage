@@ -17,42 +17,66 @@ public class AsvAcceptorEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "fio", length = Integer.MAX_VALUE)
+    @Column(name = "fio")
     private String fio;
 
-    @Column(name = "firstname", length = Integer.MAX_VALUE)
-    private String firstname;
+    @Column(name = "firstname")
+    private String firstName;
 
-    @Column(name = "middlename", length = Integer.MAX_VALUE)
-    private String middlename;
+    @Column(name = "middlename")
+    private String middleName;
 
-    @Column(name = "lastname", length = Integer.MAX_VALUE)
-    private String lastname;
+    @Column(name = "lastname")
+    private String lastName;
 
-    @Column(name = "\"position\"", length = Integer.MAX_VALUE)
+    @Column(name = "\"position\"")
     private String position;
 
-    @Column(name = "basis", length = Integer.MAX_VALUE)
+    @Column(name = "basis")
     private String basis;
 
-    @Column(name = "notes", length = Integer.MAX_VALUE)
+    @Column(name = "notes")
     private String notes;
 
-    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "auth_id")
     private AsvImportAuthOrgContractEntity auth;
 
-    @Column(name = "auth_code", length = Integer.MAX_VALUE)
+    @Column(name = "auth_code")
     private String authCode;
 
-    @Column(name = "user_code", length = Integer.MAX_VALUE)
+    @Column(name = "user_code")
     private String userCode;
 
-    @Column(name = "old_code", length = Integer.MAX_VALUE)
+    @Column(name = "old_code")
     private String oldCode;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private UserEntity user;
 
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        Class<?> oEffectiveClass = o instanceof HibernateProxy
+                ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass()
+                : o.getClass();
+        Class<?> thisEffectiveClass = this instanceof HibernateProxy
+                ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass()
+                : this.getClass();
+        if (thisEffectiveClass != oEffectiveClass) return false;
+        AsvAcceptorEntity that = (AsvAcceptorEntity) o;
+        return getId() != null && Objects.equals(getId(), that.getId());
+    }
+
+    @Override
+    public final int hashCode() {
+        return this instanceof HibernateProxy
+                ? ((HibernateProxy) this)
+                        .getHibernateLazyInitializer()
+                        .getPersistentClass()
+                        .hashCode()
+                : getClass().hashCode();
+    }
 }

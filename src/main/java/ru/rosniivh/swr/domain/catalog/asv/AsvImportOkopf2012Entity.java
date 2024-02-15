@@ -8,21 +8,23 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.proxy.HibernateProxy;
 
-@Entity
-@Table(name = "cat_asv_import_okopf_2012", schema = "dbo")
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
+@Entity
+@Table(name = "cat_asv_import_okopf_2012", schema = "dbo")
 public class AsvImportOkopf2012Entity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "uid")
-    private Integer uid;
+    @Column(name = "uid", nullable = false)
+    private Integer id;
 
-    @Column(name = "delete")
-    private Boolean delete;
+    @Column(name = "deleted")
+    private Boolean deleted;
+
+    @Column(name = "parent_id")
+    private Integer parentId;
 
     @Column(name = "code")
     private String code;
@@ -30,14 +32,14 @@ public class AsvImportOkopf2012Entity {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "parent_id")
-    private Integer parentId;
-
     @Column(name = "old_code")
     private String oldCode;
 
     @Column(name = "old_parent_code")
     private String oldParentCode;
+
+    @Column(name = "delete")
+    private Boolean delete;
 
     @Override
     public final boolean equals(Object o) {
@@ -51,7 +53,7 @@ public class AsvImportOkopf2012Entity {
                 : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
         AsvImportOkopf2012Entity that = (AsvImportOkopf2012Entity) o;
-        return getUid() != null && Objects.equals(getUid(), that.getUid());
+        return getId() != null && Objects.equals(getId(), that.getId());
     }
 
     @Override

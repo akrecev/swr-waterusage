@@ -23,6 +23,11 @@ public class AsvImportAuthOrgContractEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
+    @MapsId
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "uid", nullable = false)
+    private AsvImportAuthOrgContractEntity asvImportAuthOrgContractEntity;
+
     @Column(name = "deleted")
     private Boolean deleted;
 
@@ -33,7 +38,7 @@ public class AsvImportAuthOrgContractEntity {
     private String description;
 
     @Column(name = "fullname", nullable = false)
-    private String fullname;
+    private String fullName;
 
     @Column(name = "parent_id")
     private Integer parentId;
@@ -41,8 +46,7 @@ public class AsvImportAuthOrgContractEntity {
     @Column(name = "old_parent_code")
     private String oldParentCode;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.PERSIST)
     @JoinColumn(name = "rf_subject")
     private AsvImportRfSubjectEntity AsvImportRfSubject;
 
@@ -53,8 +57,9 @@ public class AsvImportAuthOrgContractEntity {
     @Column(name = "old_rf_subject_id")
     private String oldRfSubjectId;
 
-    @Column(name = "org_type")
-    private Integer orgType;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "org_type")
+    private AsvAuthOrgTypeEntity orgType;
 
     @Column(name = "old_org_type_id")
     private String oldOrgTypeId;
@@ -155,7 +160,8 @@ public class AsvImportAuthOrgContractEntity {
     @Column(name = "old_code")
     private String oldCode;
 
-
+    @Column(name = "sort_cipher")
+    private String sortCipher;
 
     @Override
     public final boolean equals(Object o) {

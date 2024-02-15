@@ -9,16 +9,16 @@ import lombok.Setter;
 import org.hibernate.proxy.HibernateProxy;
 
 @AllArgsConstructor
-@Entity
-@Table(name = "cat_asv_status", schema = "dbo")
 @NoArgsConstructor
 @Getter
 @Setter
+@Entity
+@Table(name = "cat_asv_status", schema = "dbo")
 public class AsvStatusEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "uid")
-    private Integer uid;
+    @Column(name = "uid", nullable = false)
+    private Integer id;
 
     @Column(name = "name")
     private String name;
@@ -38,7 +38,7 @@ public class AsvStatusEntity {
                 : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
         AsvStatusEntity that = (AsvStatusEntity) o;
-        return getUid() != null && Objects.equals(getUid(), that.getUid());
+        return getId() != null && Objects.equals(getId(), that.getId());
     }
 
     @Override

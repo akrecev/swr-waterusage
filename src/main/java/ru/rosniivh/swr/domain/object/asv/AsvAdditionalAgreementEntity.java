@@ -7,9 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.proxy.HibernateProxy;
+import ru.rosniivh.swr.domain.catalog.asv.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,13 +22,18 @@ public class AsvAdditionalAgreementEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "contract_id")
-    private Integer contractId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "status")
+    private AsvStatusEntity status;
 
-    @Column(name = "reg_number")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "contract_id")
+    private AsvContractEntity contract;
+
+    @Column(name = "reg_number", length = Integer.MAX_VALUE)
     private String regNumber;
 
-    @Column(name = "add_agr_number")
+    @Column(name = "add_agr_number", length = Integer.MAX_VALUE)
     private String addAgrNumber;
 
     @Column(name = "sign_date")
@@ -41,49 +45,76 @@ public class AsvAdditionalAgreementEntity {
     @Column(name = "npp")
     private Integer npp;
 
-    @Column(name = "wu_start_period")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "reducing_reason_id")
+    private AsvReducingReasonEntity reducingReason;
+
+    @Column(name = "wu_start_period", length = Integer.MAX_VALUE)
     private String wuStartPeriod;
 
     @Column(name = "has_observation_program")
     private Integer hasObservationProgram;
 
-    @Column(name = "observation_program_points")
+    @Column(name = "observation_program_points", length = Integer.MAX_VALUE)
     private String observationProgramPoints;
 
-    @Column(name = "organ_text")
+    @Column(name = "organ_text", length = Integer.MAX_VALUE)
     private String organText;
 
-    @Column(name = "organ_name")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "kbk_id")
+    private AsvKbkEntity kbk;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "organ_id")
+    private AsvImportAuthOrgContractEntity organ;
+
+    @Column(name = "organ_name", length = Integer.MAX_VALUE)
     private String organName;
 
-    @Column(name = "organ_fio")
+    @Column(name = "organ_fio", length = Integer.MAX_VALUE)
     private String organFio;
 
-    @Column(name = "organ_basis")
+    @Column(name = "organ_basis", length = Integer.MAX_VALUE)
     private String organBasis;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "water_user_id")
     private AsvImportLegalSubjectEntity waterUser;
 
-    @Column(name = "water_user_name")
+    @Column(name = "water_user_name", length = Integer.MAX_VALUE)
     private String waterUserName;
 
-    @Column(name = "water_user_fio")
+    @Column(name = "water_user_fio", length = Integer.MAX_VALUE)
     private String waterUserFio;
 
-    @Column(name = "water_user_basis")
+    @Column(name = "water_user_basis", length = Integer.MAX_VALUE)
     private String waterUserBasis;
 
-    @Column(name = "notes")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "termination_basis_id")
+    private AsvTerminationBasisEntity terminationBasis;
+
+    @Column(name = "notes", length = Integer.MAX_VALUE)
     private String notes;
 
-    @Column(name = "old_code")
+    @Column(name = "old_code", length = Integer.MAX_VALUE)
     private String oldCode;
 
-    @Column(name = "order_number")
+    @Column(name = "order_number", length = Integer.MAX_VALUE)
     private String orderNumber;
+
+    @Column(name = "asv_document_id")
+    private Integer asvDocumentId;
+
+    @Column(name = "wu_end_date")
+    private LocalDate wuEndDate;
+
+    @Column(name = "stop_date")
+    private LocalDate stopDate;
+
+    @Column(name = "mark_del")
+    private Integer markDel;
 
     @Override
     public final boolean equals(Object o) {

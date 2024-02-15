@@ -6,8 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.proxy.HibernateProxy;
 
 @AllArgsConstructor
@@ -26,12 +24,28 @@ public class AsvUsageTargetEntity {
     private String code;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "reg_type")
     private AsvRegTypeEntity regType;
 
     @Column(name = "name")
     private String name;
+
+    @Column(name = "is_old")
+    private Integer isOld;
+
+    @Column(name = "var_num")
+    private Integer varNum;
+
+    @Column(name = "old_code")
+    private String oldCode;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "aim_id")
+    private AsvWuAimPaymentEntity aim;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "wu_aim_id")
+    private AsvWuAimEntity wuAim;
 
     @Override
     public final boolean equals(Object o) {

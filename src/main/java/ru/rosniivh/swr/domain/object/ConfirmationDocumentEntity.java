@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.proxy.HibernateProxy;
+import ru.rosniivh.swr.domain.auth.UserEntity;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,25 +23,29 @@ public class ConfirmationDocumentEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "doc_number")
+    @Column(name = "doc_number", length = Integer.MAX_VALUE)
     private String docNumber;
 
     @Column(name = "doc_date")
     private LocalDate docDate;
 
-    @Column(name = "in_number")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "executive_authority_id")
+    private ExecutiveAuthorityEntity executiveAuthority;
+
+    @Column(name = "in_number", length = Integer.MAX_VALUE)
     private String inNumber;
 
     @Column(name = "in_date")
     private LocalDate inDate;
 
-    @Column(name = "out_number")
+    @Column(name = "out_number", length = Integer.MAX_VALUE)
     private String outNumber;
 
     @Column(name = "out_date")
     private LocalDate outDate;
 
-    @Column(name = "storage_location")
+    @Column(name = "storage_location", length = Integer.MAX_VALUE)
     private String storageLocation;
 
     @Column(name = "file_size")
@@ -51,6 +56,10 @@ public class ConfirmationDocumentEntity {
 
     @Column(name = "inserted_on", nullable = false)
     private Instant insertedOn;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "inserted_by", nullable = false)
+    private UserEntity insertedBy;
 
     @Column(name = "updated_on")
     private Instant updatedOn;
