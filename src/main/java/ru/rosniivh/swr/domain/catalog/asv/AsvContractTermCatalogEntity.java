@@ -14,7 +14,7 @@ import org.hibernate.proxy.HibernateProxy;
 @Setter
 @Entity
 @Table(name = "cat_asv_contract_terms", schema = "dbo")
-public class AsvContractTermEntity {
+public class AsvContractTermCatalogEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "uid", nullable = false)
@@ -41,7 +41,7 @@ public class AsvContractTermEntity {
                 ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass()
                 : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        AsvContractTermEntity that = (AsvContractTermEntity) o;
+        AsvContractTermCatalogEntity that = (AsvContractTermCatalogEntity) o;
         return getId() != null && Objects.equals(getId(), that.getId());
     }
 
