@@ -3,7 +3,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-src/main/resources/application-local.yaml
+**/src/main/resources/application-local.yaml
 
 ### STS ###
 .apt_generated
@@ -16,8 +16,9 @@ src/main/resources/application-local.yaml
 
 ### IntelliJ IDEA ###
 .idea
-*.iws
 *.iml
+*.iws
+*.imlgit
 *.ipr
 
 ### NetBeans ###
