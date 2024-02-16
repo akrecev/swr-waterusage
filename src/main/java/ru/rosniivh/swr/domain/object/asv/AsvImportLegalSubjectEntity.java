@@ -1,24 +1,18 @@
 package ru.rosniivh.swr.domain.object.asv;
 
 import jakarta.persistence.*;
-import java.util.LinkedHashSet;
 import java.util.Objects;
-import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.proxy.HibernateProxy;
-import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
-import ru.rosniivh.swr.domain.catalog.asv.AsvImportOkopf2012Entity;
-import ru.rosniivh.swr.domain.catalog.asv.AsvImportOkved22016Entity;
+import ru.rosniivh.swr.domain.catalog.asv.*;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "o_asv_import_legal_subject", schema = "dbo")
 public class AsvImportLegalSubjectEntity {
@@ -26,6 +20,11 @@ public class AsvImportLegalSubjectEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "uid", nullable = false)
     private Integer id;
+
+    @MapsId
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "uid", nullable = false)
+    private AsvImportLegalSubjectEntity oAsvImportLegalSubject;
 
     @Column(name = "deleted")
     private String deleted;
@@ -54,8 +53,9 @@ public class AsvImportLegalSubjectEntity {
     @Column(name = "industry_code")
     private String industryCode;
 
-    @Column(name = "industry_id")
-    private Integer industryId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "industry_id")
+    private AsvImportIndustryEntity industry;
 
     @Column(name = "old_industry_code")
     private String oldIndustryCode;
@@ -63,8 +63,9 @@ public class AsvImportLegalSubjectEntity {
     @Column(name = "territ_value")
     private String territValue;
 
-    @Column(name = "location_id")
-    private Integer locationId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "location_id")
+    private AsvImportTerritoryEntity location;
 
     @Column(name = "old_location_id")
     private String oldLocationId;
@@ -141,14 +142,16 @@ public class AsvImportLegalSubjectEntity {
     @Column(name = "old_bank_id")
     private String oldBankId;
 
-    @Column(name = "bank_account_id")
-    private Integer bankAccountId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "bank_account_id")
+    private AsvImportBankAccountEntity bankAccount;
 
     @Column(name = "ls_type")
     private String lsType;
 
-    @Column(name = "okopf99_id")
-    private Integer okopf99Id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "okopf99_id")
+    private AsvImportOkopf99Entity okopf99;
 
     @Column(name = "old_okopf99_id")
     private String oldOkopf99Id;
@@ -159,8 +162,9 @@ public class AsvImportLegalSubjectEntity {
     @Column(name = "ls_executor_reason")
     private String lsExecutorReason;
 
-    @Column(name = "okved2007_id")
-    private Integer okved2007Id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "okved2007_id")
+    private AsvImportOkved1Entity okved2007;
 
     @Column(name = "old_okved2007_id")
     private String oldOkved2007Id;
@@ -169,7 +173,6 @@ public class AsvImportLegalSubjectEntity {
     private String guiv;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "okopf2012_id")
     private AsvImportOkopf2012Entity okopf2012;
 
@@ -195,7 +198,6 @@ public class AsvImportLegalSubjectEntity {
     private String kio;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "okved2016_id")
     private AsvImportOkved22016Entity okved2016;
 
@@ -208,23 +210,9 @@ public class AsvImportLegalSubjectEntity {
     @Column(name = "old_bank_account_id")
     private String oldBankAccountId;
 
-    @OneToMany(mappedBy = "waterUser")
-    private Set<AsvAdditionalAgreementEntity> asvAdditionalAgreementEntities = new LinkedHashSet<>();
-
-    @OneToMany(mappedBy = "waterUser")
-    private Set<AsvContractEntity> asvContractEntities = new LinkedHashSet<>();
-
-    @OneToMany(mappedBy = "rightholder")
-    private Set<AsvContractTransferEntity> asvContractTransferEntities = new LinkedHashSet<>();
-
-    @OneToMany(mappedBy = "waterUser")
-    private Set<AsvDecisionEntity> asvDecisionEntities = new LinkedHashSet<>();
-
-    @ManyToMany(targetEntity = AsvImportAuthOrgContractEntity.class, cascade = CascadeType.MERGE)
-    @JoinTable(schema="dbo", name="jt_legal_subject_auth_org_contract",
-            joinColumns=@JoinColumn(name="legal_subject_id"),
-            inverseJoinColumns=@JoinColumn(name="auth_org_contract_id"))
-    private Set<AsvImportAuthOrgContractEntity> asvImportAuthOrgContractEntities = new LinkedHashSet<>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "subject_type")
+    private AsvLegalSubjectTypeEntity subjectType;
 
     @Override
     public final boolean equals(Object o) {

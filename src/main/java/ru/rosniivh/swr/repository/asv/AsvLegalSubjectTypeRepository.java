@@ -1,4 +1,4 @@
-package ru.rosniivh.swr.repository;
+package ru.rosniivh.swr.repository.asv;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

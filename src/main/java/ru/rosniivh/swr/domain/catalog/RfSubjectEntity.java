@@ -6,8 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.proxy.HibernateProxy;
 
 @AllArgsConstructor
@@ -34,13 +32,16 @@ public class RfSubjectEntity {
     @Column(name = "oktmo_code", nullable = false)
     private String oktmoCode;
 
-    @Column(name = "gost_code", nullable = false)
+    @Column(name = "gost_code")
     private String gostCode;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "fd_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "fd_id")
     private FederalDistrictEntity fd;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "wrd_id")
+    private WaterResourcesDivisionEntity wrd;
 
     @Override
     public final boolean equals(Object o) {

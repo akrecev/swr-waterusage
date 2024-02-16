@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.proxy.HibernateProxy;
+import ru.rosniivh.swr.domain.auth.UserEntity;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,6 +28,10 @@ public class ConfirmationDocumentEntity {
 
     @Column(name = "doc_date")
     private LocalDate docDate;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "executive_authority_id")
+    private ExecutiveAuthorityEntity executiveAuthority;
 
     @Column(name = "in_number")
     private String inNumber;
@@ -51,6 +56,10 @@ public class ConfirmationDocumentEntity {
 
     @Column(name = "inserted_on", nullable = false)
     private Instant insertedOn;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "inserted_by", nullable = false)
+    private UserEntity insertedBy;
 
     @Column(name = "updated_on")
     private Instant updatedOn;

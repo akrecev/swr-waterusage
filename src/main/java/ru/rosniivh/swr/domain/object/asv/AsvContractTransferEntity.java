@@ -8,9 +8,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.proxy.HibernateProxy;
+import ru.rosniivh.swr.domain.catalog.RfSubjectEntity;
+import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
+import ru.rosniivh.swr.domain.catalog.asv.AsvRfSubjectEntity;
+import ru.rosniivh.swr.domain.catalog.asv.AsvStatusEntity;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,6 +25,18 @@ public class AsvContractTransferEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "uid", nullable = false)
     private Integer id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "contract_id")
+    private AsvContractEntity contract;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "status")
+    private AsvStatusEntity status;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "rfs_id")
+    private RfSubjectEntity rfs;
 
     @Column(name = "conclusion_place")
     private String conclusionPlace;
@@ -46,18 +60,17 @@ public class AsvContractTransferEntity {
     private LocalDate stopDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "rightholder_id")
     private AsvImportLegalSubjectEntity rightholder;
 
     @Column(name = "rightholder_firstname")
-    private String rightholderFirstname;
+    private String rightholderFirstName;
 
     @Column(name = "rightholder_middlename")
-    private String rightholderMiddlename;
+    private String rightholderMiddleName;
 
     @Column(name = "rightholder_lastname")
-    private String rightholderLastname;
+    private String rightholderLastName;
 
     @Column(name = "rightholder_post")
     private String rightholderPost;
@@ -69,13 +82,13 @@ public class AsvContractTransferEntity {
     private Integer assigneeId;
 
     @Column(name = "assignee_firstname")
-    private String assigneeFirstname;
+    private String assigneeFirstName;
 
     @Column(name = "assignee_middlename")
-    private String assigneeMiddlename;
+    private String assigneeMiddleName;
 
     @Column(name = "assignee_lastname")
-    private String assigneeLastname;
+    private String assigneeLastName;
 
     @Column(name = "assignee_post")
     private String assigneePost;
@@ -83,14 +96,28 @@ public class AsvContractTransferEntity {
     @Column(name = "assignee_basis")
     private String assigneeBasis;
 
-    @Column(name = "payment")
+    @Column(name = "payment", precision = 38, scale = 2)
     private BigDecimal payment;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "organ_id")
+    private AsvImportAuthOrgContractEntity organ;
 
     @Column(name = "notes")
     private String notes;
 
     @Column(name = "old_code")
     private String oldCode;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "asv_rfs_id")
+    private AsvRfSubjectEntity asvRfs;
+
+    @Column(name = "asv_document_id")
+    private Integer asvDocumentId;
+
+    @Column(name = "mark_del")
+    private Integer markDel;
 
     @Override
     public final boolean equals(Object o) {

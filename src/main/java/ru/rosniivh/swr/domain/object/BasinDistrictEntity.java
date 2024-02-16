@@ -8,8 +8,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.proxy.HibernateProxy;
 import ru.rosniivh.swr.domain.auth.UserEntity;
 
@@ -34,14 +32,13 @@ public class BasinDistrictEntity {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "area")
+    @Column(name = "area", precision = 38, scale = 2)
     private BigDecimal area;
 
     @Column(name = "inserted_on", nullable = false)
     private Instant insertedOn;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "inserted_by", nullable = false)
     private UserEntity insertedBy;
 
@@ -61,7 +58,6 @@ public class BasinDistrictEntity {
     private Integer confirmedBy;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "confirmation_document_id")
     private ConfirmationDocumentEntity confirmationDocument;
 

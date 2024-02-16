@@ -26,9 +26,9 @@ public class AsvDecisionDto {
     private LocalDate stopDate;
     private String periodText;
     private String organFio;
-    private String organLastname;
-    private String organFirstname;
-    private String organMiddlename;
+    private String organLastName;
+    private String organFirstName;
+    private String organMiddleName;
     private String organPost;
     private String organBasis;
     private String letterWoType;

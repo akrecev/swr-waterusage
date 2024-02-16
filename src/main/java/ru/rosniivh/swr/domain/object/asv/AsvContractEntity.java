@@ -7,9 +7,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.proxy.HibernateProxy;
+import ru.rosniivh.swr.domain.catalog.RfSubjectEntity;
+import ru.rosniivh.swr.domain.catalog.asv.*;
+import ru.rosniivh.swr.domain.object.HeParcelEntity;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,6 +23,14 @@ public class AsvContractEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "uid", nullable = false)
     private Integer id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "status")
+    private AsvStatusEntity status;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "rfs_id")
+    private RfSubjectEntity rfs;
 
     @Column(name = "conclusion_place")
     private String conclusionPlace;
@@ -41,6 +50,10 @@ public class AsvContractEntity {
     @Column(name = "stop_date")
     private LocalDate stopDate;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "organ_id")
+    private AsvImportAuthOrgContractEntity organ;
+
     @Column(name = "organ_fio")
     private String organFio;
 
@@ -48,7 +61,6 @@ public class AsvContractEntity {
     private String organBasis;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "water_user_id")
     private AsvImportLegalSubjectEntity waterUser;
 
@@ -75,6 +87,10 @@ public class AsvContractEntity {
 
     @Column(name = "letter_influence")
     private String letterInfluence;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "hep_id")
+    private HeParcelEntity hep;
 
     @Column(name = "location")
     private String location;
@@ -135,6 +151,18 @@ public class AsvContractEntity {
 
     @Column(name = "qual_date")
     private LocalDate qualDate;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "izv_id")
+    private AsvIzvEntity izv;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ukizv_i_id")
+    private AsvUkizvIEntity ukizvI;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ukizv_k_id")
+    private AsvUkizvKEntity ukizvK;
 
     @Column(name = "qual_other")
     private String qualOther;
@@ -223,6 +251,10 @@ public class AsvContractEntity {
     @Column(name = "usage_period")
     private String usagePeriod;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "kbk_id")
+    private AsvKbkEntity kbk;
+
     @Column(name = "old_code")
     private String oldCode;
 
@@ -234,6 +266,46 @@ public class AsvContractEntity {
 
     @Column(name = "auction")
     private String auction;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "wot_id")
+    private AsvWaterObjectTypeEntity wot;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "aim_id")
+    private AsvUsageTargetEntity aim;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "influence_id")
+    private AsvUsageEffectEntity influence;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "wu_kind_id")
+    private AsvWuKindEntity wuKind1;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "method_id")
+    private AsvWuMethodEntity method;
+
+    @Column(name = "asv_rfs_id")
+    private Integer asvRfsId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "asv_activities_plan_id")
+    private AsvActivitiesPlanEntity asvActivitiesPlan;
+
+    @Column(name = "asv_document_id")
+    private Integer asvDocumentId;
+
+    @Column(name = "mark_del")
+    private Integer markDel;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "isolated_water_use_id")
+    private AsvIsolatedWaterUseEntity isolatedWaterUse;
+
+    @Column(name = "parameter_show")
+    private Integer parameterShow;
 
     @Override
     public final boolean equals(Object o) {

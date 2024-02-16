@@ -7,9 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.proxy.HibernateProxy;
+import ru.rosniivh.swr.domain.catalog.asv.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,8 +22,13 @@ public class AsvAdditionalAgreementEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "contract_id")
-    private Integer contractId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "status")
+    private AsvStatusEntity status;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "contract_id")
+    private AsvContractEntity contract;
 
     @Column(name = "reg_number")
     private String regNumber;
@@ -41,6 +45,10 @@ public class AsvAdditionalAgreementEntity {
     @Column(name = "npp")
     private Integer npp;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "reducing_reason_id")
+    private AsvReducingReasonEntity reducingReason;
+
     @Column(name = "wu_start_period")
     private String wuStartPeriod;
 
@@ -53,6 +61,14 @@ public class AsvAdditionalAgreementEntity {
     @Column(name = "organ_text")
     private String organText;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "kbk_id")
+    private AsvKbkEntity kbk;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "organ_id")
+    private AsvImportAuthOrgContractEntity organ;
+
     @Column(name = "organ_name")
     private String organName;
 
@@ -63,7 +79,6 @@ public class AsvAdditionalAgreementEntity {
     private String organBasis;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "water_user_id")
     private AsvImportLegalSubjectEntity waterUser;
 
@@ -76,6 +91,10 @@ public class AsvAdditionalAgreementEntity {
     @Column(name = "water_user_basis")
     private String waterUserBasis;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "termination_basis_id")
+    private AsvTerminationBasisEntity terminationBasis;
+
     @Column(name = "notes")
     private String notes;
 
@@ -84,6 +103,18 @@ public class AsvAdditionalAgreementEntity {
 
     @Column(name = "order_number")
     private String orderNumber;
+
+    @Column(name = "asv_document_id")
+    private Integer asvDocumentId;
+
+    @Column(name = "wu_end_date")
+    private LocalDate wuEndDate;
+
+    @Column(name = "stop_date")
+    private LocalDate stopDate;
+
+    @Column(name = "mark_del")
+    private Integer markDel;
 
     @Override
     public final boolean equals(Object o) {

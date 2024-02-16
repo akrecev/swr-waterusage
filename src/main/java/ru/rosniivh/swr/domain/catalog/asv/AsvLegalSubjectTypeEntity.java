@@ -8,21 +8,26 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.proxy.HibernateProxy;
 
-@Entity
-@Table(name = "cat_asv_legal_subject_type", schema = "dbo")
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
+@Entity
+@Table(name = "cat_asv_legal_subject_type", schema = "dbo")
 public class AsvLegalSubjectTypeEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "uid")
-    private Integer uid;
+    @Column(name = "uid", nullable = false)
+    private Integer id;
+
+    @Column(name = "npp")
+    private Integer npp;
 
     @Column(name = "name")
     private String name;
+
+    @Column(name = "old_code")
+    private String oldCode;
 
     @Override
     public final boolean equals(Object o) {
@@ -36,7 +41,7 @@ public class AsvLegalSubjectTypeEntity {
                 : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
         AsvLegalSubjectTypeEntity that = (AsvLegalSubjectTypeEntity) o;
-        return getUid() != null && Objects.equals(getUid(), that.getUid());
+        return getId() != null && Objects.equals(getId(), that.getId());
     }
 
     @Override
