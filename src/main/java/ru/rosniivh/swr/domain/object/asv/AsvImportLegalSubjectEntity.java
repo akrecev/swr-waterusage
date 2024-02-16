@@ -11,6 +11,7 @@ import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.proxy.HibernateProxy;
+import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
 import ru.rosniivh.swr.domain.catalog.asv.AsvImportOkopf2012Entity;
 import ru.rosniivh.swr.domain.catalog.asv.AsvImportOkved22016Entity;
 
@@ -218,6 +219,12 @@ public class AsvImportLegalSubjectEntity {
 
     @OneToMany(mappedBy = "waterUser")
     private Set<AsvDecisionEntity> asvDecisionEntities = new LinkedHashSet<>();
+
+    @ManyToMany(targetEntity = AsvImportAuthOrgContractEntity.class, cascade = CascadeType.MERGE)
+    @JoinTable(schema="dbo", name="jt_legal_subject_auth_org_contract",
+            joinColumns=@JoinColumn(name="legal_subject_id"),
+            inverseJoinColumns=@JoinColumn(name="auth_org_contract_id"))
+    private Set<AsvImportAuthOrgContractEntity> asvImportAuthOrgContractEntities = new LinkedHashSet<>();
 
     @Override
     public final boolean equals(Object o) {

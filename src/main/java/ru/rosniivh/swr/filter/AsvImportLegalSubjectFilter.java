@@ -12,20 +12,22 @@ import ru.rosniivh.swr.domain.object.asv.AsvImportLegalSubjectEntity;
 public class AsvImportLegalSubjectFilter {
 
     private Integer id;
-
     private Integer type;
     private String inn;
+    private String kpp;
     private String fullName;
     private String ogrn;
     private String okpo;
     private String placeAddress;
     private String legalAddress;
     private String okato;
+//    private Boolean distinct;
 
     public Specification<AsvImportLegalSubjectEntity> toSpecification() {
         return Specification.where(hasId(id))
                 .and(hasType(type))
                 .and(hasInn(inn))
+                .and(hasKpp(kpp))
                 .and(hasFullName(fullName))
                 .and(hasOgrn(ogrn))
                 .and(hasOkpo(okpo))
