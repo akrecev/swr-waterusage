@@ -14,12 +14,16 @@ import ru.rosniivh.swr.domain.catalog.asv.AsvWoMeanEntity;
 @Getter
 @Setter
 @Entity
-@Table(name = "o_asv_contract_wo_mean", schema = "dbo")
-public class AsvContractWoMeanEntity {
+@Table(name = "o_asv_decision_wo_mean", schema = "dbo")
+public class AsvDecisionWoMeanEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "uid", nullable = false)
     private Integer id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "water_object_id")
+    private AsvDecisionWaterObjectEntity waterObject;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "wo_mean_id")
@@ -28,15 +32,8 @@ public class AsvContractWoMeanEntity {
     @Column(name = "foundation", length = Integer.MAX_VALUE)
     private String foundation;
 
-    @Column(name = "contract_id")
-    private Integer contractId;
-
     @Column(name = "npp")
     private Integer npp;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "water_object_id")
-    private AsvContractWaterObjectEntity waterObject;
 
     @Override
     public final boolean equals(Object o) {
@@ -49,7 +46,7 @@ public class AsvContractWoMeanEntity {
                 ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass()
                 : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        AsvContractWoMeanEntity that = (AsvContractWoMeanEntity) o;
+        AsvDecisionWoMeanEntity that = (AsvDecisionWoMeanEntity) o;
         return getId() != null && Objects.equals(getId(), that.getId());
     }
 

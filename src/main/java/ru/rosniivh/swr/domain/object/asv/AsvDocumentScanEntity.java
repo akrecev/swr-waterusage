@@ -1,42 +1,49 @@
 package ru.rosniivh.swr.domain.object.asv;
 
 import jakarta.persistence.*;
+import java.time.Instant;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.proxy.HibernateProxy;
-import ru.rosniivh.swr.domain.catalog.asv.AsvWoMeanEntity;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
-@Table(name = "o_asv_contract_wo_mean", schema = "dbo")
-public class AsvContractWoMeanEntity {
+@Table(name = "o_asv_document_scan", schema = "dbo")
+public class AsvDocumentScanEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "wo_mean_id")
-    private AsvWoMeanEntity woMean;
+    @Column(name = "document_id")
+    private Integer documentId;
 
-    @Column(name = "foundation", length = Integer.MAX_VALUE)
-    private String foundation;
+    @Column(name = "path", length = Integer.MAX_VALUE)
+    private String path;
 
-    @Column(name = "contract_id")
-    private Integer contractId;
+    @Column(name = "name_old", length = Integer.MAX_VALUE)
+    private String nameOld;
 
-    @Column(name = "npp")
-    private Integer npp;
+    @Column(name = "size", length = Integer.MAX_VALUE)
+    private String size;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "water_object_id")
-    private AsvContractWaterObjectEntity waterObject;
+    @Column(name = "author_name", length = Integer.MAX_VALUE)
+    private String authorName;
+
+    @Column(name = "date_create")
+    private Instant dateCreate;
+
+    @Column(name = "description", length = Integer.MAX_VALUE)
+    private String description;
+
+    @Column(name = "old_code", length = Integer.MAX_VALUE)
+    private String oldCode;
 
     @Override
     public final boolean equals(Object o) {
@@ -49,7 +56,7 @@ public class AsvContractWoMeanEntity {
                 ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass()
                 : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        AsvContractWoMeanEntity that = (AsvContractWoMeanEntity) o;
+        AsvDocumentScanEntity that = (AsvDocumentScanEntity) o;
         return getId() != null && Objects.equals(getId(), that.getId());
     }
 
