@@ -42,13 +42,13 @@ public class AsvDecisionTerminationEntity {
     @Column(name = "sign_date")
     private LocalDate signDate;
 
-    @Column(name = "reg_number", length = Integer.MAX_VALUE)
+    @Column(name = "reg_number")
     private String regNumber;
 
-    @Column(name = "order_number", length = Integer.MAX_VALUE)
+    @Column(name = "order_number")
     private String orderNumber;
 
-    @Column(name = "add_number", length = Integer.MAX_VALUE)
+    @Column(name = "add_number")
     private String addNumber;
 
     @Column(name = "reg_date")
@@ -58,7 +58,7 @@ public class AsvDecisionTerminationEntity {
     @JoinColumn(name = "organ_id")
     private AsvImportAuthOrgContractEntity organ;
 
-    @Column(name = "old_code", length = Integer.MAX_VALUE)
+    @Column(name = "old_code")
     private String oldCode;
 
     @Column(name = "asv_document_id")

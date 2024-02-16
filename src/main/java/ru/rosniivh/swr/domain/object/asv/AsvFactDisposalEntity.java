@@ -30,7 +30,7 @@ public class AsvFactDisposalEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "doc_num", length = Integer.MAX_VALUE)
+    @Column(name = "doc_num")
     private String docNum;
 
     @Column(name = "doc_date")
@@ -46,61 +46,61 @@ public class AsvFactDisposalEntity {
     @Column(name = "quarter")
     private Integer quarter;
 
-    @Column(name = "period_text", length = Integer.MAX_VALUE)
+    @Column(name = "period_text")
     private String periodText;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ls_type_id")
     private AsvLegalSubjectTypeEntity lsType;
 
-    @Column(name = "ls_type_text", length = Integer.MAX_VALUE)
+    @Column(name = "ls_type_text")
     private String lsTypeText;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ls_id")
     private AsvImportLegalSubjectEntity ls;
 
-    @Column(name = "ls_name", length = Integer.MAX_VALUE)
+    @Column(name = "ls_name")
     private String lsName;
 
-    @Column(name = "ls_address", length = Integer.MAX_VALUE)
+    @Column(name = "ls_address")
     private String lsAddress;
 
-    @Column(name = "ls_okopf", length = Integer.MAX_VALUE)
+    @Column(name = "ls_okopf")
     private String lsOkopf;
 
-    @Column(name = "ls_inn", length = Integer.MAX_VALUE)
+    @Column(name = "ls_inn")
     private String lsInn;
 
-    @Column(name = "ls_kpp", length = Integer.MAX_VALUE)
+    @Column(name = "ls_kpp")
     private String lsKpp;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "basin_district_id")
     private BasinDistrictEntity basinDistrict;
 
-    @Column(name = "basin_district_text", length = Integer.MAX_VALUE)
+    @Column(name = "basin_district_text")
     private String basinDistrictText;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "rf_subject_id")
     private RfSubjectEntity rfSubject;
 
-    @Column(name = "rf_subject_text", length = Integer.MAX_VALUE)
+    @Column(name = "rf_subject_text")
     private String rfSubjectText;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subbasin_id")
     private SubbasinEntity subbasin;
 
-    @Column(name = "subbasin_text", length = Integer.MAX_VALUE)
+    @Column(name = "subbasin_text")
     private String subbasinText;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "he_parcel_id")
     private HeParcelEntity heParcel;
 
-    @Column(name = "he_parcel_text", length = Integer.MAX_VALUE)
+    @Column(name = "he_parcel_text")
     private String heParcelText;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -111,25 +111,25 @@ public class AsvFactDisposalEntity {
     @JoinColumn(name = "decision_id")
     private AsvDecisionEntity decision;
 
-    @Column(name = "contract_old_code", length = Integer.MAX_VALUE)
+    @Column(name = "contract_old_code")
     private String contractOldCode;
 
-    @Column(name = "contract_text", length = Integer.MAX_VALUE)
+    @Column(name = "contract_text")
     private String contractText;
 
-    @Column(name = "device_name", length = Integer.MAX_VALUE)
+    @Column(name = "device_name")
     private String deviceName;
 
-    @Column(name = "device_last_check", length = Integer.MAX_VALUE)
+    @Column(name = "device_last_check")
     private String deviceLastCheck;
 
-    @Column(name = "device_periodic", length = Integer.MAX_VALUE)
+    @Column(name = "device_periodic")
     private String devicePeriodic;
 
     @Column(name = "excess")
     private Integer excess;
 
-    @Column(name = "executor", length = Integer.MAX_VALUE)
+    @Column(name = "executor")
     private String executor;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -142,7 +142,7 @@ public class AsvFactDisposalEntity {
     @Column(name = "posted")
     private Integer posted;
 
-    @Column(name = "old_code", length = Integer.MAX_VALUE)
+    @Column(name = "old_code")
     private String oldCode;
 
     @Column(name = "inserted_on")

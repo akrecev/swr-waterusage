@@ -28,16 +28,16 @@ public class AsvBsPaymentDetailEntity {
     @JoinColumn(name = "auth_id")
     private AsvImportAuthOrgContractEntity auth;
 
-    @Column(name = "doc_num", length = Integer.MAX_VALUE)
+    @Column(name = "doc_num")
     private String docNum;
 
     @Column(name = "doc_date")
     private LocalDate docDate;
 
-    @Column(name = "notes", length = Integer.MAX_VALUE)
+    @Column(name = "notes")
     private String notes;
 
-    @Column(name = "executor", length = Integer.MAX_VALUE)
+    @Column(name = "executor")
     private String executor;
 
     @Column(name = "mark_del")
@@ -59,7 +59,7 @@ public class AsvBsPaymentDetailEntity {
     @Column(name = "updated_by")
     private Integer updatedBy;
 
-    @Column(name = "old_code", length = Integer.MAX_VALUE)
+    @Column(name = "old_code")
     private String oldCode;
 
     @Override

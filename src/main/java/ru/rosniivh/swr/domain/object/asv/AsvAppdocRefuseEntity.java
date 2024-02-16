@@ -27,7 +27,7 @@ public class AsvAppdocRefuseEntity {
     @Column(name = "npp")
     private Integer npp;
 
-    @Column(name = "name", length = Integer.MAX_VALUE)
+    @Column(name = "name")
     private String name;
 
     @Column(name = "page_cnt")

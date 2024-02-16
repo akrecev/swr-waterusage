@@ -22,7 +22,7 @@ public class AsvAppdocEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "doc_num", length = Integer.MAX_VALUE)
+    @Column(name = "doc_num")
     private String docNum;
 
     @Column(name = "doc_date")
@@ -37,17 +37,17 @@ public class AsvAppdocEntity {
     @Column(name = "document_id")
     private Integer documentId;
 
-    @Column(name = "document_code", length = Integer.MAX_VALUE)
+    @Column(name = "document_code")
     private String documentCode;
 
-    @Column(name = "wo_link", length = Integer.MAX_VALUE)
+    @Column(name = "wo_link")
     private String woLink;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "review_status_id")
     private AsvReviewStatusEntity reviewStatus;
 
-    @Column(name = "in_number", length = Integer.MAX_VALUE)
+    @Column(name = "in_number")
     private String inNumber;
 
     @Column(name = "in_date")
@@ -56,7 +56,7 @@ public class AsvAppdocEntity {
     @Column(name = "in_letter_date")
     private LocalDate inLetterDate;
 
-    @Column(name = "in_letter_num", length = Integer.MAX_VALUE)
+    @Column(name = "in_letter_num")
     private String inLetterNum;
 
     @Column(name = "sign_date")
@@ -66,14 +66,14 @@ public class AsvAppdocEntity {
     @JoinColumn(name = "acceptor_id")
     private AsvAcceptorEntity acceptor;
 
-    @Column(name = "acceptor_code", length = Integer.MAX_VALUE)
+    @Column(name = "acceptor_code")
     private String acceptorCode;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "checker_id")
     private AsvRegistratorEntity checker;
 
-    @Column(name = "checker_code", length = Integer.MAX_VALUE)
+    @Column(name = "checker_code")
     private String checkerCode;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -86,14 +86,14 @@ public class AsvAppdocEntity {
     @Column(name = "refuse_date")
     private LocalDate refuseDate;
 
-    @Column(name = "refuse_letter_num", length = Integer.MAX_VALUE)
+    @Column(name = "refuse_letter_num")
     private String refuseLetterNum;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "refusor_id")
     private AsvRefusorEntity refusor;
 
-    @Column(name = "refusor_code", length = Integer.MAX_VALUE)
+    @Column(name = "refusor_code")
     private String refusorCode;
 
     @Column(name = "check_auth_done")
@@ -114,7 +114,7 @@ public class AsvAppdocEntity {
     @Column(name = "check_payment_done")
     private Integer checkPaymentDone;
 
-    @Column(name = "other_rules", length = Integer.MAX_VALUE)
+    @Column(name = "other_rules")
     private String otherRules;
 
     @Column(name = "other_rules_done")
@@ -127,22 +127,22 @@ public class AsvAppdocEntity {
     @Column(name = "check_decision_date")
     private LocalDate checkDecisionDate;
 
-    @Column(name = "conclusion_refuse_letter_num", length = Integer.MAX_VALUE)
+    @Column(name = "conclusion_refuse_letter_num")
     private String conclusionRefuseLetterNum;
 
     @Column(name = "conclusion_refusor_id")
     private Integer conclusionRefusorId;
 
-    @Column(name = "conclusion_refusor_code", length = Integer.MAX_VALUE)
+    @Column(name = "conclusion_refusor_code")
     private String conclusionRefusorCode;
 
     @Column(name = "reg_date")
     private LocalDate regDate;
 
-    @Column(name = "reg_number", length = Integer.MAX_VALUE)
+    @Column(name = "reg_number")
     private String regNumber;
 
-    @Column(name = "document_number", length = Integer.MAX_VALUE)
+    @Column(name = "document_number")
     private String documentNumber;
 
     @Column(name = "materials_send_date")
@@ -159,35 +159,35 @@ public class AsvAppdocEntity {
     @JoinColumn(name = "doc_auth_id")
     private AsvImportAuthOrgContractEntity docAuth;
 
-    @Column(name = "doc_type_code", length = Integer.MAX_VALUE)
+    @Column(name = "doc_type_code")
     private String docTypeCode;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "doc_target_id")
     private AsvUsageTargetEntity docTarget;
 
-    @Column(name = "doc_wo_name", length = Integer.MAX_VALUE)
+    @Column(name = "doc_wo_name")
     private String docWoName;
 
     @Column(name = "doc_wo_id")
     private Integer docWoId;
 
-    @Column(name = "doc_wo_code", length = Integer.MAX_VALUE)
+    @Column(name = "doc_wo_code")
     private String docWoCode;
 
-    @Column(name = "doc_wo_code_name", length = Integer.MAX_VALUE)
+    @Column(name = "doc_wo_code_name")
     private String docWoCodeName;
 
-    @Column(name = "doc_hep_code", length = Integer.MAX_VALUE)
+    @Column(name = "doc_hep_code")
     private String docHepCode;
 
-    @Column(name = "doc_hep_name", length = Integer.MAX_VALUE)
+    @Column(name = "doc_hep_name")
     private String docHepName;
 
-    @Column(name = "doc_hep_map_link", length = Integer.MAX_VALUE)
+    @Column(name = "doc_hep_map_link")
     private String docHepMapLink;
 
-    @Column(name = "notes", length = Integer.MAX_VALUE)
+    @Column(name = "notes")
     private String notes;
 
     @Column(name = "receipt_date")
@@ -199,20 +199,20 @@ public class AsvAppdocEntity {
     @Column(name = "accept_date")
     private LocalDate acceptDate;
 
-    @Column(name = "document_list", length = Integer.MAX_VALUE)
+    @Column(name = "document_list")
     private String documentList;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "conclusion_signer_id")
     private AsvConclusionSignerEntity conclusionSigner;
 
-    @Column(name = "conclusion_signer_code", length = Integer.MAX_VALUE)
+    @Column(name = "conclusion_signer_code")
     private String conclusionSignerCode;
 
     @Column(name = "check_other_rules_done")
     private Integer checkOtherRulesDone;
 
-    @Column(name = "reg_order_number", length = Integer.MAX_VALUE)
+    @Column(name = "reg_order_number")
     private String regOrderNumber;
 
     @Column(name = "swr_check_done")
@@ -230,7 +230,7 @@ public class AsvAppdocEntity {
     @Column(name = "posted")
     private Integer posted;
 
-    @Column(name = "old_code", length = Integer.MAX_VALUE)
+    @Column(name = "old_code")
     private String oldCode;
 
     @Override

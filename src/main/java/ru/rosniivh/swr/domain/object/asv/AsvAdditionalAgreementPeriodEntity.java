@@ -39,13 +39,13 @@ public class AsvAdditionalAgreementPeriodEntity {
     @Column(name = "quarter")
     private Integer quarter;
 
-    @Column(name = "old_code_ad_agr", length = Integer.MAX_VALUE)
+    @Column(name = "old_code_ad_agr")
     private String oldCodeAdAgr;
 
-    @Column(name = "old_code_targer", length = Integer.MAX_VALUE)
+    @Column(name = "old_code_targer")
     private String oldCodeTarger;
 
-    @Column(name = "quarter_string", length = Integer.MAX_VALUE)
+    @Column(name = "quarter_string")
     private String quarterString;
 
     @Column(name = "year")

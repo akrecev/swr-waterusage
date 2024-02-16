@@ -20,25 +20,25 @@ public class WaterObjectUseTypeEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "name", nullable = false, length = Integer.MAX_VALUE)
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "code", length = Integer.MAX_VALUE)
+    @Column(name = "code")
     private String code;
 
-    @Column(name = "in_code", length = Integer.MAX_VALUE)
+    @Column(name = "in_code")
     private String inCode;
 
-    @Column(name = "get_code", length = Integer.MAX_VALUE)
+    @Column(name = "get_code")
     private String getCode;
 
-    @Column(name = "out_code", length = Integer.MAX_VALUE)
+    @Column(name = "out_code")
     private String outCode;
 
-    @Column(name = "old_code_in", length = Integer.MAX_VALUE)
+    @Column(name = "old_code_in")
     private String oldCodeIn;
 
-    @Column(name = "old_code_out", length = Integer.MAX_VALUE)
+    @Column(name = "old_code_out")
     private String oldCodeOut;
 
     @Override

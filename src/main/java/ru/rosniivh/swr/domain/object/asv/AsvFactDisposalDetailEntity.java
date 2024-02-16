@@ -32,24 +32,24 @@ public class AsvFactDisposalDetailEntity {
     @Column(name = "water_object_id")
     private Integer waterObjectId;
 
-    @Column(name = "water_object_name", length = Integer.MAX_VALUE)
+    @Column(name = "water_object_name")
     private String waterObjectName;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "wo_type_id")
     private WaterObjectUseTypeEntity woType;
 
-    @Column(name = "wo_type_code", length = Integer.MAX_VALUE)
+    @Column(name = "wo_type_code")
     private String woTypeCode;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private CategoryQualityWaterEntity category;
 
-    @Column(name = "category_code", length = Integer.MAX_VALUE)
+    @Column(name = "category_code")
     private String categoryCode;
 
-    @Column(name = "disposal_num", length = Integer.MAX_VALUE)
+    @Column(name = "disposal_num")
     private String disposalNum;
 
     @Column(name = "la_deg")
@@ -70,22 +70,22 @@ public class AsvFactDisposalDetailEntity {
     @Column(name = "lo_sec")
     private Double loSec;
 
-    @Column(name = "la_deg_text", length = Integer.MAX_VALUE)
+    @Column(name = "la_deg_text")
     private String laDegText;
 
-    @Column(name = "la_min_text", length = Integer.MAX_VALUE)
+    @Column(name = "la_min_text")
     private String laMinText;
 
-    @Column(name = "la_sec_text", length = Integer.MAX_VALUE)
+    @Column(name = "la_sec_text")
     private String laSecText;
 
-    @Column(name = "lo_deg_text", length = Integer.MAX_VALUE)
+    @Column(name = "lo_deg_text")
     private String loDegText;
 
-    @Column(name = "lo_min_text", length = Integer.MAX_VALUE)
+    @Column(name = "lo_min_text")
     private String loMinText;
 
-    @Column(name = "lo_sec_text", length = Integer.MAX_VALUE)
+    @Column(name = "lo_sec_text")
     private String loSecText;
 
     @Column(name = "volume_req")
@@ -112,28 +112,28 @@ public class AsvFactDisposalDetailEntity {
     @Column(name = "volume_purified_mech")
     private Double volumePurifiedMech;
 
-    @Column(name = "volume_req_text", length = Integer.MAX_VALUE)
+    @Column(name = "volume_req_text")
     private String volumeReqText;
 
-    @Column(name = "volume_all_text", length = Integer.MAX_VALUE)
+    @Column(name = "volume_all_text")
     private String volumeAllText;
 
-    @Column(name = "volume_without_purify_text", length = Integer.MAX_VALUE)
+    @Column(name = "volume_without_purify_text")
     private String volumeWithoutPurifyText;
 
-    @Column(name = "volume_not_purified_text", length = Integer.MAX_VALUE)
+    @Column(name = "volume_not_purified_text")
     private String volumeNotPurifiedText;
 
-    @Column(name = "volume_clean_text", length = Integer.MAX_VALUE)
+    @Column(name = "volume_clean_text")
     private String volumeCleanText;
 
-    @Column(name = "volume_purified_bio_text", length = Integer.MAX_VALUE)
+    @Column(name = "volume_purified_bio_text")
     private String volumePurifiedBioText;
 
-    @Column(name = "volume_purified_fh_text", length = Integer.MAX_VALUE)
+    @Column(name = "volume_purified_fh_text")
     private String volumePurifiedFhText;
 
-    @Column(name = "volume_purified_mech_text", length = Integer.MAX_VALUE)
+    @Column(name = "volume_purified_mech_text")
     private String volumePurifiedMechText;
 
     @Column(name = "excess")

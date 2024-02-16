@@ -24,7 +24,7 @@ public class AsvContractLocationEntity {
     @JoinColumn(name = "contract_wo_id")
     private AsvContractWaterObjectEntity contractWo;
 
-    @Column(name = "location", length = Integer.MAX_VALUE)
+    @Column(name = "location")
     private String location;
 
     @Column(name = "npp")

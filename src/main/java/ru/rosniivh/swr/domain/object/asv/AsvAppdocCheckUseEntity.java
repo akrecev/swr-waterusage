@@ -30,7 +30,7 @@ public class AsvAppdocCheckUseEntity {
     @Column(name = "matched")
     private Integer matched;
 
-    @Column(name = "norm_doc", length = Integer.MAX_VALUE)
+    @Column(name = "norm_doc")
     private String normDoc;
 
     @Override

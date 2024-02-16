@@ -54,7 +54,7 @@ public class AsvContractWaterObjectEntity {
     @Column(name = "morf_depth_max")
     private Double morfDepthMax;
 
-    @Column(name = "morf_other", length = Integer.MAX_VALUE)
+    @Column(name = "morf_other")
     private String morfOther;
 
     @Column(name = "hydr_cons")
@@ -72,10 +72,10 @@ public class AsvContractWaterObjectEntity {
     @Column(name = "hydr_level_amplitude")
     private Double hydrLevelAmplitude;
 
-    @Column(name = "hydr_adverse_period", length = Integer.MAX_VALUE)
+    @Column(name = "hydr_adverse_period")
     private String hydrAdversePeriod;
 
-    @Column(name = "hydr_other", length = Integer.MAX_VALUE)
+    @Column(name = "hydr_other")
     private String hydrOther;
 
     @Column(name = "qual_date")
@@ -93,7 +93,7 @@ public class AsvContractWaterObjectEntity {
     @JoinColumn(name = "ukizv_k_id")
     private AsvUkizvKEntity ukizvK;
 
-    @Column(name = "qual_other", length = Integer.MAX_VALUE)
+    @Column(name = "qual_other")
     private String qualOther;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -103,7 +103,7 @@ public class AsvContractWaterObjectEntity {
     @Column(name = "npp")
     private Integer npp;
 
-    @Column(name = "water_object_name", length = Integer.MAX_VALUE)
+    @Column(name = "water_object_name")
     private String waterObjectName;
 
     @Column(name = "is2054")

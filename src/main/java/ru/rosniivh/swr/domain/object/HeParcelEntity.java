@@ -23,20 +23,20 @@ public class HeParcelEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "code", length = Integer.MAX_VALUE)
+    @Column(name = "code")
     private String code;
 
-    @Column(name = "num", length = Integer.MAX_VALUE)
+    @Column(name = "num")
     private String num;
 
-    @Column(name = "name", length = Integer.MAX_VALUE)
+    @Column(name = "name")
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "subbasin_id", nullable = false)
     private SubbasinEntity subbasin;
 
-    @Column(name = "description", length = Integer.MAX_VALUE)
+    @Column(name = "description")
     private String description;
 
     @Column(name = "area")

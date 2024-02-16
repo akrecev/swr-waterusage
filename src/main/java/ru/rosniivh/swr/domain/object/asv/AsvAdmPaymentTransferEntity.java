@@ -25,7 +25,7 @@ public class AsvAdmPaymentTransferEntity {
     @JoinColumn(name = "oper_id")
     private AsvAdmOperationEntity oper;
 
-    @Column(name = "transfer_type", length = Integer.MAX_VALUE)
+    @Column(name = "transfer_type")
     private String transferType;
 
     @Column(name = "npp")
@@ -34,7 +34,7 @@ public class AsvAdmPaymentTransferEntity {
     @Column(name = "oper_doc_id")
     private Integer operDocId;
 
-    @Column(name = "oper_doc_code", length = Integer.MAX_VALUE)
+    @Column(name = "oper_doc_code")
     private String operDocCode;
 
     @ManyToOne(fetch = FetchType.LAZY)

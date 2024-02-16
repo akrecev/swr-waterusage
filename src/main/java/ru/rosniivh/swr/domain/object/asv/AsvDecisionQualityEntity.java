@@ -27,7 +27,7 @@ public class AsvDecisionQualityEntity {
     @Column(name = "npp")
     private Integer npp;
 
-    @Column(name = "param", length = Integer.MAX_VALUE)
+    @Column(name = "param")
     private String param;
 
     @Column(name = "value")

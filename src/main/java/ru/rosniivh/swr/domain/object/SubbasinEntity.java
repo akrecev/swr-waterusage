@@ -23,20 +23,20 @@ public class SubbasinEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "code", length = Integer.MAX_VALUE)
+    @Column(name = "code")
     private String code;
 
-    @Column(name = "full_code", length = Integer.MAX_VALUE)
+    @Column(name = "full_code")
     private String fullCode;
 
-    @Column(name = "name", length = Integer.MAX_VALUE)
+    @Column(name = "name")
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "river_basin_id", nullable = false)
     private RiverBasinEntity riverBasin;
 
-    @Column(name = "description", length = Integer.MAX_VALUE)
+    @Column(name = "description")
     private String description;
 
     @Column(name = "area")

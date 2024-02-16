@@ -31,7 +31,7 @@ public class AsvDecisionWaterObjectEntity {
     @Column(name = "water_object_id")
     private Integer waterObjectId;
 
-    @Column(name = "water_object_name", length = Integer.MAX_VALUE)
+    @Column(name = "water_object_name")
     private String waterObjectName;
 
     @Column(name = "morf_length")
@@ -55,7 +55,7 @@ public class AsvDecisionWaterObjectEntity {
     @Column(name = "morf_depth_max")
     private Double morfDepthMax;
 
-    @Column(name = "morf_other", length = Integer.MAX_VALUE)
+    @Column(name = "morf_other")
     private String morfOther;
 
     @Column(name = "hydr_cons")
@@ -70,7 +70,7 @@ public class AsvDecisionWaterObjectEntity {
     @Column(name = "hydr_level_amplitude")
     private Double hydrLevelAmplitude;
 
-    @Column(name = "hydr_adverse_period", length = Integer.MAX_VALUE)
+    @Column(name = "hydr_adverse_period")
     private String hydrAdversePeriod;
 
     @Column(name = "hydr_t_year")
@@ -88,7 +88,7 @@ public class AsvDecisionWaterObjectEntity {
     @Column(name = "hydr_t_autumn")
     private Double hydrTAutumn;
 
-    @Column(name = "hydr_other", length = Integer.MAX_VALUE)
+    @Column(name = "hydr_other")
     private String hydrOther;
 
     @Column(name = "qual_date")
@@ -106,10 +106,10 @@ public class AsvDecisionWaterObjectEntity {
     @JoinColumn(name = "ukizv_k_id")
     private AsvUkizvKEntity ukizvK;
 
-    @Column(name = "qual_other", length = Integer.MAX_VALUE)
+    @Column(name = "qual_other")
     private String qualOther;
 
-    @Column(name = "old_code", length = Integer.MAX_VALUE)
+    @Column(name = "old_code")
     private String oldCode;
 
     @Column(name = "npp")

@@ -22,7 +22,7 @@ public class AsvAdmSummaryStatementEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "doc_num", length = Integer.MAX_VALUE)
+    @Column(name = "doc_num")
     private String docNum;
 
     @Column(name = "doc_date")
@@ -44,7 +44,7 @@ public class AsvAdmSummaryStatementEntity {
     @Column(name = "posted")
     private Integer posted;
 
-    @Column(name = "old_code", length = Integer.MAX_VALUE)
+    @Column(name = "old_code")
     private String oldCode;
 
     @Override

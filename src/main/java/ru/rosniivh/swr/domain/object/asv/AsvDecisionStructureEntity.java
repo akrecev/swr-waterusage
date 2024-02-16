@@ -24,10 +24,10 @@ public class AsvDecisionStructureEntity {
     @JoinColumn(name = "location_id")
     private AsvDecisionLocationEntity location;
 
-    @Column(name = "name", length = Integer.MAX_VALUE)
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "param", length = Integer.MAX_VALUE)
+    @Column(name = "param")
     private String param;
 
     @Column(name = "npp")

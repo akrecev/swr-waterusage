@@ -29,10 +29,10 @@ public class AsvContractPaymentCardEntity {
     @Column(name = "card_date")
     private LocalDate cardDate;
 
-    @Column(name = "card_num", length = Integer.MAX_VALUE)
+    @Column(name = "card_num")
     private String cardNum;
 
-    @Column(name = "notes", length = Integer.MAX_VALUE)
+    @Column(name = "notes")
     private String notes;
 
     @Column(name = "begin_date")
@@ -41,10 +41,10 @@ public class AsvContractPaymentCardEntity {
     @Column(name = "end_date")
     private LocalDate endDate;
 
-    @Column(name = "executor", length = Integer.MAX_VALUE)
+    @Column(name = "executor")
     private String executor;
 
-    @Column(name = "reg_number", length = Integer.MAX_VALUE)
+    @Column(name = "reg_number")
     private String regNumber;
 
     @Column(name = "reg_date")
@@ -54,7 +54,7 @@ public class AsvContractPaymentCardEntity {
     @JoinColumn(name = "organ_id")
     private AsvImportAuthOrgContractEntity organ;
 
-    @Column(name = "old_code", length = Integer.MAX_VALUE)
+    @Column(name = "old_code")
     private String oldCode;
 
     @Column(name = "mark_del")

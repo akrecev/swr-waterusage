@@ -25,10 +25,10 @@ public class AsvDecisionSpecialZoneEntity {
     @JoinColumn(name = "decision_id")
     private AsvDecisionEntity decision;
 
-    @Column(name = "name", length = Integer.MAX_VALUE)
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "param", length = Integer.MAX_VALUE)
+    @Column(name = "param")
     private String param;
 
     @Column(name = "npp")

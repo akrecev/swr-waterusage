@@ -28,26 +28,26 @@ public class AsvImportBankAccountEntity {
     @JoinColumn(name = "owner_id")
     private AsvImportLegalSubjectEntity owner;
 
-    @Column(name = "old_owner_id", length = Integer.MAX_VALUE)
+    @Column(name = "old_owner_id")
     private String oldOwnerId;
 
-    @Column(name = "code", length = Integer.MAX_VALUE)
+    @Column(name = "code")
     private String code;
 
-    @Column(name = "description", length = Integer.MAX_VALUE)
+    @Column(name = "description")
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "bank_id")
     private AsvBankEntity bank;
 
-    @Column(name = "old_bank_id", length = Integer.MAX_VALUE)
+    @Column(name = "old_bank_id")
     private String oldBankId;
 
-    @Column(name = "account_number", length = Integer.MAX_VALUE)
+    @Column(name = "account_number")
     private String accountNumber;
 
-    @Column(name = "old_code", length = Integer.MAX_VALUE)
+    @Column(name = "old_code")
     private String oldCode;
 
     @Override

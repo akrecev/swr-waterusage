@@ -35,10 +35,10 @@ public class AsvContractSpecialZoneEntity {
     @Column(name = "add_agr_id")
     private Integer addAgrId;
 
-    @Column(name = "reason", length = Integer.MAX_VALUE)
+    @Column(name = "reason")
     private String reason;
 
-    @Column(name = "parametr", length = Integer.MAX_VALUE)
+    @Column(name = "parametr")
     private String parametr;
 
     @Override

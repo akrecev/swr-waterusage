@@ -35,7 +35,7 @@ public class AsvDecisionPollutantEntity {
     @Column(name = "value")
     private Double value;
 
-    @Column(name = "notes", length = Integer.MAX_VALUE)
+    @Column(name = "notes")
     private String notes;
 
     @Override

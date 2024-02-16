@@ -27,7 +27,7 @@ public class AsvAppdocComplectEntity {
     @Column(name = "npp")
     private Integer npp;
 
-    @Column(name = "material", length = Integer.MAX_VALUE)
+    @Column(name = "material")
     private String material;
 
     @Column(name = "notary_affirm")

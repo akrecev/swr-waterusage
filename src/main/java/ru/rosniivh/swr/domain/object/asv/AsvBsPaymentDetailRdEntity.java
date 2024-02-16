@@ -31,7 +31,7 @@ public class AsvBsPaymentDetailRdEntity {
     @JoinColumn(name = "contract_id")
     private AsvContractEntity contract;
 
-    @Column(name = "order_number", length = Integer.MAX_VALUE)
+    @Column(name = "order_number")
     private String orderNumber;
 
     @Column(name = "q1")

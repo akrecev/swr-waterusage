@@ -54,7 +54,7 @@ public class AsvDocumentEntity {
     @Column(name = "influence_id")
     private Integer influenceId;
 
-    @Column(name = "reg_number", length = Integer.MAX_VALUE)
+    @Column(name = "reg_number")
     private String regNumber;
 
     @Column(name = "wu_begin_date")
@@ -66,19 +66,19 @@ public class AsvDocumentEntity {
     @Column(name = "water_user_id")
     private Integer waterUserId;
 
-    @Column(name = "conclusion_place", length = Integer.MAX_VALUE)
+    @Column(name = "conclusion_place")
     private String conclusionPlace;
 
     @Column(name = "key")
     private Integer key;
 
-    @Column(name = "water_objects", length = Integer.MAX_VALUE)
+    @Column(name = "water_objects")
     private String waterObjects;
 
-    @Column(name = "old_code", length = Integer.MAX_VALUE)
+    @Column(name = "old_code")
     private String oldCode;
 
-    @Column(name = "npp_registr_form", length = Integer.MAX_VALUE)
+    @Column(name = "npp_registr_form")
     private String nppRegistrForm;
 
     @Column(name = "registered")

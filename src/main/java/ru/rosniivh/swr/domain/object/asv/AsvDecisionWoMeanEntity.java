@@ -29,7 +29,7 @@ public class AsvDecisionWoMeanEntity {
     @JoinColumn(name = "wo_mean_id")
     private AsvWoMeanEntity woMean;
 
-    @Column(name = "foundation", length = Integer.MAX_VALUE)
+    @Column(name = "foundation")
     private String foundation;
 
     @Column(name = "npp")

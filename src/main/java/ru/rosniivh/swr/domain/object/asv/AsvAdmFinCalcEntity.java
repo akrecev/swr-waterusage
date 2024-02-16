@@ -31,7 +31,7 @@ public class AsvAdmFinCalcEntity {
     @Column(name = "oper_doc_id")
     private Integer operDocId;
 
-    @Column(name = "oper_doc_code", length = Integer.MAX_VALUE)
+    @Column(name = "oper_doc_code")
     private String operDocCode;
 
     @Column(name = "payment_date")
@@ -40,7 +40,7 @@ public class AsvAdmFinCalcEntity {
     @Column(name = "accrual_summ")
     private Double accrualSumm;
 
-    @Column(name = "transfer_doc_num", length = Integer.MAX_VALUE)
+    @Column(name = "transfer_doc_num")
     private String transferDocNum;
 
     @Column(name = "transfer_doc_date")
@@ -70,7 +70,7 @@ public class AsvAdmFinCalcEntity {
     @Column(name = "calc_summ")
     private Double calcSumm;
 
-    @Column(name = "notes", length = Integer.MAX_VALUE)
+    @Column(name = "notes")
     private String notes;
 
     @Override

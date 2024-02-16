@@ -31,7 +31,7 @@ public class AsvAdmSummaryOperationEntity {
     @JoinColumn(name = "oper_id")
     private AsvAdmOperationEntity oper;
 
-    @Column(name = "oper_code", length = Integer.MAX_VALUE)
+    @Column(name = "oper_code")
     private String operCode;
 
     @ManyToOne(fetch = FetchType.LAZY)

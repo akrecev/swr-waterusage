@@ -38,13 +38,13 @@ public class AsvDecisionTermEntity {
     @Column(name = "npp")
     private Integer npp;
 
-    @Column(name = "summ", length = Integer.MAX_VALUE)
+    @Column(name = "summ")
     private String summ;
 
-    @Column(name = "fin_source", length = Integer.MAX_VALUE)
+    @Column(name = "fin_source")
     private String finSource;
 
-    @Column(name = "period", length = Integer.MAX_VALUE)
+    @Column(name = "period")
     private String period;
 
     @ManyToOne(fetch = FetchType.LAZY)

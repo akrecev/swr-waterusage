@@ -23,10 +23,10 @@ public class AsvActivitiesPlanEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "date", length = Integer.MAX_VALUE)
+    @Column(name = "date")
     private String date;
 
-    @Column(name = "number", length = Integer.MAX_VALUE)
+    @Column(name = "number")
     private String number;
 
     @Column(name = "posted")
@@ -35,19 +35,19 @@ public class AsvActivitiesPlanEntity {
     @Column(name = "deletion_mark")
     private Integer deletionMark;
 
-    @Column(name = "old_code_confirmation_document", length = Integer.MAX_VALUE)
+    @Column(name = "old_code_confirmation_document")
     private String oldCodeConfirmationDocument;
 
-    @Column(name = "old_code_users", length = Integer.MAX_VALUE)
+    @Column(name = "old_code_users")
     private String oldCodeUsers;
 
-    @Column(name = "comment", length = Integer.MAX_VALUE)
+    @Column(name = "comment")
     private String comment;
 
-    @Column(name = "old_code_organ", length = Integer.MAX_VALUE)
+    @Column(name = "old_code_organ")
     private String oldCodeOrgan;
 
-    @Column(name = "old_code", length = Integer.MAX_VALUE)
+    @Column(name = "old_code")
     private String oldCode;
 
     @Column(name = "document_id")
@@ -57,7 +57,7 @@ public class AsvActivitiesPlanEntity {
     @JoinColumn(name = "auth_org_id")
     private AsvImportAuthOrgContractEntity authOrg;
 
-    @Column(name = "user_name", length = Integer.MAX_VALUE)
+    @Column(name = "user_name")
     private String userName;
 
     @Column(name = "date_datetime")

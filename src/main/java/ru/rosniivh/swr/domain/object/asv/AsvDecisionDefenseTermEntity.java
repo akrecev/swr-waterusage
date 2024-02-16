@@ -28,7 +28,7 @@ public class AsvDecisionDefenseTermEntity {
     @Column(name = "npp")
     private Integer npp;
 
-    @Column(name = "name", length = Integer.MAX_VALUE)
+    @Column(name = "name")
     private String name;
 
     @Column(name = "end_date")
@@ -37,10 +37,10 @@ public class AsvDecisionDefenseTermEntity {
     @Column(name = "is_complete")
     private Integer isComplete;
 
-    @Column(name = "completion_degree", length = Integer.MAX_VALUE)
+    @Column(name = "completion_degree")
     private String completionDegree;
 
-    @Column(name = "noncompletion_reason", length = Integer.MAX_VALUE)
+    @Column(name = "noncompletion_reason")
     private String noncompletionReason;
 
     @Override

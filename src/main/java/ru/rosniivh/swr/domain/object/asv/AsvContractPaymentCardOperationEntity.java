@@ -35,10 +35,10 @@ public class AsvContractPaymentCardOperationEntity {
     @JoinColumn(name = "op_id")
     private AsvAdmOperationEntity op;
 
-    @Column(name = "op_old_code", length = Integer.MAX_VALUE)
+    @Column(name = "op_old_code")
     private String opOldCode;
 
-    @Column(name = "op_name", length = Integer.MAX_VALUE)
+    @Column(name = "op_name")
     private String opName;
 
     @Column(name = "payment_period")
@@ -47,7 +47,7 @@ public class AsvContractPaymentCardOperationEntity {
     @Column(name = "payment_sum")
     private Double paymentSum;
 
-    @Column(name = "doc_number", length = Integer.MAX_VALUE)
+    @Column(name = "doc_number")
     private String docNumber;
 
     @Column(name = "doc_date")

@@ -27,7 +27,7 @@ public class AsvAppdocReasonEntity {
     @Column(name = "npp")
     private Integer npp;
 
-    @Column(name = "reason", length = Integer.MAX_VALUE)
+    @Column(name = "reason")
     private String reason;
 
     @Override

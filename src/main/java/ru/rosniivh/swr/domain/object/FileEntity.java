@@ -20,13 +20,13 @@ public class FileEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "name", length = Integer.MAX_VALUE)
+    @Column(name = "name")
     private String name;
 
     @Column(name = "data")
     private byte[] data;
 
-    @Column(name = "mime", length = Integer.MAX_VALUE)
+    @Column(name = "mime")
     private String mime;
 
     @Override

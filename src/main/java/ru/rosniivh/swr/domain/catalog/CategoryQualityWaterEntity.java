@@ -20,28 +20,28 @@ public class CategoryQualityWaterEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "name", length = Integer.MAX_VALUE)
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "code", length = Integer.MAX_VALUE)
+    @Column(name = "code")
     private String code;
 
-    @Column(name = "withdrawal", length = Integer.MAX_VALUE)
+    @Column(name = "withdrawal")
     private String withdrawal;
 
-    @Column(name = "get_code", length = Integer.MAX_VALUE)
+    @Column(name = "get_code")
     private String getCode;
 
-    @Column(name = "use_code", length = Integer.MAX_VALUE)
+    @Column(name = "use_code")
     private String useCode;
 
-    @Column(name = "after_u_code", length = Integer.MAX_VALUE)
+    @Column(name = "after_u_code")
     private String afterUCode;
 
-    @Column(name = "code_2", length = Integer.MAX_VALUE)
+    @Column(name = "code_2")
     private String code2;
 
-    @Column(name = "old_code", length = Integer.MAX_VALUE)
+    @Column(name = "old_code")
     private String oldCode;
 
     @Override

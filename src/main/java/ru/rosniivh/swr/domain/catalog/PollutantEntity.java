@@ -20,13 +20,13 @@ public class PollutantEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "code", length = Integer.MAX_VALUE)
+    @Column(name = "code")
     private String code;
 
-    @Column(name = "unit", length = Integer.MAX_VALUE)
+    @Column(name = "unit")
     private String unit;
 
-    @Column(name = "name", length = Integer.MAX_VALUE)
+    @Column(name = "name")
     private String name;
 
     @Override

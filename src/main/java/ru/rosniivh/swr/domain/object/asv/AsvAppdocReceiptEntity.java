@@ -27,10 +27,10 @@ public class AsvAppdocReceiptEntity {
     @Column(name = "npp")
     private Integer npp;
 
-    @Column(name = "material", length = Integer.MAX_VALUE)
+    @Column(name = "material")
     private String material;
 
-    @Column(name = "requisites", length = Integer.MAX_VALUE)
+    @Column(name = "requisites")
     private String requisites;
 
     @Column(name = "page_cnt")
@@ -42,7 +42,7 @@ public class AsvAppdocReceiptEntity {
     @Column(name = "copy_cnt")
     private Integer copyCnt;
 
-    @Column(name = "doc_num", length = Integer.MAX_VALUE)
+    @Column(name = "doc_num")
     private String docNum;
 
     @Column(name = "notary_affirm")

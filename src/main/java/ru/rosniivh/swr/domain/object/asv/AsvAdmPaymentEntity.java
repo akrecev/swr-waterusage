@@ -32,7 +32,7 @@ public class AsvAdmPaymentEntity {
     @Column(name = "oper_doc_id")
     private Integer operDocId;
 
-    @Column(name = "oper_doc_code", length = Integer.MAX_VALUE)
+    @Column(name = "oper_doc_code")
     private String operDocCode;
 
     @ManyToOne(fetch = FetchType.LAZY)

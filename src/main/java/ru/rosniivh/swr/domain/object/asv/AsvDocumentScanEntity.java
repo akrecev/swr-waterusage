@@ -24,25 +24,25 @@ public class AsvDocumentScanEntity {
     @Column(name = "document_id")
     private Integer documentId;
 
-    @Column(name = "path", length = Integer.MAX_VALUE)
+    @Column(name = "path")
     private String path;
 
-    @Column(name = "name_old", length = Integer.MAX_VALUE)
+    @Column(name = "name_old")
     private String nameOld;
 
-    @Column(name = "size", length = Integer.MAX_VALUE)
+    @Column(name = "size")
     private String size;
 
-    @Column(name = "author_name", length = Integer.MAX_VALUE)
+    @Column(name = "author_name")
     private String authorName;
 
     @Column(name = "date_create")
     private Instant dateCreate;
 
-    @Column(name = "description", length = Integer.MAX_VALUE)
+    @Column(name = "description")
     private String description;
 
-    @Column(name = "old_code", length = Integer.MAX_VALUE)
+    @Column(name = "old_code")
     private String oldCode;
 
     @Override

@@ -28,10 +28,10 @@ public class AsvAdmOperationEntity {
     @JoinColumn(name = "oper_type_id")
     private AsvOperationTypeEntity operType;
 
-    @Column(name = "uin", length = Integer.MAX_VALUE)
+    @Column(name = "uin")
     private String uin;
 
-    @Column(name = "doc_num", length = Integer.MAX_VALUE)
+    @Column(name = "doc_num")
     private String docNum;
 
     @Column(name = "doc_date")
@@ -87,10 +87,10 @@ public class AsvAdmOperationEntity {
     @JoinColumn(name = "oper_id")
     private AsvAdmOperationEntity oper;
 
-    @Column(name = "oper_old_code", length = Integer.MAX_VALUE)
+    @Column(name = "oper_old_code")
     private String operOldCode;
 
-    @Column(name = "return_status", length = Integer.MAX_VALUE)
+    @Column(name = "return_status")
     private String returnStatus;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -101,13 +101,13 @@ public class AsvAdmOperationEntity {
     @JoinColumn(name = "target_id")
     private AsvUsageTargetEntity target;
 
-    @Column(name = "decision_num", length = Integer.MAX_VALUE)
+    @Column(name = "decision_num")
     private String decisionNum;
 
     @Column(name = "decision_date")
     private LocalDate decisionDate;
 
-    @Column(name = "return_application_num", length = Integer.MAX_VALUE)
+    @Column(name = "return_application_num")
     private String returnApplicationNum;
 
     @Column(name = "return_application_date")
@@ -117,7 +117,7 @@ public class AsvAdmOperationEntity {
     @JoinColumn(name = "bank_account_id")
     private AsvImportBankAccountEntity bankAccount;
 
-    @Column(name = "payment_application_num", length = Integer.MAX_VALUE)
+    @Column(name = "payment_application_num")
     private String paymentApplicationNum;
 
     @Column(name = "payment_application_date")
@@ -133,7 +133,7 @@ public class AsvAdmOperationEntity {
     @JoinColumn(name = "payment_card_id")
     private AsvContractPaymentCardEntity paymentCard;
 
-    @Column(name = "payment_card_old", length = Integer.MAX_VALUE)
+    @Column(name = "payment_card_old")
     private String paymentCardOld;
 
     @Column(name = "fin_debt_flag")
@@ -151,25 +151,25 @@ public class AsvAdmOperationEntity {
     @Column(name = "excess_param")
     private Double excessParam;
 
-    @Column(name = "auction_num", length = Integer.MAX_VALUE)
+    @Column(name = "auction_num")
     private String auctionNum;
 
     @Column(name = "auction_date")
     private LocalDate auctionDate;
 
-    @Column(name = "ufk_doc_num", length = Integer.MAX_VALUE)
+    @Column(name = "ufk_doc_num")
     private String ufkDocNum;
 
     @Column(name = "ufk_doc_date")
     private LocalDate ufkDocDate;
 
-    @Column(name = "write_off_basis", length = Integer.MAX_VALUE)
+    @Column(name = "write_off_basis")
     private String writeOffBasis;
 
-    @Column(name = "notes", length = Integer.MAX_VALUE)
+    @Column(name = "notes")
     private String notes;
 
-    @Column(name = "executor", length = Integer.MAX_VALUE)
+    @Column(name = "executor")
     private String executor;
 
     @Column(name = "mark_del")
@@ -178,10 +178,10 @@ public class AsvAdmOperationEntity {
     @Column(name = "posted")
     private Integer posted;
 
-    @Column(name = "request_old_code", length = Integer.MAX_VALUE)
+    @Column(name = "request_old_code")
     private String requestOldCode;
 
-    @Column(name = "old_code", length = Integer.MAX_VALUE)
+    @Column(name = "old_code")
     private String oldCode;
 
     @Column(name = "inserted_on")

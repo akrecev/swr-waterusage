@@ -36,7 +36,7 @@ public class AsvBsPaymentDetailR2dEntity {
     @JoinColumn(name = "oper_id")
     private AsvAdmOperationEntity oper;
 
-    @Column(name = "oper_old_code", length = Integer.MAX_VALUE)
+    @Column(name = "oper_old_code")
     private String operOldCode;
 
     @Column(name = "oper_date")
