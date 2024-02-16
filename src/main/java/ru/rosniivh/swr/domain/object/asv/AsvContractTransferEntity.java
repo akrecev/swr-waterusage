@@ -88,8 +88,7 @@ public class AsvContractTransferEntity {
     private String assigneeMiddleName;
 
     @Column(name = "assignee_lastname", length = Integer.MAX_VALUE)
-    private String assigneeLastName
-            ;
+    private String assigneeLastName;
 
     @Column(name = "assignee_post", length = Integer.MAX_VALUE)
     private String assigneePost;
