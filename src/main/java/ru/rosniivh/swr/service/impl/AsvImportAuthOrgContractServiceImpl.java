@@ -1,16 +1,14 @@
 package ru.rosniivh.swr.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import ru.rosniivh.swr.domain.catalog.RfSubjectEntity;
-import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
-import ru.rosniivh.swr.dto.report.FilterReport;
-import ru.rosniivh.swr.repository.AsvImportAuthOrgContractRepository;
-import ru.rosniivh.swr.repository.RfSubjectRepository;
-import ru.rosniivh.swr.service.AsvImportAuthOrgContractService;
-
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
+import ru.rosniivh.swr.dto.report.FilterReport;
+import ru.rosniivh.swr.repository.RfSubjectRepository;
+import ru.rosniivh.swr.repository.asv.AsvImportAuthOrgContractRepository;
+import ru.rosniivh.swr.service.AsvImportAuthOrgContractService;
 
 @Service
 public class AsvImportAuthOrgContractServiceImpl implements AsvImportAuthOrgContractService {
@@ -32,16 +30,16 @@ public class AsvImportAuthOrgContractServiceImpl implements AsvImportAuthOrgCont
                     .setCode(organ.getRfSubjectNew().getConstNumber());
             filterReports.add(fr);
         }
-//        if (bvuId.equals(347)) {
-//            RfSubjectEntity rfs = rfsRepository.findById(82).orElseThrow();
-//            FilterReport filterReport = new FilterReport();
-//            filterReport.setUid(rfs.getId())
-//                        .setName(rfs.getName())
-//                        .setCode(rfs.getConstNumber());
-//            filterReports.add(filterReport);
-//        }
-        //Непонятно зачем нужен этот код,
-        //т.к. rfs с id 82 и так попадает в filterReports
+        //        if (bvuId.equals(347)) {
+        //            RfSubjectEntity rfs = rfsRepository.findById(82).orElseThrow();
+        //            FilterReport filterReport = new FilterReport();
+        //            filterReport.setUid(rfs.getId())
+        //                        .setName(rfs.getName())
+        //                        .setCode(rfs.getConstNumber());
+        //            filterReports.add(filterReport);
+        //        }
+        // Непонятно зачем нужен этот код,
+        // т.к. rfs с id 82 и так попадает в filterReports
         return filterReports;
     }
 }

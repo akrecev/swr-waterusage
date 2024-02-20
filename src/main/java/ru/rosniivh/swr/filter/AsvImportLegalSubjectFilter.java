@@ -21,7 +21,7 @@ public class AsvImportLegalSubjectFilter {
     private String placeAddress;
     private String legalAddress;
     private String okato;
-//    private Boolean distinct;
+    //    private Boolean distinct;
 
     public Specification<AsvImportLegalSubjectEntity> toSpecification() {
         return Specification.where(hasId(id))

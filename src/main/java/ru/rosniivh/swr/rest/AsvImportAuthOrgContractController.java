@@ -16,9 +16,7 @@ public class AsvImportAuthOrgContractController {
     private final AsvImportAuthOrgContractService service;
 
     @GetMapping("/getRfSubjectsWithOrgsByBvu")
-    public ResponseEntity<?> getRfSubjectsWithOrgsByBvu(
-            @RequestParam(value = "bvuId") Integer bvuId
-    ) {
+    public ResponseEntity<?> getRfSubjectsWithOrgsByBvu(@RequestParam(value = "bvuId") Integer bvuId) {
         return ResponseEntity.ok(service.getRfSubjectsWithOrgsByBvu(bvuId));
     }
 }

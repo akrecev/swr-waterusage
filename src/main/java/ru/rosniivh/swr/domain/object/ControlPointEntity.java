@@ -1,9 +1,8 @@
 package ru.rosniivh.swr.domain.object;
 
 import jakarta.persistence.*;
-import lombok.*;
-
 import java.math.BigDecimal;
+import lombok.*;
 
 @Builder
 @AllArgsConstructor
@@ -50,5 +49,4 @@ public class ControlPointEntity {
 
     @Column(name = "order_num")
     private Integer orderNum;
-
 }
