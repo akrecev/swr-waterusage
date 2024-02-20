@@ -38,7 +38,7 @@ public class AsvContractTransferEntity {
     @JoinColumn(name = "rfs_id")
     private RfSubjectEntity rfs;
 
-    @Column(name = "conclusion_place", length = Integer.MAX_VALUE)
+    @Column(name = "conclusion_place")
     private String conclusionPlace;
 
     @Column(name = "sign_date")
@@ -47,10 +47,10 @@ public class AsvContractTransferEntity {
     @Column(name = "reg_date")
     private LocalDate regDate;
 
-    @Column(name = "reg_number", length = Integer.MAX_VALUE)
+    @Column(name = "reg_number")
     private String regNumber;
 
-    @Column(name = "order_number", length = Integer.MAX_VALUE)
+    @Column(name = "order_number")
     private String orderNumber;
 
     @Column(name = "wu_end_date")
@@ -63,38 +63,37 @@ public class AsvContractTransferEntity {
     @JoinColumn(name = "rightholder_id")
     private AsvImportLegalSubjectEntity rightholder;
 
-    @Column(name = "rightholder_firstname", length = Integer.MAX_VALUE)
+    @Column(name = "rightholder_firstname")
     private String rightholderFirstName;
 
-    @Column(name = "rightholder_middlename", length = Integer.MAX_VALUE)
+    @Column(name = "rightholder_middlename")
     private String rightholderMiddleName;
 
-    @Column(name = "rightholder_lastname", length = Integer.MAX_VALUE)
+    @Column(name = "rightholder_lastname")
     private String rightholderLastName;
 
-    @Column(name = "rightholder_post", length = Integer.MAX_VALUE)
+    @Column(name = "rightholder_post")
     private String rightholderPost;
 
-    @Column(name = "rightholder_basis", length = Integer.MAX_VALUE)
+    @Column(name = "rightholder_basis")
     private String rightholderBasis;
 
     @Column(name = "assignee_id")
     private Integer assigneeId;
 
-    @Column(name = "assignee_firstname", length = Integer.MAX_VALUE)
+    @Column(name = "assignee_firstname")
     private String assigneeFirstName;
 
-    @Column(name = "assignee_middlename", length = Integer.MAX_VALUE)
+    @Column(name = "assignee_middlename")
     private String assigneeMiddleName;
 
-    @Column(name = "assignee_lastname", length = Integer.MAX_VALUE)
-    private String assigneeLastName
-            ;
+    @Column(name = "assignee_lastname")
+    private String assigneeLastName;
 
-    @Column(name = "assignee_post", length = Integer.MAX_VALUE)
+    @Column(name = "assignee_post")
     private String assigneePost;
 
-    @Column(name = "assignee_basis", length = Integer.MAX_VALUE)
+    @Column(name = "assignee_basis")
     private String assigneeBasis;
 
     @Column(name = "payment", precision = 38, scale = 2)
@@ -104,10 +103,10 @@ public class AsvContractTransferEntity {
     @JoinColumn(name = "organ_id")
     private AsvImportAuthOrgContractEntity organ;
 
-    @Column(name = "notes", length = Integer.MAX_VALUE)
+    @Column(name = "notes")
     private String notes;
 
-    @Column(name = "old_code", length = Integer.MAX_VALUE)
+    @Column(name = "old_code")
     private String oldCode;
 
     @ManyToOne(fetch = FetchType.LAZY)

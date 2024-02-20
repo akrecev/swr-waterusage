@@ -1,16 +1,14 @@
 package ru.rosniivh.swr.dto.catalog.asv;
 
+import java.io.Serializable;
 import lombok.*;
 import ru.rosniivh.swr.domain.auth.UserEntity;
 import ru.rosniivh.swr.domain.catalog.asv.AsvAcceptorEntity;
 import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
 
-import java.io.Serializable;
-
 /**
  * DTO for {@link AsvAcceptorEntity}
  */
-
 @Getter
 @Setter
 @AllArgsConstructor

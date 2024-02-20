@@ -20,10 +20,6 @@ public interface AsvImportLegalSubjectRepository
         return filter == null ? findAll() : findAll(filter.toSpecification());
     }
 
-//    default Page<AsvImportLegalSubjectEntity> findAllPage(AsvImportLegalSubjectFilter filter, Pageable pageable) {
-//        return filter == null ? findAll(pageable) : findAll(filter.toSpecification(), pageable);
-//    }
-
     @Query(
             value = "SELECT ls FROM AsvImportLegalSubjectEntity ls "
                     + "WHERE ls.fullName LIKE %?1% AND ls.ogrn LIKE %?2% "
@@ -32,8 +28,19 @@ public interface AsvImportLegalSubjectRepository
     List<AsvImportLegalSubjectEntity> getByTypeOne(
             String name, String ogrn, String okpo, String postAddress, String legalAddress, String okato);
 
+
     @Query(
             value = "SELECT ls FROM AsvImportLegalSubjectEntity ls "
                     + "WHERE ls.inn LIKE %?1% AND ls.fullName LIKE %?2%")
     List<AsvImportLegalSubjectEntity> getByTypeTwo(String inn, String name);
+
+    @Query(value = "SELECT ls FROM AsvImportLegalSubjectEntity ls WHERE ls.fullName LIKE :fullName")
+    List<AsvImportLegalSubjectEntity> getByFullName(String fullName);
+
+    @Query(value = "SELECT ls FROM AsvImportLegalSubjectEntity ls WHERE ls.inn LIKE %?1%")
+    List<AsvImportLegalSubjectEntity> getByInn(String inn);
+
+    //    default Page<AsvImportLegalSubjectEntity> findAllPage(AsvImportLegalSubjectFilter filter, Pageable pageable) {
+//        return filter == null ? findAll(pageable) : findAll(filter.toSpecification(), pageable);
+//    }
 }

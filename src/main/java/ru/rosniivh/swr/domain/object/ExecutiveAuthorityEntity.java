@@ -26,7 +26,7 @@ public class ExecutiveAuthorityEntity {
     @JoinColumn(name = "type_id", nullable = false)
     private ExecutiveAuthorityTypeEntity type;
 
-    @Column(name = "name", length = Integer.MAX_VALUE)
+    @Column(name = "name")
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)

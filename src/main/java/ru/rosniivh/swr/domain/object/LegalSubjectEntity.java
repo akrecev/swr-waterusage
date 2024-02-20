@@ -25,43 +25,43 @@ public class LegalSubjectEntity {
     @JoinColumn(name = "subject_type", nullable = false)
     private LegalSubjectTypeEntity subjectType;
 
-    @Column(name = "name", nullable = false, length = Integer.MAX_VALUE)
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "inn", nullable = false, length = Integer.MAX_VALUE)
+    @Column(name = "inn", nullable = false)
     private String inn;
 
-    @Column(name = "kpp", length = Integer.MAX_VALUE)
+    @Column(name = "kpp")
     private String kpp;
 
-    @Column(name = "okpo", length = Integer.MAX_VALUE)
+    @Column(name = "okpo")
     private String okpo;
 
-    @Column(name = "okopf", length = Integer.MAX_VALUE)
+    @Column(name = "okopf")
     private String okopf;
 
-    @Column(name = "okfs", length = Integer.MAX_VALUE)
+    @Column(name = "okfs")
     private String okfs;
 
-    @Column(name = "okved", length = Integer.MAX_VALUE)
+    @Column(name = "okved")
     private String okved;
 
-    @Column(name = "okonh", length = Integer.MAX_VALUE)
+    @Column(name = "okonh")
     private String okonh;
 
-    @Column(name = "ogrn", length = Integer.MAX_VALUE)
+    @Column(name = "ogrn")
     private String ogrn;
 
-    @Column(name = "okato", length = Integer.MAX_VALUE)
+    @Column(name = "okato")
     private String okato;
 
-    @Column(name = "oktmo", length = Integer.MAX_VALUE)
+    @Column(name = "oktmo")
     private String oktmo;
 
-    @Column(name = "post_address", length = Integer.MAX_VALUE)
+    @Column(name = "post_address")
     private String postAddress;
 
-    @Column(name = "legal_address", length = Integer.MAX_VALUE)
+    @Column(name = "legal_address")
     private String legalAddress;
 
     @Column(name = "inserted_on", nullable = false)

@@ -2,7 +2,6 @@ package ru.rosniivh.swr.dto.object.asv;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

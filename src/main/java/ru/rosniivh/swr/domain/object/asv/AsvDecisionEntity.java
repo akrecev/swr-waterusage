@@ -42,22 +42,22 @@ public class AsvDecisionEntity {
     @JoinColumn(name = "rfs_id")
     private RfSubjectEntity rfs;
 
-    @Column(name = "conclusion_place", length = Integer.MAX_VALUE)
+    @Column(name = "conclusion_place")
     private String conclusionPlace;
 
     @Column(name = "sign_date")
     private LocalDate signDate;
 
-    @Column(name = "decision_number", length = Integer.MAX_VALUE)
+    @Column(name = "decision_number")
     private String decisionNumber;
 
-    @Column(name = "reg_number", length = Integer.MAX_VALUE)
+    @Column(name = "reg_number")
     private String regNumber;
 
-    @Column(name = "order_number", length = Integer.MAX_VALUE)
+    @Column(name = "order_number")
     private String orderNumber;
 
-    @Column(name = "add_number", length = Integer.MAX_VALUE)
+    @Column(name = "add_number")
     private String addNumber;
 
     @Column(name = "reg_date")
@@ -72,58 +72,58 @@ public class AsvDecisionEntity {
     @Column(name = "stop_date")
     private LocalDate stopDate;
 
-    @Column(name = "period_text", length = Integer.MAX_VALUE)
+    @Column(name = "period_text")
     private String periodText;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "organ_id")
     private AsvImportAuthOrgContractEntity organ;
 
-    @Column(name = "organ_fio", length = Integer.MAX_VALUE)
+    @Column(name = "organ_fio")
     private String organFio;
 
-    @Column(name = "organ_lastname", length = Integer.MAX_VALUE)
+    @Column(name = "organ_lastname")
     private String organLastName;
 
-    @Column(name = "organ_firstname", length = Integer.MAX_VALUE)
+    @Column(name = "organ_firstname")
     private String organFirstName;
 
-    @Column(name = "organ_middlename", length = Integer.MAX_VALUE)
+    @Column(name = "organ_middlename")
     private String organMiddleName;
 
-    @Column(name = "organ_post", length = Integer.MAX_VALUE)
+    @Column(name = "organ_post")
     private String organPost;
 
-    @Column(name = "organ_basis", length = Integer.MAX_VALUE)
+    @Column(name = "organ_basis")
     private String organBasis;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "water_user_id")
     private AsvImportLegalSubjectEntity waterUser;
 
-    @Column(name = "letter_wo_type", length = Integer.MAX_VALUE)
+    @Column(name = "letter_wo_type")
     private String letterWoType;
 
-    @Column(name = "letter_aim", length = Integer.MAX_VALUE)
+    @Column(name = "letter_aim")
     private String letterAim;
 
-    @Column(name = "aim_notes", length = Integer.MAX_VALUE)
+    @Column(name = "aim_notes")
     private String aimNotes;
 
-    @Column(name = "wu_kind", length = Integer.MAX_VALUE)
+    @Column(name = "wu_kind")
     private String wuKind;
 
-    @Column(name = "letter_method", length = Integer.MAX_VALUE)
+    @Column(name = "letter_method")
     private String letterMethod;
 
-    @Column(name = "letter_influence", length = Integer.MAX_VALUE)
+    @Column(name = "letter_influence")
     private String letterInfluence;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "hep_id")
     private HeParcelEntity hep;
 
-    @Column(name = "location", length = Integer.MAX_VALUE)
+    @Column(name = "location")
     private String location;
 
     @Column(name = "need_report_withdrawal")
@@ -135,13 +135,13 @@ public class AsvDecisionEntity {
     @Column(name = "need_report_quality")
     private Integer needReportQuality;
 
-    @Column(name = "old_code", length = Integer.MAX_VALUE)
+    @Column(name = "old_code")
     private String oldCode;
 
-    @Column(name = "old_parent_code", length = Integer.MAX_VALUE)
+    @Column(name = "old_parent_code")
     private String oldParentCode;
 
-    @Column(name = "var_num", length = Integer.MAX_VALUE)
+    @Column(name = "var_num")
     private String varNum;
 
     @ManyToOne(fetch = FetchType.LAZY)

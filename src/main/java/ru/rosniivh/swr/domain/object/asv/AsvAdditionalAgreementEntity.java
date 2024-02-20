@@ -30,10 +30,10 @@ public class AsvAdditionalAgreementEntity {
     @JoinColumn(name = "contract_id")
     private AsvContractEntity contract;
 
-    @Column(name = "reg_number", length = Integer.MAX_VALUE)
+    @Column(name = "reg_number")
     private String regNumber;
 
-    @Column(name = "add_agr_number", length = Integer.MAX_VALUE)
+    @Column(name = "add_agr_number")
     private String addAgrNumber;
 
     @Column(name = "sign_date")
@@ -49,16 +49,16 @@ public class AsvAdditionalAgreementEntity {
     @JoinColumn(name = "reducing_reason_id")
     private AsvReducingReasonEntity reducingReason;
 
-    @Column(name = "wu_start_period", length = Integer.MAX_VALUE)
+    @Column(name = "wu_start_period")
     private String wuStartPeriod;
 
     @Column(name = "has_observation_program")
     private Integer hasObservationProgram;
 
-    @Column(name = "observation_program_points", length = Integer.MAX_VALUE)
+    @Column(name = "observation_program_points")
     private String observationProgramPoints;
 
-    @Column(name = "organ_text", length = Integer.MAX_VALUE)
+    @Column(name = "organ_text")
     private String organText;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -69,39 +69,39 @@ public class AsvAdditionalAgreementEntity {
     @JoinColumn(name = "organ_id")
     private AsvImportAuthOrgContractEntity organ;
 
-    @Column(name = "organ_name", length = Integer.MAX_VALUE)
+    @Column(name = "organ_name")
     private String organName;
 
-    @Column(name = "organ_fio", length = Integer.MAX_VALUE)
+    @Column(name = "organ_fio")
     private String organFio;
 
-    @Column(name = "organ_basis", length = Integer.MAX_VALUE)
+    @Column(name = "organ_basis")
     private String organBasis;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "water_user_id")
     private AsvImportLegalSubjectEntity waterUser;
 
-    @Column(name = "water_user_name", length = Integer.MAX_VALUE)
+    @Column(name = "water_user_name")
     private String waterUserName;
 
-    @Column(name = "water_user_fio", length = Integer.MAX_VALUE)
+    @Column(name = "water_user_fio")
     private String waterUserFio;
 
-    @Column(name = "water_user_basis", length = Integer.MAX_VALUE)
+    @Column(name = "water_user_basis")
     private String waterUserBasis;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "termination_basis_id")
     private AsvTerminationBasisEntity terminationBasis;
 
-    @Column(name = "notes", length = Integer.MAX_VALUE)
+    @Column(name = "notes")
     private String notes;
 
-    @Column(name = "old_code", length = Integer.MAX_VALUE)
+    @Column(name = "old_code")
     private String oldCode;
 
-    @Column(name = "order_number", length = Integer.MAX_VALUE)
+    @Column(name = "order_number")
     private String orderNumber;
 
     @Column(name = "asv_document_id")

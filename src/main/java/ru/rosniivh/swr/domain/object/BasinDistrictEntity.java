@@ -23,13 +23,13 @@ public class BasinDistrictEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "code", length = Integer.MAX_VALUE)
+    @Column(name = "code")
     private String code;
 
-    @Column(name = "name", length = Integer.MAX_VALUE)
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "description", length = Integer.MAX_VALUE)
+    @Column(name = "description")
     private String description;
 
     @Column(name = "area", precision = 38, scale = 2)

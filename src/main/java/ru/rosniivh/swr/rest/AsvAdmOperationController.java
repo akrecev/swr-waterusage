@@ -1,13 +1,10 @@
 package ru.rosniivh.swr.rest;
 
+import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.rosniivh.swr.service.AsvAdmOperationService;
-
-import java.util.ArrayList;
-import java.util.List;
-
 
 @AllArgsConstructor
 @RestController

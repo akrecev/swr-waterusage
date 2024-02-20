@@ -18,13 +18,13 @@ public class ExecutiveAuthorityTypeEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "code", length = Integer.MAX_VALUE)
+    @Column(name = "code")
     private String code;
 
-    @Column(name = "name", length = Integer.MAX_VALUE)
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "org_type", length = Integer.MAX_VALUE)
+    @Column(name = "org_type")
     private String orgType;
 
     @Column(name = "visible", nullable = false)

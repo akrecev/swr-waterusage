@@ -1,15 +1,20 @@
 package ru.rosniivh.swr.domain.catalog.asv;
 
 import jakarta.persistence.*;
-import lombok.*;
+import java.util.Objects;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.proxy.HibernateProxy;
 import ru.rosniivh.swr.domain.auth.UserEntity;
 import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
+
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 @Getter
 @Setter
-@Builder
+@Entity
 @Table(name = "cat_asv_acceptor", schema = "dbo")
 public class AsvAcceptorEntity {
     @Id

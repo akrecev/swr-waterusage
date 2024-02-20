@@ -4,11 +4,14 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.apache.catalina.User;
 import ru.rosniivh.swr.domain.auth.UserEntity;
-
+import java.time.Instant;
+import java.util.Objects;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import org.hibernate.proxy.HibernateProxy;
+import ru.rosniivh.swr.domain.auth.UserEntity;
 
 @Builder
 @AllArgsConstructor
@@ -23,20 +26,20 @@ public class HeParcelEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "code", length = Integer.MAX_VALUE)
+    @Column(name = "code")
     private String code;
 
-    @Column(name = "num", length = Integer.MAX_VALUE)
+    @Column(name = "num")
     private String num;
 
-    @Column(name = "name", length = Integer.MAX_VALUE)
+    @Column(name = "name")
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "subbasin_id", nullable = false)
     private SubbasinEntity subbasin;
 
-    @Column(name = "description", length = Integer.MAX_VALUE)
+    @Column(name = "description")
     private String description;
 
     @Column(name = "area")
@@ -84,7 +87,6 @@ public class HeParcelEntity {
 //            inverseJoinColumns=@JoinColumn(name="control_point_id"))
 //    private Set<ControlPointEntity> controlPointEntitys = new LinkedHashSet<>();
 
-}
     @Override
     public final boolean equals(Object o) {
         if (this == o) return true;

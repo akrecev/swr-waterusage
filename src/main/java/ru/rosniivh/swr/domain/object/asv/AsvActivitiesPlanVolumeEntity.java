@@ -24,7 +24,7 @@ public class AsvActivitiesPlanVolumeEntity {
     @Column(name = "year")
     private Integer year;
 
-    @Column(name = "description", length = Integer.MAX_VALUE)
+    @Column(name = "description")
     private String description;
 
     @Column(name = "kv1")
@@ -42,13 +42,13 @@ public class AsvActivitiesPlanVolumeEntity {
     @Column(name = "total")
     private Double total;
 
-    @Column(name = "old_code_detail_activity", length = Integer.MAX_VALUE)
+    @Column(name = "old_code_detail_activity")
     private String oldCodeDetailActivity;
 
-    @Column(name = "old_code_activity", length = Integer.MAX_VALUE)
+    @Column(name = "old_code_activity")
     private String oldCodeActivity;
 
-    @Column(name = "old_code_parent", length = Integer.MAX_VALUE)
+    @Column(name = "old_code_parent")
     private String oldCodeParent;
 
     @ManyToOne(fetch = FetchType.LAZY)

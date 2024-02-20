@@ -23,7 +23,7 @@ public class ConfirmationDocumentEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "doc_number", length = Integer.MAX_VALUE)
+    @Column(name = "doc_number")
     private String docNumber;
 
     @Column(name = "doc_date")
@@ -33,19 +33,19 @@ public class ConfirmationDocumentEntity {
     @JoinColumn(name = "executive_authority_id")
     private ExecutiveAuthorityEntity executiveAuthority;
 
-    @Column(name = "in_number", length = Integer.MAX_VALUE)
+    @Column(name = "in_number")
     private String inNumber;
 
     @Column(name = "in_date")
     private LocalDate inDate;
 
-    @Column(name = "out_number", length = Integer.MAX_VALUE)
+    @Column(name = "out_number")
     private String outNumber;
 
     @Column(name = "out_date")
     private LocalDate outDate;
 
-    @Column(name = "storage_location", length = Integer.MAX_VALUE)
+    @Column(name = "storage_location")
     private String storageLocation;
 
     @Column(name = "file_size")

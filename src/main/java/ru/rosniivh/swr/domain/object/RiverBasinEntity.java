@@ -3,10 +3,11 @@ package ru.rosniivh.swr.domain.object;
 import jakarta.persistence.*;
 import lombok.*;
 import ru.rosniivh.swr.domain.auth.UserEntity;
+import org.hibernate.proxy.HibernateProxy;
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.Objects;
 
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -19,20 +20,20 @@ public class RiverBasinEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "code", length = Integer.MAX_VALUE)
+    @Column(name = "code")
     private String code;
 
-    @Column(name = "full_code", length = Integer.MAX_VALUE)
+    @Column(name = "full_code")
     private String fullCode;
 
-    @Column(name = "name", length = Integer.MAX_VALUE)
+    @Column(name = "name")
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "basin_district_id", nullable = false)
     private BasinDistrictEntity basinDistrict;
 
-    @Column(name = "description", length = Integer.MAX_VALUE)
+    @Column(name = "description")
     private String description;
 
     @Column(name = "area")

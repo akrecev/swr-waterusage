@@ -3,9 +3,11 @@ package ru.rosniivh.swr.domain.object;
 import jakarta.persistence.*;
 import lombok.*;
 import ru.rosniivh.swr.domain.auth.UserEntity;
+import org.hibernate.proxy.HibernateProxy;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Set;
+import java.util.Objects;
 
 @Builder
 @AllArgsConstructor
@@ -20,23 +22,20 @@ public class SubbasinEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "code", length = Integer.MAX_VALUE)
+    @Column(name = "code")
     private String code;
 
-    @Column(name = "full_code", length = Integer.MAX_VALUE)
+    @Column(name = "full_code")
     private String fullCode;
 
-    @Column(name = "name", length = Integer.MAX_VALUE)
+    @Column(name = "name")
     private String name;
 
-<<<<<<< HEAD
-=======
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "river_basin_id", nullable = false)
     private RiverBasinEntity riverBasin;
 
->>>>>>> swr-waterusage/user-test
-    @Column(name = "description", length = Integer.MAX_VALUE)
+    @Column(name = "description")
     private String description;
 
     @Column(name = "area")

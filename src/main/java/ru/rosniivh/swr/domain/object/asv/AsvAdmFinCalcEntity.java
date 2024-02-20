@@ -1,6 +1,7 @@
-package ru.rosniivh.swr.domain.catalog.asv;
+package ru.rosniivh.swr.domain.object.asv;
 
 import jakarta.persistence.*;
+import java.time.LocalDate;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,22 +14,64 @@ import org.hibernate.proxy.HibernateProxy;
 @Getter
 @Setter
 @Entity
-@Table(name = "cat_asv_contract_terms", schema = "dbo")
-public class AsvContractTermEntity {
+@Table(name = "o_asv_adm_fin_calc", schema = "dbo")
+public class AsvAdmFinCalcEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "term_text")
-    private String termText;
-
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "group_id")
-    private AsvContractTermGroupEntity group;
+    @JoinColumn(name = "oper_id")
+    private AsvAdmOperationEntity oper;
+
+    @Column(name = "npp")
+    private Integer npp;
+
+    @Column(name = "oper_doc_id")
+    private Integer operDocId;
+
+    @Column(name = "oper_doc_code")
+    private String operDocCode;
+
+    @Column(name = "payment_date")
+    private LocalDate paymentDate;
+
+    @Column(name = "accrual_summ")
+    private Double accrualSumm;
+
+    @Column(name = "transfer_doc_num")
+    private String transferDocNum;
+
+    @Column(name = "transfer_doc_date")
+    private LocalDate transferDocDate;
+
+    @Column(name = "income_date")
+    private LocalDate incomeDate;
+
+    @Column(name = "transfer_summ")
+    private Double transferSumm;
+
+    @Column(name = "arrear")
+    private Double arrear;
+
+    @Column(name = "debt_summ")
+    private Double debtSumm;
+
+    @Column(name = "delay_days")
+    private Integer delayDays;
+
+    @Column(name = "payment_rate")
+    private Double paymentRate;
+
+    @Column(name = "fin_summ")
+    private Double finSumm;
+
+    @Column(name = "calc_summ")
+    private Double calcSumm;
+
+    @Column(name = "notes")
+    private String notes;
 
     @Override
     public final boolean equals(Object o) {
@@ -41,7 +84,7 @@ public class AsvContractTermEntity {
                 ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass()
                 : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        AsvContractTermEntity that = (AsvContractTermEntity) o;
+        AsvAdmFinCalcEntity that = (AsvAdmFinCalcEntity) o;
         return getId() != null && Objects.equals(getId(), that.getId());
     }
 

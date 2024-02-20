@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.rosniivh.swr.filter.AsvAcceptorFilter;
 import ru.rosniivh.swr.service.AsvAcceptorService;
 
-
 @RestController
 @RequestMapping("/acceptor")
 public class AsvAcceptorController {
@@ -18,16 +17,16 @@ public class AsvAcceptorController {
 
     @GetMapping("/search")
     public ResponseEntity<?> legalSubjectCheck(
-            @RequestParam(value = "top", required = false) Integer top, //number of results
-            @RequestParam(value = "name", required = false) String value){ //  value search by multiple fields
+            @RequestParam(value = "top", required = false) Integer top, // number of results
+            @RequestParam(value = "name", required = false) String value) { //  value search by multiple fields
 
         AsvAcceptorFilter filter = new AsvAcceptorFilter();
         Integer limit = 100; // 100 first elements
-        if (top != null){
+        if (top != null) {
             limit = top;
         }
-            filter.setSearchFieldValue(value);
-        return ResponseEntity.ok().body(service.getByFilter(filter,limit));
+        filter.setSearchFieldValue(value);
+        return ResponseEntity.ok().body(service.getByFilter(filter, limit));
     }
 
     @GetMapping("/test")

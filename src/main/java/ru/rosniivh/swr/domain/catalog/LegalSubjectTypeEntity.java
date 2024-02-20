@@ -18,6 +18,6 @@ public class LegalSubjectTypeEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "name", nullable = false, length = Integer.MAX_VALUE)
+    @Column(name = "name", nullable = false)
     private String name;
 }
