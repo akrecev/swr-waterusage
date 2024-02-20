@@ -1,4 +1,4 @@
-package ru.rosniivh.swr.dto;
+package ru.rosniivh.swr.dto.catalog.asv;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
