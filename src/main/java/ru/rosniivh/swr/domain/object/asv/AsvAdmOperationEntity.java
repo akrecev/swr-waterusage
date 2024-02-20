@@ -3,13 +3,7 @@ package ru.rosniivh.swr.domain.object.asv;
 import jakarta.persistence.*;
 import lombok.*;
 import ru.rosniivh.swr.domain.auth.UserEntity;
-import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
-import ru.rosniivh.swr.domain.catalog.asv.AsvOperationTypeEntity;
-import ru.rosniivh.swr.domain.catalog.asv.AsvUsageTargetEntity;
-import ru.rosniivh.swr.domain.catalog.asv.AsvWuAimPaymentEntity;
-import ru.rosniivh.swr.domain.catalog.AsvKbkAdmEntity;
-import ru.rosniivh.swr.domain.catalog.AsvKekEntity;
-import ru.rosniivh.swr.domain.catalog.AsvPlanAccountEntity;
+import ru.rosniivh.swr.domain.catalog.asv.*;
 import org.hibernate.proxy.HibernateProxy;
 import java.util.Objects;
 import java.time.Instant;
@@ -32,10 +26,10 @@ public class AsvAdmOperationEntity {
     @JoinColumn(name = "oper_type_id")
     private AsvOperationTypeEntity operType;
 
-    @Column(name = "uin")
+    @Column(name = "uin", length = Integer.MAX_VALUE)
     private String uin;
 
-    @Column(name = "doc_num")
+    @Column(name = "doc_num", length = Integer.MAX_VALUE)
     private String docNum;
 
     @Column(name = "doc_date")
@@ -92,12 +86,12 @@ public class AsvAdmOperationEntity {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "oper_id")
-    private AsvAdmOperationEntity oper;
+    private AsvAdmOperationEntity operId;
 
-    @Column(name = "oper_old_code")
+    @Column(name = "oper_old_code", length = Integer.MAX_VALUE)
     private String operOldCode;
 
-    @Column(name = "return_status")
+    @Column(name = "return_status", length = Integer.MAX_VALUE)
     private String returnStatus;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.MERGE)
@@ -108,13 +102,13 @@ public class AsvAdmOperationEntity {
     @JoinColumn(name = "target_id")
     private AsvUsageTargetEntity target;
 
-    @Column(name = "decision_num")
+    @Column(name = "decision_num", length = Integer.MAX_VALUE)
     private String decisionNum;
 
     @Column(name = "decision_date")
     private LocalDate decisionDate;
 
-    @Column(name = "return_application_num")
+    @Column(name = "return_application_num", length = Integer.MAX_VALUE)
     private String returnApplicationNum;
 
     @Column(name = "return_application_date")
@@ -124,7 +118,7 @@ public class AsvAdmOperationEntity {
     @JoinColumn(name = "bank_account_id")
     private AsvImportBankAccountEntity bankAccount;
 
-    @Column(name = "payment_application_num")
+    @Column(name = "payment_application_num", length = Integer.MAX_VALUE)
     private String paymentApplicationNum;
 
     @Column(name = "payment_application_date")
@@ -140,7 +134,7 @@ public class AsvAdmOperationEntity {
     @JoinColumn(name = "payment_card_id")
     private AsvContractPaymentCardEntity paymentCard;
 
-    @Column(name = "payment_card_old")
+    @Column(name = "payment_card_old", length = Integer.MAX_VALUE)
     private String paymentCardOld;
 
     @Column(name = "fin_debt_flag")
@@ -158,25 +152,25 @@ public class AsvAdmOperationEntity {
     @Column(name = "excess_param")
     private Double excessParam;
 
-    @Column(name = "auction_num")
+    @Column(name = "auction_num", length = Integer.MAX_VALUE)
     private String auctionNum;
 
     @Column(name = "auction_date")
     private LocalDate auctionDate;
 
-    @Column(name = "ufk_doc_num")
+    @Column(name = "ufk_doc_num", length = Integer.MAX_VALUE)
     private String ufkDocNum;
 
     @Column(name = "ufk_doc_date")
     private LocalDate ufkDocDate;
 
-    @Column(name = "write_off_basis")
+    @Column(name = "write_off_basis", length = Integer.MAX_VALUE)
     private String writeOffBasis;
 
-    @Column(name = "notes")
+    @Column(name = "notes", length = Integer.MAX_VALUE)
     private String notes;
 
-    @Column(name = "executor")
+    @Column(name = "executor", length = Integer.MAX_VALUE)
     private String executor;
 
     @Column(name = "mark_del")
@@ -185,10 +179,10 @@ public class AsvAdmOperationEntity {
     @Column(name = "posted")
     private Integer posted;
 
-    @Column(name = "request_old_code")
+    @Column(name = "request_old_code", length = Integer.MAX_VALUE)
     private String requestOldCode;
 
-    @Column(name = "old_code")
+    @Column(name = "old_code", length = Integer.MAX_VALUE)
     private String oldCode;
 
     @Column(name = "inserted_on")

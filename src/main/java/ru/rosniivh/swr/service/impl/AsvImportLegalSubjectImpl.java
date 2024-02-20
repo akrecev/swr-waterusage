@@ -1,5 +1,6 @@
 package ru.rosniivh.swr.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import jakarta.persistence.PersistenceContext;
@@ -7,6 +8,7 @@ import jakarta.persistence.EntityManager;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
 import ru.rosniivh.swr.domain.object.asv.AsvImportLegalSubjectEntity;
 import ru.rosniivh.swr.dto.object.asv.AsvImportLegalSubjectDto;
 import ru.rosniivh.swr.filter.AsvImportLegalSubjectFilter;

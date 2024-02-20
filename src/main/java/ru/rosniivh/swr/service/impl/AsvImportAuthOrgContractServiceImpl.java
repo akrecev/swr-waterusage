@@ -2,6 +2,9 @@ package ru.rosniivh.swr.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
@@ -10,14 +13,12 @@ import ru.rosniivh.swr.repository.RfSubjectRepository;
 import ru.rosniivh.swr.repository.asv.AsvImportAuthOrgContractRepository;
 import ru.rosniivh.swr.service.AsvImportAuthOrgContractService;
 
+@RequiredArgsConstructor
 @Service
 public class AsvImportAuthOrgContractServiceImpl implements AsvImportAuthOrgContractService {
 
-    @Autowired
-    private AsvImportAuthOrgContractRepository repository;
-
-    @Autowired
-    private RfSubjectRepository rfsRepository;
+    private final AsvImportAuthOrgContractRepository repository;
+    private final RfSubjectRepository rfsRepository;
 
     @Override
     public List<FilterReport> getRfSubjectsWithOrgsByBvu(Integer bvuId) {

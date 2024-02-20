@@ -2,6 +2,9 @@ package ru.rosniivh.swr.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,14 +14,12 @@ import ru.rosniivh.swr.filter.AsvAcceptorFilter;
 import ru.rosniivh.swr.repository.AsvAcceptorRepository;
 import ru.rosniivh.swr.service.AsvAcceptorService;
 
+@RequiredArgsConstructor
 @Service
 public class AsvAcceptorServiceImpl implements AsvAcceptorService {
 
-    @Autowired
-    private AsvAcceptorRepository repository;
-
-    @Autowired
-    private ModelMapper modelMapper;
+    private final AsvAcceptorRepository repository;
+    private final ModelMapper modelMapper;
 
     @Override
     public List<AsvAcceptorSearchResponse> getByFilter(AsvAcceptorFilter filter, Integer limit) {

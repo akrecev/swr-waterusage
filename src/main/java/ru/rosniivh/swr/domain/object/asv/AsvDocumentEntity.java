@@ -8,6 +8,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.proxy.HibernateProxy;
+import ru.rosniivh.swr.domain.catalog.RfSubjectEntity;
+import ru.rosniivh.swr.domain.catalog.asv.*;
+import ru.rosniivh.swr.domain.object.HeParcelEntity;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,11 +24,13 @@ public class AsvDocumentEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @Column(name = "doc_type_id")
-    private Integer docTypeId;
+    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
+    @JoinColumn(name="doc_type_id")
+    private AsvRegTypeEntity docType;
 
-    @Column(name = "status")
-    private Integer status;
+    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
+    @JoinColumn(name="status")
+    private AsvStatusEntity status;
 
     @Column(name = "sign_date")
     private LocalDate signDate;
@@ -33,28 +38,35 @@ public class AsvDocumentEntity {
     @Column(name = "reg_date")
     private LocalDate regDate;
 
-    @Column(name = "rfs_id")
-    private Integer rfsId;
+    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
+    @JoinColumn(name="rfs_id")
+    private RfSubjectEntity rfSubject;
 
-    @Column(name = "organ_id")
-    private Integer organId;
+    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.PERSIST)
+    @JoinColumn(name="organ_id")
+    private AsvImportAuthOrgContractEntity organ;
 
-    @Column(name = "hep_id")
-    private Integer hepId;
+    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
+    @JoinColumn(name="hep_id")
+    private HeParcelEntity hepId;
 
-    @Column(name = "aim_id")
-    private Integer aimId;
+    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
+    @JoinColumn(name="aim_id")
+    private AsvUsageTargetEntity aim;
 
-    @Column(name = "wu_kind_id")
-    private Integer wuKindId;
+    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
+    @JoinColumn(name="wu_kind_id")
+    private AsvWuKindEntity wuKind;
 
-    @Column(name = "method_id")
-    private Integer methodId;
+    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
+    @JoinColumn(name="method_id")
+    private AsvWuMethodEntity method;
 
-    @Column(name = "influence_id")
-    private Integer influenceId;
+    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
+    @JoinColumn(name="influence_id")
+    private AsvUsageEffectEntity influence;
 
-    @Column(name = "reg_number")
+    @Column(name = "reg_number", length = Integer.MAX_VALUE)
     private String regNumber;
 
     @Column(name = "wu_begin_date")
@@ -63,22 +75,23 @@ public class AsvDocumentEntity {
     @Column(name = "wu_end_date")
     private LocalDate wuEndDate;
 
-    @Column(name = "water_user_id")
-    private Integer waterUserId;
+    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
+    @JoinColumn(name="water_user_id")
+    private AsvImportLegalSubjectEntity waterUser;
 
-    @Column(name = "conclusion_place")
+    @Column(name = "conclusion_place", length = Integer.MAX_VALUE)
     private String conclusionPlace;
 
     @Column(name = "key")
     private Integer key;
 
-    @Column(name = "water_objects")
+    @Column(name = "water_objects", length = Integer.MAX_VALUE)
     private String waterObjects;
 
-    @Column(name = "old_code")
+    @Column(name = "old_code", length = Integer.MAX_VALUE)
     private String oldCode;
 
-    @Column(name = "npp_registr_form")
+    @Column(name = "npp_registr_form", length = Integer.MAX_VALUE)
     private String nppRegistrForm;
 
     @Column(name = "registered")

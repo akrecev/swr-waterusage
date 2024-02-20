@@ -1,17 +1,18 @@
 package ru.rosniivh.swr.rest;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.rosniivh.swr.filter.AsvImportLegalSubjectFilter;
 import ru.rosniivh.swr.service.AsvImportLegalSubjectService;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/asv_import_legal_subject")
 public class AsvImportLegalSubjectController {
 
-    @Autowired
-    private AsvImportLegalSubjectService service;
+    private final AsvImportLegalSubjectService service;
 
     @GetMapping("/legalSubjectCheck")
     public ResponseEntity<?> legalSubjectCheck(

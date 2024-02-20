@@ -9,6 +9,7 @@ import ru.rosniivh.swr.service.AsvStatusService;
 @Service
 @RequiredArgsConstructor
 public class AsvStatusServiceImpl implements AsvStatusService {
+
     private final AsvStatusRepository repository;
 
     @Override

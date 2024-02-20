@@ -3,6 +3,9 @@ package ru.rosniivh.swr.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
+
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.rosniivh.swr.domain.object.asv.AsvAdmOperationEntity;
@@ -10,11 +13,11 @@ import ru.rosniivh.swr.dto.report.FilterReport;
 import ru.rosniivh.swr.repository.AsvAdmOperationRepository;
 import ru.rosniivh.swr.service.AsvAdmOperationService;
 
+@RequiredArgsConstructor
 @Service
 public class AsvAdmOperationServiceImpl implements AsvAdmOperationService {
 
-    @Autowired
-    private AsvAdmOperationRepository repository;
+    private final AsvAdmOperationRepository repository;
 
     @Override
     public TreeMap<Integer, String> getOpersByIds(List<Integer> ids) {
@@ -32,5 +35,14 @@ public class AsvAdmOperationServiceImpl implements AsvAdmOperationService {
             result.put(r.getUid(), r.getCode() + " №" + r.getName());
         }
         return result;
+    }
+
+    @Override
+    public FilterReport getById(Integer id) {
+        AsvAdmOperationEntity entity = repository.findById(id).get();
+        FilterReport report = new FilterReport(
+                entity.getId(), entity.getDocNum(), entity.getDocDate(), entity.getOperType().getName()
+        );
+        return report;
     }
 }
