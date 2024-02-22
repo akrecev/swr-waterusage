@@ -1,13 +1,12 @@
 package ru.rosniivh.swr.domain.object;
 
 import jakarta.persistence.*;
-import lombok.*;
-import ru.rosniivh.swr.domain.auth.UserEntity;
-import org.hibernate.proxy.HibernateProxy;
 import java.math.BigDecimal;
 import java.time.Instant;
-import java.util.Set;
 import java.util.Objects;
+import lombok.*;
+import org.hibernate.proxy.HibernateProxy;
+import ru.rosniivh.swr.domain.auth.UserEntity;
 
 @Builder
 @AllArgsConstructor
@@ -41,8 +40,8 @@ public class SubbasinEntity {
     @Column(name = "area")
     private BigDecimal area;
 
-    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
-    @JoinColumn(name="inserted_by", nullable=false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "inserted_by", nullable = false)
     private UserEntity insertedBy;
 
     @Column(name = "inserted_on", nullable = false)
@@ -51,8 +50,8 @@ public class SubbasinEntity {
     @Column(name = "updated_on")
     private Instant updatedOn;
 
-    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
-    @JoinColumn(name="updated_by")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "updated_by")
     private UserEntity updatedBy;
 
     @Column(name = "confirmed")
@@ -61,23 +60,24 @@ public class SubbasinEntity {
     @Column(name = "confirmed_on")
     private Instant confirmedOn;
 
-//    Добавить
-//    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
-//    @JoinColumn(name="river_basin_id", nullable=false)
-//    private RiverBasinEntity riverBasin;
+    //    Добавить
+    //    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
+    //    @JoinColumn(name="river_basin_id", nullable=false)
+    //    private RiverBasinEntity riverBasin;
 
-    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
-    @JoinColumn(name="confirmed_by")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "confirmed_by")
     private UserEntity confirmedBy;
 
-    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
-    @JoinColumn(name="confirmation_document_id")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "confirmation_document_id")
     private ConfirmationDocumentEntity confirmationDocument;
 
-//    Добавить
-//    @ManyToMany(targetEntity=ControlPointEntity.class, cascade=CascadeType.MERGE)
-//    @JoinTable(schema="dbo", name="jt_subbasin_control_point", joinColumns=@JoinColumn(name="subbasin_id", nullable=false), inverseJoinColumns=@JoinColumn(name="control_point_id"))
-//    public Set<ControlPointEntity> getControlPoints() = new LinkedHashSet<>();
+    //    Добавить
+    //    @ManyToMany(targetEntity=ControlPointEntity.class, cascade=CascadeType.MERGE)
+    //    @JoinTable(schema="dbo", name="jt_subbasin_control_point", joinColumns=@JoinColumn(name="subbasin_id",
+    // nullable=false), inverseJoinColumns=@JoinColumn(name="control_point_id"))
+    //    public Set<ControlPointEntity> getControlPoints() = new LinkedHashSet<>();
 
     @Override
     public final boolean equals(Object o) {
@@ -98,9 +98,9 @@ public class SubbasinEntity {
     public final int hashCode() {
         return this instanceof HibernateProxy
                 ? ((HibernateProxy) this)
-                .getHibernateLazyInitializer()
-                .getPersistentClass()
-                .hashCode()
+                        .getHibernateLazyInitializer()
+                        .getPersistentClass()
+                        .hashCode()
                 : getClass().hashCode();
     }
 }

@@ -2,10 +2,7 @@ package ru.rosniivh.swr.service.impl;
 
 import java.util.List;
 import java.util.TreeMap;
-
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.rosniivh.swr.domain.object.asv.AsvContractEntity;
 import ru.rosniivh.swr.repository.AsvContractRepository;

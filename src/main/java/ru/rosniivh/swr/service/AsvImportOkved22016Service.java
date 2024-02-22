@@ -1,8 +1,7 @@
 package ru.rosniivh.swr.service;
 
-import ru.rosniivh.swr.dto.filter.UidCodeNameFilter;
-
 import java.util.List;
+import ru.rosniivh.swr.dto.filter.UidCodeNameFilter;
 
 public interface AsvImportOkved22016Service {
 

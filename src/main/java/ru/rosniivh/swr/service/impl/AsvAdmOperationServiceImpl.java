@@ -3,10 +3,7 @@ package ru.rosniivh.swr.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
-
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.rosniivh.swr.domain.object.asv.AsvAdmOperationEntity;
 import ru.rosniivh.swr.dto.report.FilterReport;
@@ -41,8 +38,10 @@ public class AsvAdmOperationServiceImpl implements AsvAdmOperationService {
     public FilterReport getById(Integer id) {
         AsvAdmOperationEntity entity = repository.findById(id).get();
         FilterReport report = new FilterReport(
-                entity.getId(), entity.getDocNum(), entity.getDocDate(), entity.getOperType().getName()
-        );
+                entity.getId(),
+                entity.getDocNum(),
+                entity.getDocDate(),
+                entity.getOperType().getName());
         return report;
     }
 }

@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.proxy.HibernateProxy;
 import ru.rosniivh.swr.domain.auth.UserEntity;
-import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
 
 @AllArgsConstructor
 @NoArgsConstructor

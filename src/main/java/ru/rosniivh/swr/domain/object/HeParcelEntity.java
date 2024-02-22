@@ -1,15 +1,11 @@
 package ru.rosniivh.swr.domain.object;
 
 import jakarta.persistence.*;
-import lombok.*;
-import org.apache.catalina.User;
-import ru.rosniivh.swr.domain.auth.UserEntity;
-import java.time.Instant;
-import java.util.Objects;
 import java.math.BigDecimal;
 import java.time.Instant;
-import java.util.LinkedHashSet;
+import java.util.Objects;
 import java.util.Set;
+import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
 import ru.rosniivh.swr.domain.auth.UserEntity;
 
@@ -58,8 +54,8 @@ public class HeParcelEntity {
     @Column(name = "updated_on")
     private Instant updatedOn;
 
-    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
-    @JoinColumn(name="updated_by")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "updated_by")
     private UserEntity updatedBy;
 
     @Column(name = "confirmed")
@@ -68,24 +64,23 @@ public class HeParcelEntity {
     @Column(name = "confirmed_on")
     private Instant confirmedOn;
 
-    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
-    @JoinColumn(name="confirmed_by")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "confirmed_by")
     private UserEntity confirmedBy;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "confirmation_document_id")
     private ConfirmationDocumentEntity confirmationDocument;
 
-
-    @OneToMany(targetEntity=WaterObjectEntity.class, mappedBy="hep", cascade=CascadeType.MERGE)
+    @OneToMany(targetEntity = WaterObjectEntity.class, mappedBy = "hep", cascade = CascadeType.MERGE)
     private Set<WaterObjectEntity> waterObjects;
 
-//    Добавить
-//    @ManyToMany(targetEntity=ControlPointEntity.class, cascade=CascadeType.MERGE)
-//    @JoinTable(schema="dbo", name="jt_he_parcel_control_point",
-//            joinColumns=@JoinColumn(name="he_parcel_id", nullable=false),
-//            inverseJoinColumns=@JoinColumn(name="control_point_id"))
-//    private Set<ControlPointEntity> controlPointEntitys = new LinkedHashSet<>();
+    //    Добавить
+    //    @ManyToMany(targetEntity=ControlPointEntity.class, cascade=CascadeType.MERGE)
+    //    @JoinTable(schema="dbo", name="jt_he_parcel_control_point",
+    //            joinColumns=@JoinColumn(name="he_parcel_id", nullable=false),
+    //            inverseJoinColumns=@JoinColumn(name="control_point_id"))
+    //    private Set<ControlPointEntity> controlPointEntitys = new LinkedHashSet<>();
 
     @Override
     public final boolean equals(Object o) {

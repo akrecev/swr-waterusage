@@ -6,8 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.proxy.HibernateProxy;
 import ru.rosniivh.swr.domain.catalog.RfSubjectEntity;
 
@@ -46,12 +44,12 @@ public class AsvImportAuthOrgContractEntity {
     @Column(name = "old_parent_code")
     private String oldParentCode;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "rf_subject")
     private AsvImportRfSubjectEntity AsvImportRfSubject;
 
-    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.PERSIST)
-    @JoinColumn(name="rf_subject_new")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "rf_subject_new")
     private RfSubjectEntity rfSubjectNew;
 
     @Column(name = "old_rf_subject_id")

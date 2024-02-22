@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 public class SecurityConfiguration {
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring()
-                .anyRequest();
+        return (web) -> web.ignoring().anyRequest();
     }
 }

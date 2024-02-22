@@ -1,12 +1,12 @@
 package ru.rosniivh.swr.domain.object;
 
 import jakarta.persistence.*;
-import lombok.*;
-import ru.rosniivh.swr.domain.auth.UserEntity;
-import org.hibernate.proxy.HibernateProxy;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Objects;
+import lombok.*;
+import org.hibernate.proxy.HibernateProxy;
+import ru.rosniivh.swr.domain.auth.UserEntity;
 
 @AllArgsConstructor
 @NoArgsConstructor

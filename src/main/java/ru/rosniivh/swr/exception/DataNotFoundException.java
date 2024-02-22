@@ -4,6 +4,5 @@ import lombok.experimental.StandardException;
 
 @StandardException
 public class DataNotFoundException extends RuntimeException {
-    public DataNotFoundException(String asvImportAuthOrgContractEntity_not_found) {
-    }
+    public DataNotFoundException(String asvImportAuthOrgContractEntity_not_found) {}
 }

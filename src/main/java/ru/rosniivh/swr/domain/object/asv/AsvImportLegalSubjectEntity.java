@@ -10,13 +10,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.proxy.HibernateProxy;
 import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
-import ru.rosniivh.swr.domain.catalog.asv.AsvImportOkopf2012Entity;
-import ru.rosniivh.swr.domain.catalog.asv.AsvImportOkved22016Entity;
-import ru.rosniivh.swr.domain.catalog.asv.AsvLegalSubjectTypeEntity;
-import ru.rosniivh.swr.domain.catalog.asv.AsvImportOkved1Entity;
-import ru.rosniivh.swr.domain.catalog.asv.AsvImportTerritoryEntity;
 import ru.rosniivh.swr.domain.catalog.asv.AsvImportIndustryEntity;
+import ru.rosniivh.swr.domain.catalog.asv.AsvImportOkopf2012Entity;
 import ru.rosniivh.swr.domain.catalog.asv.AsvImportOkopf99Entity;
+import ru.rosniivh.swr.domain.catalog.asv.AsvImportOkved1Entity;
+import ru.rosniivh.swr.domain.catalog.asv.AsvImportOkved22016Entity;
+import ru.rosniivh.swr.domain.catalog.asv.AsvImportTerritoryEntity;
+import ru.rosniivh.swr.domain.catalog.asv.AsvLegalSubjectTypeEntity;
 
 @Getter
 @Setter
@@ -224,9 +224,11 @@ public class AsvImportLegalSubjectEntity {
     private AsvLegalSubjectTypeEntity subjectType;
 
     @ManyToMany(targetEntity = AsvImportAuthOrgContractEntity.class, cascade = CascadeType.MERGE)
-    @JoinTable(schema="dbo", name="jt_legal_subject_auth_org_contract",
-            joinColumns=@JoinColumn(name="legal_subject_id"),
-            inverseJoinColumns=@JoinColumn(name="auth_org_contract_id"))
+    @JoinTable(
+            schema = "dbo",
+            name = "jt_legal_subject_auth_org_contract",
+            joinColumns = @JoinColumn(name = "legal_subject_id"),
+            inverseJoinColumns = @JoinColumn(name = "auth_org_contract_id"))
     private Set<AsvImportAuthOrgContractEntity> asvImportAuthOrgContractEntities = new LinkedHashSet<>();
 
     @Override

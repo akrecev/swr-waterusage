@@ -1,9 +1,6 @@
 package ru.rosniivh.swr.repository.asv;
 
 import java.util.List;
-
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
@@ -28,7 +25,6 @@ public interface AsvImportLegalSubjectRepository
     List<AsvImportLegalSubjectEntity> getByTypeOne(
             String name, String ogrn, String okpo, String postAddress, String legalAddress, String okato);
 
-
     @Query(
             value = "SELECT ls FROM AsvImportLegalSubjectEntity ls "
                     + "WHERE ls.inn LIKE %?1% AND ls.fullName LIKE %?2%")
@@ -41,6 +37,6 @@ public interface AsvImportLegalSubjectRepository
     List<AsvImportLegalSubjectEntity> getByInn(String inn);
 
     //    default Page<AsvImportLegalSubjectEntity> findAllPage(AsvImportLegalSubjectFilter filter, Pageable pageable) {
-//        return filter == null ? findAll(pageable) : findAll(filter.toSpecification(), pageable);
-//    }
+    //        return filter == null ? findAll(pageable) : findAll(filter.toSpecification(), pageable);
+    //    }
 }

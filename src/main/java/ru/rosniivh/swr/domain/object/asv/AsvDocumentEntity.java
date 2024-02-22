@@ -24,12 +24,12 @@ public class AsvDocumentEntity {
     @Column(name = "uid", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
-    @JoinColumn(name="doc_type_id")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "doc_type_id")
     private AsvRegTypeEntity docType;
 
-    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
-    @JoinColumn(name="status")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "status")
     private AsvStatusEntity status;
 
     @Column(name = "sign_date")
@@ -38,32 +38,32 @@ public class AsvDocumentEntity {
     @Column(name = "reg_date")
     private LocalDate regDate;
 
-    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
-    @JoinColumn(name="rfs_id")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "rfs_id")
     private RfSubjectEntity rfSubject;
 
-    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.PERSIST)
-    @JoinColumn(name="organ_id")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "organ_id")
     private AsvImportAuthOrgContractEntity organ;
 
-    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
-    @JoinColumn(name="hep_id")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "hep_id")
     private HeParcelEntity hepId;
 
-    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
-    @JoinColumn(name="aim_id")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "aim_id")
     private AsvUsageTargetEntity aim;
 
-    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
-    @JoinColumn(name="wu_kind_id")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "wu_kind_id")
     private AsvWuKindEntity wuKind;
 
-    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
-    @JoinColumn(name="method_id")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "method_id")
     private AsvWuMethodEntity method;
 
-    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
-    @JoinColumn(name="influence_id")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "influence_id")
     private AsvUsageEffectEntity influence;
 
     @Column(name = "reg_number", length = Integer.MAX_VALUE)
@@ -75,8 +75,8 @@ public class AsvDocumentEntity {
     @Column(name = "wu_end_date")
     private LocalDate wuEndDate;
 
-    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
-    @JoinColumn(name="water_user_id")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "water_user_id")
     private AsvImportLegalSubjectEntity waterUser;
 
     @Column(name = "conclusion_place", length = Integer.MAX_VALUE)
@@ -175,7 +175,7 @@ public class AsvDocumentEntity {
                 : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
         AsvDocumentEntity that = (AsvDocumentEntity) o;
-        return getId() != null && Objects.equals(getId(), that.getId());
+        return this.getId() != null && Objects.equals(this.getId(), that.getId());
     }
 
     @Override

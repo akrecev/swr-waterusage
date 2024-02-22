@@ -18,4 +18,9 @@ public class AsvDocumentController {
     public ResponseEntity<?> getAsvDocuments(@RequestParam String inn, @RequestParam String kpp) {
         return ResponseEntity.ok(service.getAsvDocuments(inn, kpp));
     }
+
+    @GetMapping("/getDocumentWuOkved")
+    public ResponseEntity<?> getDocumentWuOkved(@RequestParam Integer uid) {
+        return ResponseEntity.ok(service.getDocumentWuOkved(uid));
+    }
 }

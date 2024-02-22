@@ -14,7 +14,7 @@ public class AsvAdmOperationController {
 
     private final AsvAdmOperationService service;
 
-    //Не пашет
+    // Не пашет
     @PostMapping("/getOpersByUid")
     public ResponseEntity<?> getOpersByUid() {
         List<Integer> test = new ArrayList<>();

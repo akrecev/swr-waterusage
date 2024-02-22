@@ -2,11 +2,8 @@ package ru.rosniivh.swr.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.rosniivh.swr.domain.catalog.asv.AsvAcceptorEntity;
 import ru.rosniivh.swr.dto.report.AsvAcceptorSearchResponse;

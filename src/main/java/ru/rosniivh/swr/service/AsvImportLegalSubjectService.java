@@ -28,5 +28,5 @@ public interface AsvImportLegalSubjectService {
 
     List<AsvImportResponse> getLegalSubject(AsvImportLegalSubjectFilter filter);
 
-//    List<AsvImportResponse> getLegalSubjectOld(String inn, String kpp);
+    //    List<AsvImportResponse> getLegalSubjectOld(String inn, String kpp);
 }
