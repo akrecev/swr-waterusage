@@ -19,4 +19,9 @@ public class AsvImportAuthOrgContractController {
     public ResponseEntity<?> getRfSubjectsWithOrgsByBvu(@RequestParam(value = "bvuId") Integer bvuId) {
         return ResponseEntity.ok(service.getRfSubjectsWithOrgsByBvu(bvuId));
     }
+
+    @GetMapping("/paymentHierarchy")
+    public ResponseEntity<?> paymentHierarchy(@RequestParam Integer uid) {
+        return ResponseEntity.ok(service.paymentHierarchy(uid));
+    }
 }
