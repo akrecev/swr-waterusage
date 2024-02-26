@@ -2,11 +2,10 @@ package ru.rosniivh.swr.rest;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.rosniivh.swr.service.AsvImportAuthOrgContractService;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -23,5 +22,10 @@ public class AsvImportAuthOrgContractController {
     @GetMapping("/paymentHierarchy")
     public ResponseEntity<?> paymentHierarchy(@RequestParam Integer uid) {
         return ResponseEntity.ok(service.paymentHierarchy(uid));
+    }
+
+    @PostMapping("/getRfSubjectsByOrg")
+    public ResponseEntity<?> getRfSubjectsByOrg(@RequestBody List<Integer> ids) {
+        return ResponseEntity.ok(service.getRfSubjectsByOrg(ids));
     }
 }
