@@ -1,12 +1,10 @@
 package ru.rosniivh.swr.service.impl;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import lombok.EqualsAndHashCode;
 import org.springframework.stereotype.Service;
 import ru.rosniivh.swr.domain.catalog.RfSubjectEntity;
 import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
@@ -74,13 +72,13 @@ public class AsvImportAuthOrgContractServiceImpl extends AbstractAuthOrganServic
             organIds.addAll(getAuthOrgHierarchyIds(orgId));
         });
         List<AsvImportAuthOrgContractEntity> organs = repository.findOrganByIds(organIds);
-        Set<FilterReport> filterReports = new HashSet<>();
-        for (AsvImportAuthOrgContractEntity auth : organs) {
-            RfSubjectEntity rfs = auth.getRfSubjectNew();
+        Set<FilterReport> filterReports =
+                organs.stream().map(organ -> {
+            RfSubjectEntity rfs = organ.getRfSubjectNew();
             FilterReport fr = new FilterReport();
             fr.setUid(rfs.getId()).setName(rfs.getName()).setCode(rfs.getConstNumber());
-            filterReports.add(fr);
-        }
+            return fr;
+        }).collect(Collectors.toSet());
         return filterReports.stream().toList();
     }
 }
