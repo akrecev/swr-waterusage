@@ -2,15 +2,15 @@ package ru.rosniivh.swr.dto.report;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
+import lombok.*;
+
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
+@EqualsAndHashCode
 public class FilterReport {
     private Integer uid;
     private String name;

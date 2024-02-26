@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
-import lombok.RequiredArgsConstructor;
+
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -16,16 +16,22 @@ import ru.rosniivh.swr.exception.DataNotFoundException;
 import ru.rosniivh.swr.model.security.SwrUser;
 import ru.rosniivh.swr.repository.RfSubjectRepository;
 import ru.rosniivh.swr.repository.asv.AsvImportAuthOrgContractRepository;
+import ru.rosniivh.swr.service.AbstractAuthOrganService;
 import ru.rosniivh.swr.service.UserService;
 
 @Service
-@RequiredArgsConstructor
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends AbstractAuthOrganService implements UserService {
     private final AsvImportAuthOrgContractRepository asvImportAuthOrgContractRepository;
     private final RfSubjectRepository rfSubjectRepository;
 
     private static final int FEDERAL_DISTRICT_SEA = 9;
     private static final String CONS_NUMBER_SEA = "00";
+
+    public UserServiceImpl(AsvImportAuthOrgContractRepository asvImportAuthOrgContractRepository, RfSubjectRepository rfSubjectRepository) {
+        super(asvImportAuthOrgContractRepository);
+        this.asvImportAuthOrgContractRepository = asvImportAuthOrgContractRepository;
+        this.rfSubjectRepository = rfSubjectRepository;
+    }
 
     @Override
     public List<RfSubjectEntity> getUserRfs() {
@@ -61,7 +67,7 @@ public class UserServiceImpl implements UserService {
     }
 
     private List<RfSubjectEntity> getAuthOrgHierarchyRfs(Integer id) {
-        List<Integer> list = this.getAuthOrgHierarchyIds(id);
+        List<Integer> list = this.getAuthOrgHierarchyIdsForUser(id);
         return list.stream()
                 .filter((a) -> asvImportAuthOrgContractRepository
                                 .findById(a)
@@ -77,7 +83,7 @@ public class UserServiceImpl implements UserService {
                 .collect(Collectors.toList());
     }
 
-    private List<Integer> getAuthOrgHierarchyIds(Integer id) {
+    private List<Integer> getAuthOrgHierarchyIdsForUser(Integer id) {
         if (asvImportAuthOrgContractRepository
                         .findById(id)
                         .orElseThrow(() -> new DataNotFoundException("AsvImportAuthOrgContractEntity not found"))
@@ -88,18 +94,6 @@ public class UserServiceImpl implements UserService {
                     .map(AsvImportAuthOrgContractEntity::getId)
                     .collect(Collectors.toList());
         }
-        List<Integer> list = new ArrayList<>();
-        List<Integer> todo = new ArrayList<>();
-        list.add(id);
-        todo.add(id);
-        while (todo.size() > 0) {
-            Integer i = todo.remove(0);
-            List<Integer> curlist = asvImportAuthOrgContractRepository.findByParentId(i).stream()
-                    .map(AsvImportAuthOrgContractEntity::getId)
-                    .toList();
-            list.addAll(curlist);
-            todo.addAll(curlist);
-        }
-        return list;
+        return super.getAuthOrgHierarchyIds(id);
     }
 }

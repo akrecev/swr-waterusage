@@ -1,6 +1,5 @@
 package ru.rosniivh.swr.service.impl;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
@@ -18,15 +17,15 @@ public class AsvImportOkved22016ServiceImpl implements AsvImportOkved22016Servic
 
     @Override
     public List<UidCodeNameFilter> getOkvedList(String term) {
-        List<AsvImportOkved22016Entity> entity;
+        List<AsvImportOkved22016Entity> entities;
 
         if ("".equals(term) || term == null) {
-            entity = repository.findAll();
+            entities = repository.findAll();
         } else {
-            entity = repository.findAllByCodeOrName(term);
+            entities = repository.findAllByCodeOrName(term);
         }
 
-        return entity.stream()
+        return entities.stream()
                 .map(e -> new UidCodeNameFilter(e.getId(), e.getName(), e.getCode()))
                 .collect(Collectors.toList());
     }

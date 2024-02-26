@@ -9,4 +9,6 @@ public interface AsvImportAuthOrgContractService {
     List<FilterReport> getRfSubjectsWithOrgsByBvu(Integer bvuId);
 
     List<AuthOrgFilterReport> paymentHierarchy(Integer id);
+
+    List<FilterReport> getRfSubjectsByOrg(List<Integer> orgIds);
 }

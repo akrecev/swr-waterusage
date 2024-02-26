@@ -2,23 +2,30 @@ package ru.rosniivh.swr.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.rosniivh.swr.domain.catalog.RfSubjectEntity;
 import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
 import ru.rosniivh.swr.dto.report.AuthOrgFilterReport;
 import ru.rosniivh.swr.dto.report.FilterReport;
 import ru.rosniivh.swr.repository.RfSubjectRepository;
 import ru.rosniivh.swr.repository.asv.AsvImportAuthOrgContractRepository;
+import ru.rosniivh.swr.service.AbstractAuthOrganService;
 import ru.rosniivh.swr.service.AsvImportAuthOrgContractService;
 
-@RequiredArgsConstructor
 @Service
-public class AsvImportAuthOrgContractServiceImpl implements AsvImportAuthOrgContractService {
+public class AsvImportAuthOrgContractServiceImpl extends AbstractAuthOrganService implements AsvImportAuthOrgContractService {
 
     private final AsvImportAuthOrgContractRepository repository;
     private final RfSubjectRepository rfsRepository;
+
+    public AsvImportAuthOrgContractServiceImpl(AsvImportAuthOrgContractRepository repository, RfSubjectRepository rfsRepository) {
+        super(repository);
+        this.repository = repository;
+        this.rfsRepository = rfsRepository;
+    }
 
     @Override
     public List<FilterReport> getRfSubjectsWithOrgsByBvu(Integer bvuId) {
@@ -58,18 +65,20 @@ public class AsvImportAuthOrgContractServiceImpl implements AsvImportAuthOrgCont
         return authOrgs;
     }
 
-    private List<Integer> getAuthOrgHierarchyIds(Integer id) {
-        List<Integer> list = new ArrayList<>();
-        List<Integer> todo = new ArrayList<>();
-        list.add(id);
-        todo.add(id);
-        while(todo.size()>0){
-            Integer i = todo.remove(0);
-            List<Integer> curlist = repository.findByParentId(i).stream()
-                    .map(AsvImportAuthOrgContractEntity::getId).toList();
-            list.addAll(curlist);
-            todo.addAll(curlist);
-        }
-        return list;
+    @Override
+    public List<FilterReport> getRfSubjectsByOrg(List<Integer> orgIds) {
+        List<Integer> organIds = new ArrayList<>();
+        orgIds.forEach(orgId -> {
+            organIds.addAll(getAuthOrgHierarchyIds(orgId));
+        });
+        List<AsvImportAuthOrgContractEntity> organs = repository.findOrganByIds(organIds);
+        Set<FilterReport> filterReports =
+                organs.stream().map(organ -> {
+            RfSubjectEntity rfs = organ.getRfSubjectNew();
+            FilterReport fr = new FilterReport();
+            fr.setUid(rfs.getId()).setName(rfs.getName()).setCode(rfs.getConstNumber());
+            return fr;
+        }).collect(Collectors.toSet());
+        return filterReports.stream().toList();
     }
 }
