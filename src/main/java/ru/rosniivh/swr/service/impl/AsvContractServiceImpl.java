@@ -5,7 +5,7 @@ import java.util.TreeMap;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.rosniivh.swr.domain.object.asv.AsvContractEntity;
-import ru.rosniivh.swr.repository.AsvContractRepository;
+import ru.rosniivh.swr.repository.asv.AsvContractRepository;
 import ru.rosniivh.swr.service.AsvContractService;
 
 @RequiredArgsConstructor

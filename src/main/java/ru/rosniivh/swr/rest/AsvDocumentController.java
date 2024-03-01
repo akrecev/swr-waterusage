@@ -23,4 +23,9 @@ public class AsvDocumentController {
     public ResponseEntity<?> getDocumentWuOkved(@RequestParam Integer uid) {
         return ResponseEntity.ok(service.getDocumentWuOkved(uid));
     }
+
+    @GetMapping("/getCountDocFAWR")
+    public ResponseEntity<?> getCountDocFAWR(@RequestParam Integer year, @RequestParam Integer quarter) {
+        return ResponseEntity.ok(service.getCountDocFAWR(year, quarter));
+    }
 }

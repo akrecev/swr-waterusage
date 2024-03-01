@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import ru.rosniivh.swr.domain.catalog.asv.AsvAcceptorEntity;
 import ru.rosniivh.swr.dto.report.AsvAcceptorSearchResponse;
 import ru.rosniivh.swr.filter.AsvAcceptorFilter;
-import ru.rosniivh.swr.repository.AsvAcceptorRepository;
+import ru.rosniivh.swr.repository.asv.AsvAcceptorRepository;
 import ru.rosniivh.swr.service.AsvAcceptorService;
 
 @RequiredArgsConstructor

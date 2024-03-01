@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.rosniivh.swr.domain.object.asv.AsvAdmOperationEntity;
 import ru.rosniivh.swr.dto.report.FilterReport;
-import ru.rosniivh.swr.repository.AsvAdmOperationRepository;
+import ru.rosniivh.swr.repository.asv.AsvAdmOperationRepository;
 import ru.rosniivh.swr.service.AsvAdmOperationService;
 
 @RequiredArgsConstructor
