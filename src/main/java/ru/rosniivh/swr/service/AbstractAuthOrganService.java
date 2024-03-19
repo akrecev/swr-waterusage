@@ -1,11 +1,10 @@
 package ru.rosniivh.swr.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
 import ru.rosniivh.swr.repository.asv.AsvImportAuthOrgContractRepository;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @RequiredArgsConstructor
 public abstract class AbstractAuthOrganService {
@@ -17,10 +16,11 @@ public abstract class AbstractAuthOrganService {
         List<Integer> todo = new ArrayList<>();
         list.add(id);
         todo.add(id);
-        while(todo.size()>0){
+        while (todo.size() > 0) {
             Integer i = todo.remove(0);
             List<Integer> curlist = repository.findByParentId(i).stream()
-                    .map(AsvImportAuthOrgContractEntity::getId).toList();
+                    .map(AsvImportAuthOrgContractEntity::getId)
+                    .toList();
             list.addAll(curlist);
             todo.addAll(curlist);
         }

@@ -1,7 +1,6 @@
 package ru.rosniivh.swr.service;
 
 import java.util.List;
-
 import ru.rosniivh.swr.dto.report.AuthOrgFilterReport;
 import ru.rosniivh.swr.dto.report.FilterReport;
 

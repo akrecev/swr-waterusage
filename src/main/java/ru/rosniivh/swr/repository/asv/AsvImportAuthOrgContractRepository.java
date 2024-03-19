@@ -11,7 +11,8 @@ import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
 public interface AsvImportAuthOrgContractRepository extends JpaRepository<AsvImportAuthOrgContractEntity, Integer> {
     List<AsvImportAuthOrgContractEntity> findByParentId(@Param("parentId") Integer parentId);
 
-    @Query(value = "SELECT organ FROM AsvImportAuthOrgContractEntity organ " + "LEFT JOIN organ.rfSubjectNew "
+    @Query(
+            value = "SELECT organ FROM AsvImportAuthOrgContractEntity organ " + "LEFT JOIN organ.rfSubjectNew "
                     + "WHERE organ.parentId = ?1")
     List<AsvImportAuthOrgContractEntity> getRfsWithOrganByBvuId(Integer bvuID);
 

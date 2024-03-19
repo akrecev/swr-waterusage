@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-
 import org.springframework.stereotype.Service;
 import ru.rosniivh.swr.domain.catalog.RfSubjectEntity;
 import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
@@ -16,12 +15,14 @@ import ru.rosniivh.swr.service.AbstractAuthOrganService;
 import ru.rosniivh.swr.service.AsvImportAuthOrgContractService;
 
 @Service
-public class AsvImportAuthOrgContractServiceImpl extends AbstractAuthOrganService implements AsvImportAuthOrgContractService {
+public class AsvImportAuthOrgContractServiceImpl extends AbstractAuthOrganService
+        implements AsvImportAuthOrgContractService {
 
     private final AsvImportAuthOrgContractRepository repository;
     private final RfSubjectRepository rfsRepository;
 
-    public AsvImportAuthOrgContractServiceImpl(AsvImportAuthOrgContractRepository repository, RfSubjectRepository rfsRepository) {
+    public AsvImportAuthOrgContractServiceImpl(
+            AsvImportAuthOrgContractRepository repository, RfSubjectRepository rfsRepository) {
         super(repository);
         this.repository = repository;
         this.rfsRepository = rfsRepository;
@@ -72,13 +73,14 @@ public class AsvImportAuthOrgContractServiceImpl extends AbstractAuthOrganServic
             organIds.addAll(getAuthOrgHierarchyIds(orgId));
         });
         List<AsvImportAuthOrgContractEntity> organs = repository.findOrganByIds(organIds);
-        Set<FilterReport> filterReports =
-                organs.stream().map(organ -> {
-            RfSubjectEntity rfs = organ.getRfSubjectNew();
-            FilterReport fr = new FilterReport();
-            fr.setUid(rfs.getId()).setName(rfs.getName()).setCode(rfs.getConstNumber());
-            return fr;
-        }).collect(Collectors.toSet());
+        Set<FilterReport> filterReports = organs.stream()
+                .map(organ -> {
+                    RfSubjectEntity rfs = organ.getRfSubjectNew();
+                    FilterReport fr = new FilterReport();
+                    fr.setUid(rfs.getId()).setName(rfs.getName()).setCode(rfs.getConstNumber());
+                    return fr;
+                })
+                .collect(Collectors.toSet());
         return filterReports.stream().toList();
     }
 }
