@@ -1,12 +1,17 @@
 package ru.rosniivh.swr.domain.catalog;
 
 import jakarta.persistence.*;
+
+import java.util.LinkedHashSet;
 import java.util.Objects;
+import java.util.Set;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.proxy.HibernateProxy;
+import ru.rosniivh.swr.domain.object.HeParcelEntity;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -42,6 +47,10 @@ public class RfSubjectEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "wrd_id")
     private WaterResourcesDivisionEntity wrd;
+
+    @ManyToMany(targetEntity = HeParcelEntity.class, cascade = CascadeType.MERGE)
+    @JoinTable(schema = "dbo", name = "jt_he_parcel_rf_subject")
+    private Set<HeParcelEntity> heParcels = new LinkedHashSet<>();
 
     @Override
     public final boolean equals(Object o) {

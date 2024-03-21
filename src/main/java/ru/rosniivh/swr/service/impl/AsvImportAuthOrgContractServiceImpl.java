@@ -11,11 +11,11 @@ import ru.rosniivh.swr.dto.report.AuthOrgFilterReport;
 import ru.rosniivh.swr.dto.report.FilterReport;
 import ru.rosniivh.swr.repository.RfSubjectRepository;
 import ru.rosniivh.swr.repository.asv.AsvImportAuthOrgContractRepository;
-import ru.rosniivh.swr.service.AbstractAuthOrganService;
+import ru.rosniivh.swr.service.AbstractForService;
 import ru.rosniivh.swr.service.AsvImportAuthOrgContractService;
 
 @Service
-public class AsvImportAuthOrgContractServiceImpl extends AbstractAuthOrganService
+public class AsvImportAuthOrgContractServiceImpl extends AbstractForService
         implements AsvImportAuthOrgContractService {
 
     private final AsvImportAuthOrgContractRepository repository;

@@ -3,11 +3,13 @@ package ru.rosniivh.swr.domain.object;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
 import ru.rosniivh.swr.domain.auth.UserEntity;
+import ru.rosniivh.swr.domain.catalog.RfSubjectEntity;
 
 @Builder
 @AllArgsConstructor
@@ -74,6 +76,12 @@ public class HeParcelEntity {
 
     @OneToMany(targetEntity = WaterObjectEntity.class, mappedBy = "hep", cascade = CascadeType.MERGE)
     private Set<WaterObjectEntity> waterObjects;
+
+    @ManyToMany(targetEntity = RfSubjectEntity.class, cascade = CascadeType.MERGE)
+    @JoinTable(schema = "dbo", name = "jt_he_parcel_rf_subject",
+            joinColumns = {@JoinColumn(name = "he_parcel_id", referencedColumnName = "uid")},
+            inverseJoinColumns = {@JoinColumn(name = "rf_subject_id", referencedColumnName = "uid")})
+    private Set<RfSubjectEntity> rfSubjects = new LinkedHashSet<>();
 
     //    Добавить
     //    @ManyToMany(targetEntity=ControlPointEntity.class, cascade=CascadeType.MERGE)
