@@ -31,7 +31,19 @@ public class BasinFilterForUser {
     private String federalDistrict;
     private Integer uidFd;
 
-    public BasinFilterForUser(Integer uidHeParcel, Integer uidSubBasin, Integer uidRiver, Integer uidDistrict, String nameHeParcel, String nameSubBasin, String nameRiver, String nameDistrict, String codeHeParcel, String codeSubBasin, String codeRiver, String codeDistrict) {
+    public BasinFilterForUser(
+            Integer uidHeParcel,
+            Integer uidSubBasin,
+            Integer uidRiver,
+            Integer uidDistrict,
+            String nameHeParcel,
+            String nameSubBasin,
+            String nameRiver,
+            String nameDistrict,
+            String codeHeParcel,
+            String codeSubBasin,
+            String codeRiver,
+            String codeDistrict) {
         this.uidHeParcel = uidHeParcel;
         this.uidSubBasin = uidSubBasin;
         this.uidRiver = uidRiver;

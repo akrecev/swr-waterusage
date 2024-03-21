@@ -3,6 +3,9 @@ package ru.rosniivh.swr.service.impl;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.criteria.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 import org.springframework.stereotype.Service;
 import ru.rosniivh.swr.domain.catalog.FederalDistrictEntity;
 import ru.rosniivh.swr.domain.catalog.RfSubjectEntity;
@@ -18,10 +21,6 @@ import ru.rosniivh.swr.service.AbstractForService;
 import ru.rosniivh.swr.service.RfSubjectService;
 import ru.rosniivh.swr.util.ForServiceUtil;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
 @Service
 public class RfSubjectServiceImpl extends AbstractForService implements RfSubjectService {
 
@@ -35,10 +34,9 @@ public class RfSubjectServiceImpl extends AbstractForService implements RfSubjec
         this.organRep = organRep;
     }
 
-
     @Override
     public BasinFilterForUserReport getBasinFilterForUser() {
-        //Необходимо добавить метод получения уполномоченного органа у текущего юзера
+        // Необходимо добавить метод получения уполномоченного органа у текущего юзера
         Integer organUid = 269;
 
         Optional<AsvImportAuthOrgContractEntity> organ = organRep.findById(organUid);
@@ -52,8 +50,7 @@ public class RfSubjectServiceImpl extends AbstractForService implements RfSubjec
                 rootRf.get("name"),
                 rootRf.get("id"),
                 fdJoin.get("name"),
-                fdJoin.get("id")
-        ));
+                fdJoin.get("id")));
 
         CriteriaBuilder cbHep = entityManager.getCriteriaBuilder();
         CriteriaQuery<BasinFilterForUser> cqHep = cbHep.createQuery(BasinFilterForUser.class);
@@ -75,22 +72,20 @@ public class RfSubjectServiceImpl extends AbstractForService implements RfSubjec
                 rootHep.get("code"),
                 subJoin.get("code"),
                 riverJoin.get("code"),
-                basinJoin.get("code")
-                ));
+                basinJoin.get("code")));
         if (organ.isPresent() && organ.get().getOrgType().getId() != 10) {
             List<Integer> orgIds = getAuthOrgHierarchyIds(organ.orElseThrow().getId());
             List<Integer> rfSubjects = new ArrayList<>();
             for (Integer id : orgIds) {
-                Integer idRf = organRep.findById(id).orElseThrow().getRfSubjectNew().getId();
+                Integer idRf =
+                        organRep.findById(id).orElseThrow().getRfSubjectNew().getId();
                 if (ForServiceUtil.findArray(rfSubjects, idRf) == -1) {
                     rfSubjects.add(idRf);
                 }
             }
             cqHep.where(buildIn(cbHep, rfJoin.get("id"), rfSubjects));
-            cqRf.where(cbRf.or(
-                    buildIn(cbRf, rootRf.get("id"), rfSubjects),
-                    cbRf.equal(rootRf.get("constNumber"), "00")
-            ));
+            cqRf.where(
+                    cbRf.or(buildIn(cbRf, rootRf.get("id"), rfSubjects), cbRf.equal(rootRf.get("constNumber"), "00")));
         }
         List<BasinFilterForUser> resultHep = entityManager.createQuery(cqHep).getResultList();
         List<BasinFilterForUser> resultRf = entityManager.createQuery(cqRf).getResultList();

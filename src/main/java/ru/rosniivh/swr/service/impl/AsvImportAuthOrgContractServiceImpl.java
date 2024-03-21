@@ -15,8 +15,7 @@ import ru.rosniivh.swr.service.AbstractForService;
 import ru.rosniivh.swr.service.AsvImportAuthOrgContractService;
 
 @Service
-public class AsvImportAuthOrgContractServiceImpl extends AbstractForService
-        implements AsvImportAuthOrgContractService {
+public class AsvImportAuthOrgContractServiceImpl extends AbstractForService implements AsvImportAuthOrgContractService {
 
     private final AsvImportAuthOrgContractRepository repository;
     private final RfSubjectRepository rfsRepository;

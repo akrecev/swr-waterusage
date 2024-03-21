@@ -1,11 +1,9 @@
 package ru.rosniivh.swr.domain.catalog;
 
 import jakarta.persistence.*;
-
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

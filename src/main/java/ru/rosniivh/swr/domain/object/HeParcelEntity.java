@@ -78,7 +78,9 @@ public class HeParcelEntity {
     private Set<WaterObjectEntity> waterObjects;
 
     @ManyToMany(targetEntity = RfSubjectEntity.class, cascade = CascadeType.MERGE)
-    @JoinTable(schema = "dbo", name = "jt_he_parcel_rf_subject",
+    @JoinTable(
+            schema = "dbo",
+            name = "jt_he_parcel_rf_subject",
             joinColumns = {@JoinColumn(name = "he_parcel_id", referencedColumnName = "uid")},
             inverseJoinColumns = {@JoinColumn(name = "rf_subject_id", referencedColumnName = "uid")})
     private Set<RfSubjectEntity> rfSubjects = new LinkedHashSet<>();

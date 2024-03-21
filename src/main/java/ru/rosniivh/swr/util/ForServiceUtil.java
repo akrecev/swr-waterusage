@@ -1,11 +1,11 @@
 package ru.rosniivh.swr.util;
 
-import lombok.experimental.UtilityClass;
 import static java.time.temporal.IsoFields.QUARTER_OF_YEAR;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.List;
+import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public final class ForServiceUtil {

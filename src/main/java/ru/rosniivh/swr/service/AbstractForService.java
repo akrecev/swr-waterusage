@@ -3,13 +3,12 @@ package ru.rosniivh.swr.service;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.Path;
 import jakarta.persistence.criteria.Predicate;
-import lombok.RequiredArgsConstructor;
-import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
-import ru.rosniivh.swr.repository.asv.AsvImportAuthOrgContractRepository;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import lombok.RequiredArgsConstructor;
+import ru.rosniivh.swr.domain.catalog.asv.AsvImportAuthOrgContractEntity;
+import ru.rosniivh.swr.repository.asv.AsvImportAuthOrgContractRepository;
 
 @RequiredArgsConstructor
 public abstract class AbstractForService {
@@ -27,10 +26,11 @@ public abstract class AbstractForService {
         List<Integer> todo = new ArrayList<>();
         list.add(id);
         todo.add(id);
-        while(todo.size()>0){
+        while (todo.size() > 0) {
             Integer i = todo.remove(0);
             List<Integer> curlist = repository.findByParentId(i).stream()
-                    .map(AsvImportAuthOrgContractEntity::getId).toList();
+                    .map(AsvImportAuthOrgContractEntity::getId)
+                    .toList();
             list.addAll(curlist);
             todo.addAll(curlist);
         }

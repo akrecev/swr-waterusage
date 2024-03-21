@@ -1,7 +1,6 @@
 package ru.rosniivh.swr.filter;
 
-import jakarta.servlet.FilterChain;
-import jakarta.servlet.ServletException;
+import jakarta.servlet.*;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -14,6 +13,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -26,8 +26,8 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.apache.logging.log4j.util.Strings;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.filter.OncePerRequestFilter;
 import ru.rosniivh.swr.domain.auth.UserEntity;
 import ru.rosniivh.swr.domain.catalog.BasinWaterManagementBoardEntity;
 import ru.rosniivh.swr.domain.catalog.WaterResourcesDivisionEntity;
@@ -37,7 +37,7 @@ import ru.rosniivh.swr.repository.WaterResourcesDivisionRepository;
 
 @Slf4j
 @RequiredArgsConstructor
-public class UserInfoFilter extends OncePerRequestFilter {
+public class UserInfoFilter implements Filter {
     private final UserRepository userRepository;
     private final BasinWaterManagementBoardRepository basinWaterManagementBoardRepository;
     private final WaterResourcesDivisionRepository waterResourcesDivisionRepository;
@@ -55,10 +55,12 @@ public class UserInfoFilter extends OncePerRequestFilter {
     private String invokeUrl;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
-        String authToken = request.getHeader(tokenHeader);
-        Cookie[] cookies = request.getCookies();
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        HttpServletResponse httpResponse = (HttpServletResponse) response;
+        String authToken = httpRequest.getHeader(tokenHeader);
+        Cookie[] cookies = httpRequest.getCookies();
         if (cookies != null && cookies.length > 0) {
             List<Cookie> cookieList = Arrays.stream(cookies)
                     .filter(cookie -> cookie.getName().equals(cookieName))
@@ -102,17 +104,17 @@ public class UserInfoFilter extends OncePerRequestFilter {
                         UserEntity user = userRepository.findByGisUserId(Integer.parseInt(userId));
 
                         if (user == null) {
-                            createUserForGis(userId, userName, roles, organisation, response);
+                            createUserForGis(userId, userName, roles, organisation, httpResponse);
                         }
                     } else {
-                        response.addHeader("Error", "gis-user" + gisUser);
+                        httpResponse.addHeader("Error", "gis-user" + gisUser);
                     }
                 } else {
-                    response.addHeader("Error", "cookie-token" + validCookie);
+                    httpResponse.addHeader("Error", "cookie-token" + validCookie);
                 }
             }
         }
-        filterChain.doFilter(request, response);
+        filterChain.doFilter(httpRequest, httpResponse);
     }
 
     @Transactional

@@ -1,14 +1,13 @@
 package ru.rosniivh.swr.dto.report;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.rosniivh.swr.dto.filter.BasinFilterForUser;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,11 +15,11 @@ import java.util.List;
 @Setter
 public class BasinFilterForUserReport {
     HashMap<Integer, Data> heParcel;
-    HashMap <Integer, Data> subBasin;
-    HashMap <Integer, Data> riverBasin;
-    HashMap <Integer, Data> basinDistrict;
-    HashMap <Integer, Data> rfSubject;
-    HashMap <Integer, Data> fdSubject;
+    HashMap<Integer, Data> subBasin;
+    HashMap<Integer, Data> riverBasin;
+    HashMap<Integer, Data> basinDistrict;
+    HashMap<Integer, Data> rfSubject;
+    HashMap<Integer, Data> fdSubject;
 
     public BasinFilterForUserReport(List<BasinFilterForUser> array, List<BasinFilterForUser> array0) {
         this.heParcel = new HashMap<>();
@@ -33,27 +32,45 @@ public class BasinFilterForUserReport {
             if (this.basinDistrict.get(item.getUidDistrict()) != null) {
                 this.basinDistrict.get(item.getUidDistrict()).addParent(item.getUidRiver());
             } else {
-                this.basinDistrict.put(item.getUidDistrict(), new Data(item.getUidDistrict(), item.getCodeDistrict(), item.getNameDistrict(), item.getUidRiver()));
+                this.basinDistrict.put(
+                        item.getUidDistrict(),
+                        new Data(
+                                item.getUidDistrict(),
+                                item.getCodeDistrict(),
+                                item.getNameDistrict(),
+                                item.getUidRiver()));
             }
             if (this.riverBasin.get(item.getUidRiver()) != null) {
                 this.riverBasin.get(item.getUidRiver()).addParent(item.getUidSubBasin());
             } else {
-                this.riverBasin.put(item.getUidRiver(), new Data(item.getUidRiver(), item.getCodeRiver(), item.getNameRiver(), item.getUidSubBasin()));
+                this.riverBasin.put(
+                        item.getUidRiver(),
+                        new Data(item.getUidRiver(), item.getCodeRiver(), item.getNameRiver(), item.getUidSubBasin()));
             }
             if (this.subBasin.get(item.getUidSubBasin()) != null) {
                 this.subBasin.get(item.getUidSubBasin()).addParent(item.getUidHeParcel());
             } else {
-                this.subBasin.put(item.getUidSubBasin(), new Data(item.getUidSubBasin(), item.getCodeSubBasin(), item.getNameSubBasin(), item.getUidHeParcel()));
+                this.subBasin.put(
+                        item.getUidSubBasin(),
+                        new Data(
+                                item.getUidSubBasin(),
+                                item.getCodeSubBasin(),
+                                item.getNameSubBasin(),
+                                item.getUidHeParcel()));
             }
-            this.heParcel.put(item.getUidHeParcel(), new Data(item.getUidHeParcel(), item.getCodeHeParcel(), item.getNameHeParcel(), null));
+            this.heParcel.put(
+                    item.getUidHeParcel(),
+                    new Data(item.getUidHeParcel(), item.getCodeHeParcel(), item.getNameHeParcel(), null));
         }
         for (BasinFilterForUser item : array0) {
             if (this.fdSubject.get(item.getUidFd()) != null) {
                 this.fdSubject.get(item.getUidFd()).addParent(item.getUidRf());
             } else {
-                this.fdSubject.put(item.getUidFd(), new Data(item.getUidFd(), "", item.getFederalDistrict(), item.getUidRf()));
+                this.fdSubject.put(
+                        item.getUidFd(), new Data(item.getUidFd(), "", item.getFederalDistrict(), item.getUidRf()));
             }
-            this.rfSubject.put(item.getUidRf(), new Data(item.getUidRf(), item.getConstNumber(), item.getNameRf(), null));
+            this.rfSubject.put(
+                    item.getUidRf(), new Data(item.getUidRf(), item.getConstNumber(), item.getNameRf(), null));
         }
     }
 }
@@ -104,10 +121,9 @@ class Data {
         this.parent = parent;
     }
 
-    public void addParent(Integer parent){
-        for(Integer item : this.parent){
-            if(item == parent)
-                return;
+    public void addParent(Integer parent) {
+        for (Integer item : this.parent) {
+            if (item == parent) return;
         }
         this.parent.add(parent);
     }
