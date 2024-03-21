@@ -52,7 +52,7 @@ public class UserEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "bwm_id")
-    private BasinWaterManagementBoardEntity bwm;
+    private BasinWaterManagementBoardEntity bwmb;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "wrd_id")
@@ -73,6 +73,9 @@ public class UserEntity {
 
     @Column(name = "asv")
     private Integer asv;
+
+    @Column(name = "gis_user_id")
+    private Integer gisUserId;
 
     @Override
     public final boolean equals(Object o) {

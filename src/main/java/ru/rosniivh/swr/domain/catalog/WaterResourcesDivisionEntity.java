@@ -28,6 +28,9 @@ public class WaterResourcesDivisionEntity {
     @Column(name = "name_short", nullable = false)
     private String nameShort;
 
+    @Column(name = "gis_org_ids", nullable = false)
+    private String gisOrgIds;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "bwmb_id", nullable = false)
     private BasinWaterManagementBoardEntity bwmb;

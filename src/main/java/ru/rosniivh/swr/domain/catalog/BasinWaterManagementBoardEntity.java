@@ -28,6 +28,9 @@ public class BasinWaterManagementBoardEntity {
     @Column(name = "name_short", nullable = false)
     private String nameShort;
 
+    @Column(name = "gis_org_ids", nullable = false)
+    private String gisOrgIds;
+
     @OneToMany(mappedBy = "bwmb")
     private Set<WaterResourcesDivisionEntity> waterResourcesDivisions = new LinkedHashSet<>();
 
