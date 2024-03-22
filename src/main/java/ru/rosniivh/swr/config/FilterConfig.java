@@ -19,7 +19,7 @@ public class FilterConfig {
     @Bean
     public FilterRegistrationBean<UserInfoFilter> userInfoFilterRegistration() {
         final var filterBean = new FilterRegistrationBean<>(userInfoFilter());
-        filterBean.setEnabled(false); // TODO
+        filterBean.setEnabled(true); // TODO
         return filterBean;
     }
 
