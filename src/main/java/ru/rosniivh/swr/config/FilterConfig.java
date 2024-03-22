@@ -25,6 +25,7 @@ public class FilterConfig {
 
     @Bean
     public UserInfoFilter userInfoFilter() {
-        return new UserInfoFilter(userRepository, basinWaterManagementBoardRepository, waterResourcesDivisionRepository);
+        return new UserInfoFilter(
+                userRepository, basinWaterManagementBoardRepository, waterResourcesDivisionRepository);
     }
 }

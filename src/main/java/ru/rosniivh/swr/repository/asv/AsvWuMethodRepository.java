@@ -5,5 +5,4 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import ru.rosniivh.swr.domain.catalog.asv.AsvWuMethodEntity;
 
 @RepositoryRestResource(path = "asvWuMethods", excerptProjection = AsvWuMethodEntity.class)
-public interface AsvWuMethodRepository extends CrudRepository<AsvWuMethodEntity, Integer> {
-}
+public interface AsvWuMethodRepository extends CrudRepository<AsvWuMethodEntity, Integer> {}

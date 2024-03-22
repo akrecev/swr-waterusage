@@ -5,10 +5,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Collection;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.mediatype.hal.Jackson2HalModule;
-
-import java.util.Collection;
 
 @JsonIgnoreProperties(value = {"_links"})
 public abstract class CustomCollectionModelMixin<T> extends CollectionModel<T> {
